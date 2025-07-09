@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><{$page.title}></title>
+<meta name="description" content="<{$page.description}>">
+<link rel="canonical" href="<{$page.canonical_url}>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<{$page.title}>">
+<meta property="og:description" content="<{$page.description}>">
+<meta property="og:site_name" content="<{$shop.name}>">
+<meta name="twitter:card" content="Summary with Large Image">
+<link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" crossorigin="anonymous">
+<link rel="stylesheet" href="<{$page.css}>">
+<{$makeshop.head}>
+</head>
+
+<body>
+<{$makeshop.body_top}>
+<{$module.header}>
+
+<nav class="breadcrumb pc-breadcrumb">
+  <ul class="breadcrumb-list">
+    <li><a href="<{$url.top}>"><{$shop.name}></a></li>
+    <li>まとめ買い割引対象商品</li>
+  </ul>
+</nav>
+
+<div class="contents-wrapper">
+  <{$module.side_nav}>
+  <main>
+    <h1>まとめ買い割引対象商品</h1>
+    <div class="bulk-description">【<{$bulk.name}>】<br class="sp-only">※ご購入手続きに進んだ後に割引金額が表示されます</div>
+    <section class="bulk-wrapper">
+      <{if $bulk.is_set_discount}>
+      <div class="bulk-group">
+      <{if $bulk.is_group1_current}>
+        <{$bulk.group1_name}>
+      <{else}>
+        <a href="<{$bulk.group1_url}>"><{$bulk.group1_name}></a>
+      <{/if}>
+      ／
+      <{if $bulk.is_group2_current}>
+      <{$bulk.group2_name}>
+      <{else}>
+        <a href="<{$bulk.group2_url}>"><{$bulk.group2_name}></a>
+      <{/if}>
+      </div>
+      <{/if}>
+      <{if $bulk.item.has_item}>
+      <div class="bulk-operate">
+        <div class="bulk-count">
+          <span class="bulk-count-all"><{$bulk.total_count}></span>件中<span class="bulk-count-show"><{$bulk.display_count}></span>件表示しています。
+        </div>
+        <nav class="bulk-sort">
+          <label class="bulk-sort-label" for="bulk-sort-select">並び順</label>
+          <select name="sort-select" onChange="location.href=value;" id="bulk-sort-select" class="bulk-sort-select">
+            <option value="<{$bulk.sort_new_url}>" <{if $bulk.is_sort_new_selected}>selected<{/if}>>新着商品</option>
+            <option value="<{$bulk.sort_recommend_url}>" <{if $bulk.is_sort_recommend_selected}>selected<{/if}>>オススメ</option>
+            <option value="<{$bulk.sort_high_price_url}>" <{if $bulk.is_sort_high_price_selected}>selected<{/if}>>価格が高い順</option>
+            <option value="<{$bulk.sort_low_price_url}>" <{if $bulk.is_sort_low_price_selected}>selected<{/if}>>価格が低い順</option>
+          </select>
+          <ul class="bulk-sort-list">
+            <li class="<{if $bulk.is_sort_new_selected}>active-sort<{/if}>"><a id="sort-new" href="<{$bulk.sort_new_url}>">新着商品</a></li>
+            <li class="<{if $bulk.is_sort_recommend_selected}>active-sort<{/if}>"><a id="sort-recommend" href="<{$bulk.sort_recommend_url}>">オススメ</a></li>
+            <li class="<{if $bulk.is_sort_low_price_selected}>active-sort<{/if}>"><a id="sort-low-price" href="<{$bulk.sort_low_price_url}>">価格が低い順</a></li>
+            <li class="<{if $bulk.is_sort_high_price_selected}>active-sort<{/if}>"><a id="sort-high-price" href="<{$bulk.sort_high_price_url}>">価格が高い順</a></li>
+          </ul>
+        </nav>
+      </div>
+      <ul class="bulk-item-list">
+      <{section name=i loop=$bulk.item.list}>
+        <li>
+          <a href="<{$bulk.item.list[i].url}>">
+            <div class="bulk-item-img">
+              <img src="<{$bulk.item.list[i].image_L}>" alt="<{$bulk.item.list[i].name}>">
+            </div>
+            <div class="bulk-item-info">
+              <div>
+                <span class="bulk-item-name"><{$bulk.item.list[i].name}></span>
+                <{if $bulk.item.list[i].is_sale}>
+                <p class="price original-price">￥<{$bulk.item.list[i].original_price|number_format}><span>（税込）</span></p>
+                <p class="item-sale-price bulk-item-price "><{$bulk.item.list[i].price|number_format}><span class="tax">（税込）</span>
+                <span class="sale-discount-rate">[<{$bulk.item.list[i].sale_rate}>%OFF]</span></p>
+                <{else}>
+                <p class="bulk-item-price"><{$bulk.item.list[i].price|number_format}><span>（税込）</span></p>
+                <{/if}>
+              </div>
+            </div>
+          </a>
+        </li>
+        <{/section}>
+      </ul>
+      <div class="bulk-operate bulk-operate-bottom">
+        <div class="bulk-count">
+          <span class="bulk-count-all"><{$bulk.total_count}></span>件中<span class="bulk-count-show"><{$bulk.display_count}></span>件表示しています。
+        </div>
+        <nav class="bulk-pagination">
+          <ol>
+            <{if !$bulk.pager.is_first}>
+            <li class="bulk-pagination-prev"><a href="<{$bulk.pager.prev_url}>"></a></li>
+            <{/if}>
+            <{section name=i loop=$bulk.pager.list}>
+            <{if $bulk.pager.list[i].is_current_page}>
+            <li class="bulk-pagination-current"><{$bulk.pager.list[i].number}></li>
+            <{else}>
+            <li><a href="<{$bulk.pager.list[i].url}>"><{$bulk.pager.list[i].number}></a></li>
+            <{/if}>
+            <{/section}>
+            <{if !$bulk.pager.is_last}>
+            <li class="bulk-pagination-next"><a href="<{$bulk.pager.next_url}>"></a></li>
+            <{/if}>
+          </ol>
+        </nav>
+      </div>
+      <{else}>
+      <div>該当する商品がありません。</div>
+      <{/if}>
+    </section>
+  </main>
+</div>
+
+<{$module.recently_item}>
+<{$module.recommend_item}>
+
+<nav class="breadcrumb sp-breadcrumb">
+  <ul class="breadcrumb-list">
+    <li><a href="<{$url.top}>"><{$shop.name}></a></li>
+    <li>まとめ買い割引対象商品</li>
+  </ul>
+</nav>
+
+<{$module.footer}>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="<{$page.javascript}>"></script>
+<{$makeshop.body_bottom}>
+</body>
+</html>

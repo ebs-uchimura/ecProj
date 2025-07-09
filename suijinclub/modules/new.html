@@ -1,0 +1,21 @@
+<h2><span>■&nbsp;NEW</span>&nbsp;<span>新商品</span></h2>
+<ul class="item-list">
+<{section name=i loop=$new_item.list max=8}>
+    <li>
+        <div class="item-icon">
+        <{if $new_item.list[i].is_soldout}>
+            <p class="item-soldout">SOLD OUT</p>
+        <{/if}>
+        </div>
+
+        <div class="item-list-image">
+            <a href="<{$new_item.list[i].url}>"><img src="<{$new_item.list[i].image_S}>" alt=""></a>
+        </div>
+        <{if $new_item.list[i].base_category.url}>
+            <p class="item-category"><a href="<{$new_item.list[i].base_category.url}>"><{$new_item.list[i].base_category.name}></a></p>
+        <{/if}>
+        <p class="item-name"><a href="<{$new_item.list[i].url}>"><{$new_item.list[i].name}></a></p>
+        <p class="price"><a href="<{$new_item.list[i].url}>">￥<{$new_item.list[i].price|number_format}></a><span>（税込）</span></p>
+    </li>
+<{/section}>
+</ul>

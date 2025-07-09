@@ -1,0 +1,40 @@
+/*
+/* company.css
+*/
+
+@charset "utf-8";
+
+/* ------------------------------------------------
+   company
+------------------------------------------------ */
+.comapany-box b {
+  font-weight: bold;
+}
+
+.side {
+  display: none;
+}
+
+.contents .container .main {
+  width: 860px;
+}
+
+.contents .container .main .main-section .guide-title {
+  font-weight: bold;
+}
+
+.contents .container .main .main-section .comapany-box {
+  width: 100%;
+  margin: 0 0 0 20px;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contents .container .main {
+    width: 100%;
+  }
+
+  .contents .container .main .main-section .comapany-box {
+    margin: 0;
+  }
+}

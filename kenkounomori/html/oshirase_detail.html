@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><{$page.title}></title>
+<meta name="description" content="<{$page.description}>">
+<link rel="canonical" href="<{$page.canonical_url}>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<{$page.title}>">
+<meta property="og:description" content="<{$page.description}>">
+<meta property="og:site_name" content="<{$shop.name}>">
+<meta name="twitter:card" content="Summary with Large Image">
+<link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="<{$page.css}>">
+<{$makeshop.head}>
+</head>
+
+<body>
+<{$makeshop.body_top}>
+<{$module.header}>
+
+<nav class="breadcrumb pc-breadcrumb">
+  <ul class="breadcrumb-list">
+    <li><a href="<{$url.top}>"><{$shop.name}></a></li>
+    <li><a href="<{$url.news}>">お知らせ一覧</a></li>
+    <li><{$news.title}></li>
+  </ul>
+</nav>
+
+<div class="contents-wrapper">
+  <main>
+    <div class="news-head">
+      <h2><{$news.title}></h2>
+      <div class="subscript">NEWS</div>
+    </div>
+    <article class="news-wrapper">
+      <div class="news-date">
+        <time datetime="<{$news.date.year}>-<{$news.date.month}>-<{$news.date.day}>"><{$news.date.year}>/<{$news.date.month}>/<{$news.date.day}></time>
+      </div>
+      <div class="news-detail"><{$news.content|nl2br}></div>
+    </article>
+    <nav class="news-link">
+      <button class="show-detail" onClick="history.back(); return false;">一覧に戻る</button>
+      <button class="show-detail" onclick="location.href='<{$url.top}>'">トップへ戻る</button>
+    </nav>
+  </main>
+</div>
+
+<{$module.footer}>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="<{$page.javascript}>"></script>
+<{$makeshop.body_bottom}>
+</body>
+</html>

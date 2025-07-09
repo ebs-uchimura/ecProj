@@ -1,0 +1,82 @@
+/*
+/* top.css
+*/
+
+@charset "utf-8";
+
+/* ------------------------------------------------
+   top
+------------------------------------------------ */
+.contents {
+    display: block;
+    padding: 30px 0 0 0;
+}
+
+/* main visual*/
+.contents .main-visual {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
+
+.contents .main-visual li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contents .main-visual img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.contents .main-visual .category-image {
+    margin-bottom: 20px !important;
+    display: flex;
+}
+
+.contents .container .main .main-section ul.news-list li {
+    padding: 0;
+    border-bottom: 1px solid #CBCBCB;
+}
+
+.contents .container .main .main-section ul.news-list li:first-child {
+    padding-top: 0;
+}
+
+.contents .container .main .main-section ul.news-list dl dt {
+    margin-bottom: 8px;
+}
+
+.contents .container .main .main-section ul.news-list dl dd {
+    font-size: 0.8rem;
+}
+
+.contents .container .main .main-section ul.news-list li .news-wrap dl dt a {
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.contents .container .main .main-section ul.news-list li .news-wrap dl dt a:hover {
+    text-decoration: none;
+}
+
+.contents .container .main .main-section ul.news-list li .news-wrap p.news-date {
+    min-width: 120px;
+    color: #B5B5B5 !important;
+    font-size: 0.8rem;
+}
+
+.contents .container .main .main-section p.news-more {
+    text-align: right;
+}
+
+.contents .container .main .main-section p.news-more a {
+    font-size: 0.8rem;
+    color: #B5B5B5 !important;
+    text-decoration: underline;
+}
+
+.contents .container .main .main-section p.news-more a:hover {
+    text-decoration: none;
+}
+

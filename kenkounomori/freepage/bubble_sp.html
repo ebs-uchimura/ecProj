@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <{$page.title}>
+  </title>
+  <meta name="description" content="<{$page.description}>">
+  <link rel="canonical" href="<{$page.canonical_url}>">
+  <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<{$page.title}>">
+  <meta property="og:description" content="<{$page.description}>">
+  <meta property="og:site_name" content="<{$shop.name}>">
+  <meta name="twitter:card" content="Summary with Large Image">
+  <{$makeshop.head}>
+  <link rel="stylesheet" href="<{$page.css}>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+  <{$makeshop.body_top}>
+  <{$module.header}>
+  <main>
+    <section class="bubble-contents-sp">
+      <button class="long-buy-button" onclick="location.href='https://www.kenkonomori.jp/view/item/000000000008'">
+        <img src="https://gigaplus.makeshop.jp/kenkonomorij/btn_off_sp.png" alt="今すぐお買い上げ">
+      </button>
+      <button class="short-buy-button btn1" onclick="location.href='https://www.kenkonomori.jp/view/item/000000000008'">
+        <img src="https://gigaplus.makeshop.jp/kenkonomorij/btn_off2.png" alt="今すぐお買い上げ">
+      </button>
+      <button class="short-buy-button btn2"  onclick="location.href='https://www.kenkonomori.jp/view/item/000000000008'">
+        <img src="https://gigaplus.makeshop.jp/kenkonomorij/btn_off2.png" alt="今すぐお買い上げ">
+      </button>
+      <button class="short-buy-button btn3"  onclick="location.href='https://www.kenkonomori.jp/view/item/000000000008'">
+        <img src="https://gigaplus.makeshop.jp/kenkonomorij/btn_off2.png" alt="今すぐお買い上げ">
+      </button>
+    </section>
+  </main>
+  <{$module.footer}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="<{$page.javascript}>"></script>
+  <{$makeshop.body_bottom}>
+</body>
+</html>

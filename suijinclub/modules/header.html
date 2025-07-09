@@ -1,0 +1,111 @@
+<header class="header">
+    <nav class="top-nav">
+        <div id="js-hamburger-btn" class="icon-hamburger forsp">
+            <div class="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <h1 class="header-logo">
+            <a href="<{$url.top}>">
+                <{if $shop.logo_url}>
+                    <img src="<{$shop.logo_url}>" alt="<{$shop.name}>">
+                <{else}>
+                    <{$shop.name}>
+                <{/if}>
+            </a>
+        </h1>
+        <div class="header-menu">
+            <ul class="gnav log-area">
+                <{if $member.is_logged_in}>
+                <span>ようこそ<{$member.name}>様</span>
+                <li class="gnav-menu logout"><a href="<{$url.logout}>"><i class="fa-solid fa-arrow-right-from-bracket"></i>&ensp;ログアウト</a></li>
+                <li class="gnav-menu mypage"><a href="<{$url.mypage}>"><i class="fa-regular fa-user"></i>&ensp;マイページ</a></li>
+                <li class="gnav-menu shoppingcart"><a href="<{$url.cart}>"><i class="fa-solid fa-cart-shopping"></i>&ensp;SHOPPING CART</a><span class="cart-badge cart-count" <{if !$cart.has_item}>style="display:none;"<{/if}>><{$cart.total_quantity}></span></li>
+                <{else}>
+                <li class="gnav-menu login"><a href="<{$url.login}>"><i class="fa-solid fa-arrow-right-to-bracket"></i>&ensp;ログイン</a></li>
+                <li class="gnav-menu membership"><a href="<{$url.member_entry}>"><i class="fa-regular fa-circle-play"></i>&ensp;会員登録はこちら</a></li>
+                <{/if}>
+            </ul>
+            <ul class="gnav nav-area">
+                <li class="gnav-menu header-home"><a href="<{$url.top}>">トップ</a></li>
+                <li class="gnav-menu header-catalog"><a href="https://suijinclub.jp/view/category/all_items">商品一覧</a></li>
+                <li class="gnav-menu header-contract"><a href="<{$url.contract}>">特定商取引法</a></li>
+                <li class="gnav-menu header-guide"><a href="<{$url.guide}>">利用案内</a></li>
+                <li class="gnav-menu header-support"><a href="<{$url.support}>">お問い合わせ</a></li>  
+            </ul>
+        </div>
+        <div class="gnav-menu shoppingcart forsp">
+            <a href="<{$url.cart}>"><i class="fa-solid fa-cart-shopping"></i><span class="cart-badge cart-count" <{if !$cart.has_item}>style="display:none;"<{/if}>><{$cart.total_quantity}></span></a>
+        </div>
+    </nav>
+    <nav id="header-nav" class="header-nav">
+        <ul class="header-nav-member">
+            <{if $member.is_logged_in}>
+                <li>
+                    <a href="<{$url.order_history}>">購入履歴</a>
+                </li>
+                <li>
+                    <a href="<{$url.member_edit}>">会員情報変更</a>
+                </li>
+                <li>
+                    <a href="<{$url.point}>">ポイント照会</a>
+                </li>
+                <li>
+                    <a href="<{$url.logout}>">ログアウト</a>
+                </li>
+            <{else}>
+                <li>
+                    <a href="<{$url.login}>">ログイン</a>
+                </li>
+                <li>
+                    <a href="<{$url.member_entry}>">新規会員登録</a>
+                </li>
+            <{/if}>
+        </ul>
+        <div class="header-nav-search">
+            <div class="header-nav-search-input"><input id="header-search" type="search" data-id="<{$search_form.keyword_id}>" value="<{$search.keyword}>" placeholder="キーワードから探す"></div>
+            <div class="header-nav-search-btn"><a id="header-search-link" href="<{$search_form.search_url}>"></a></div>
+        </div>
+        <ul id="header-nav-category" class="header-nav-category">
+            <{section name=i loop=$category_menu.list}>
+            <!-- VIPか業務会員 -->
+            <{if ($member.group_id == 1 || $member.group_id == 2)}>
+                <{if ($category_menu.list[i].code > 100 && $category_menu.list[i].code < 200)}>
+                  <li class="main-category-item">
+                    <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                  </li>
+                <{/if}>
+            <!-- ゲストか一般会員 -->
+            <{else}>
+                <{if ($category_menu.list[i].code < 100)}>
+                  <li class="main-category-item">
+                    <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                  </li>
+                <{/if}>
+            <{/if}>
+            <{if ($category_menu.list[i].code > 200)}>
+                <li class="main-category-item">
+                  <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                </li>
+              <{/if}>
+            <{/section}>
+        </ul>
+        <ul class="header-other-link">
+            <li>
+                <a href="<{$url.guide}>">お買い物ガイド</a>
+            </li>
+            <li>
+                <a href="<{$url.company}>">会社概要</a>
+            </li>
+            <li>
+                <a href="<{$url.contract}>">特定商取引法に基づく表記</a>
+            </li>
+            <li>
+                <a href="<{$url.policy}>">プライバシーポリシー</a>
+            </li>
+        </ul>
+        <div id="hamburger-close" class="hamburger-close">閉じる</div>
+    </nav>
+</header>

@@ -1,0 +1,466 @@
+@charset "utf-8";
+
+/* -----------------------------------------------------------------
+   general
+----------------------------------------------------------------- */
+main {
+  max-width: 996px;
+  margin-top: 30px;
+}
+
+a {
+  color: #362c2d;
+}
+
+/* -----------------------------------------------------------------
+   breadcrumb
+----------------------------------------------------------------- */
+.breadcrumb {
+  padding: 10px 4% 0;
+}
+
+.pc-breadcrumb {
+  display: none;
+}
+
+.breadcrumb-list {
+  margin-top: 10px;
+  padding-top: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.breadcrumb-list li {
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+.breadcrumb-list li:not(:last-child)::after {
+  content: '\03e';
+  margin: 0 5px;
+}
+
+/* -----------------------------------------------------------------
+  category-head
+----------------------------------------------------------------- */
+.category-header-area .headline-area {
+  width: 200px;
+  margin: 10px 0 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-header-area hr {
+  height: 1px;
+  width: 30px;
+  margin: 0;
+  background-color: #c1342a;
+  border: none;
+}
+
+.category-header-area .headline {
+  margin-left: 10px;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.category-header-area .headline::before {
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.category-header-area .index-image {
+  display: flex;
+  justify-content: center;
+}
+
+.search-count {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 0 15px 15px;
+}
+
+.search-count-all,
+.search-count-show {
+  letter-spacing: 2px;
+}
+
+.search-count-show {
+  margin-left: 6px;
+}
+
+/* -----------------------------------------------------------------
+  sort-bar
+----------------------------------------------------------------- */
+.category-title {
+  padding: 10px 0;
+  background-color: #f7f3e9;
+}
+
+.category-title .list-head-sort {
+  margin-left: 7%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.category-title .list-head-sort dt {
+  margin-right: 1%;
+}
+
+.category-title .list-head-sort dd {
+  margin: 0 2%;
+  padding: 2px 3%;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+}
+
+.category-title .list-head-sort a {
+  font-size: 0.8rem;
+  color: #362c2d;
+}
+
+/* -----------------------------------------------------------------
+  itemlist
+----------------------------------------------------------------- */
+.item-list {
+  max-width: 996px;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: #362c2d;
+}
+
+.item-list li {
+  width: 33.3%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.item-list li:nth-of-type(3n) {
+  border-right: none;
+}
+
+.item-list .item-list-image img {
+  width: 90%;
+  border: 1px solid #ccc;
+}
+
+.item-list .item-name {
+  padding: 10px 0 0 20px;
+  text-align: left;
+}
+
+.item-list .price {
+  padding: 10px 0 0 20px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.item-list .price span {
+  font-weight: normal;
+}
+
+.pager-wrap {
+  margin-top: 50px;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 640px) {
+
+  /* sort-bar */
+  .category-title {
+    margin-top: 2vw;
+    padding: 3vw 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f3e9;
+  }
+
+  /* category-head */
+  .category-header-area .headline-area {
+    width: 200px;
+    margin: 20px 0 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .category-header-area hr {
+    height: 1px;
+    width: 30px;
+    margin: 0;
+    background-color: #c1342a;
+    border: none;
+  }
+
+  .category-header-area .headline {
+    margin-left: 10px;
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .category-header-area .headline::before {
+    font-size: 1.6rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .category-header-area .index-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2vw;
+  }
+
+  /* -----------------------------------------------------------------
+  sort-bar
+  ----------------------------------------------------------------- */
+  .category-title {
+    padding: 10px 0;
+    background-color: #f7f3e9;
+  }
+
+  .category-title select {
+    margin: auto;
+    background-color: #fff;
+  }
+
+  /* -----------------------------------------------------------------
+  itemlist
+----------------------------------------------------------------- */
+  .item-list {
+    max-width: 100vw;
+    margin-top: 10vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #362c2d;
+  }
+
+  .item-list li {
+    width: 95vw;
+    margin: 2vw auto;
+    padding: 2vw;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .item-list li:nth-of-type(3n) {
+    border-right: none;
+  }
+
+  .item-list .item-list-image img {
+    width: 100%;
+    border: 1px solid #ccc;
+  }
+
+  .item-list .item-name {
+    margin-top: 2vw;
+    margin-bottom: 1vw;
+    padding: 0;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .item-list .price {
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .item-list .price span {
+    font-weight: normal;
+  }
+
+  .pager-wrap {
+    margin-top: 5vw;
+    font-size: 0.8rem;
+  }
+}
+
+.intro1 {
+  box-shadow: 7px 7px #c9bc93;
+}
+
+.intro2 {
+  box-shadow: 7px 7px #e2c282;
+}
+
+.intro3 {
+  box-shadow: 7px 7px #c9ab93;
+}
+
+.intro4 {
+  box-shadow: 7px 7px #ba93c9;
+}
+
+.intro5 {
+  box-shadow: 7px 7px #9d93c9;
+}
+
+.intro6 {
+  box-shadow: 7px 7px #efe989;
+}
+
+.intro7 {
+  box-shadow: 7px 7px #93bcc9;
+}
+
+/* -----------------------------------------------------------------
+  customer
+----------------------------------------------------------------- */
+.customer {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 120px;
+}
+
+.customer .customer-button {
+  width: 350px;
+  height: 200px;
+  margin: 30px 0;
+  padding-top: 30px;
+  text-align: center;
+  border-radius: 2px;
+  box-shadow: 0 0 4px 3px #e5e5e5;
+}
+
+.customer .button-01 {
+  background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/07_background1.jpg);
+  background-size: contain;
+}
+
+.customer .button-02 {
+  background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/07_background2.jpg);
+  background-size: contain;
+}
+
+.customer-button .subscript {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* -----------------------------------------------------------------
+   PC
+----------------------------------------------------------------- */
+@media screen and (min-width: 768px) {
+  .pc-breadcrumb {
+    display: block;
+  }
+
+  .sp-breadcrumb {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------
+   smartphone
+----------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+
+  /* general */
+  main {
+    width: 100vw;
+    margin-top: 5vw;
+  }
+
+  a {
+    color: #362c2d;
+  }
+
+  .headline {
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .subscript {
+    font-size: 0.6rem;
+    text-align: center;
+    letter-spacing: 0.07em;
+    color: #c1342a;
+  }
+
+  .search-count {
+    margin-bottom: 0;
+  }
+  
+  .intro1 img {
+    box-shadow: 7px 7px #c9bc93;
+  }
+
+  .intro2 img {
+    box-shadow: 7px 7px #e2c282;
+  }
+
+  .intro3 img {
+    box-shadow: 7px 7px #c9ab93;
+  }
+
+  .intro4 img {
+    box-shadow: 7px 7px #ba93c9;
+  }
+
+  .intro5 img {
+    box-shadow: 7px 7px #9d93c9;
+  }
+
+  .intro6 img {
+    box-shadow: 7px 7px #efe989;
+  }
+
+  .intro7 img {
+    box-shadow: 7px 7px #93bcc9;
+  }
+  /* customer */
+  .customer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 3vw;
+  }
+
+  .customer .customer-button {
+    width: 45vw;
+    height: 40vw;
+    padding-top: 2vw;
+    text-align: center;
+    border-radius: 2px;
+    box-shadow: 0 0 4px 3px #e5e5e5;
+  }
+
+  .customer .button-01 {
+    background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/07_background1.jpg);
+    background-size: contain;
+  }
+
+  .customer .button-02 {
+    background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/07_background2.jpg);
+    background-size: contain;
+  }
+
+  .customer .headline {
+    font-size: 0.8rem;
+    padding: 0 2vw;
+  }
+
+  .customer-button .subscript {
+    margin-top: 1vw;
+    margin-bottom: 2vw;
+  }
+
+  .customer .show-detail {
+    margin: 5vw 0;
+    font-size: 0.5rem;
+  }
+}

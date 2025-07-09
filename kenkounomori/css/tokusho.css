@@ -1,0 +1,89 @@
+@charset "utf-8";
+
+/* -----------------------------------------------------------------
+  tokusho
+----------------------------------------------------------------- */
+.contents-wrapper {
+  padding: 40px 4%;
+}
+
+.contents-wrapper h1 {
+  font-size: 15px;
+  margin: 30px 0;
+  font-weight: bold;
+}
+
+.contract-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.contract-table tr:last-child {
+  margin-bottom: 0;
+}
+
+.contract-table th,
+.contract-table td {
+  font-size: 13px;
+  display: block;
+  padding: 15px;
+}
+
+.contract-table th {
+  background-color: #fafafa;
+  text-align: left;
+  font-weight: bold;
+}
+
+.contract-table td,
+.contract-table td pre {
+  line-height: 22px;
+}
+
+.contract-table td pre {
+  margin: 0;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+/* -----------------------------------------------------------------
+   smartphone
+----------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  main {
+    margin: 0 auto;
+    width: 100vw;
+  }
+
+  h1 {
+    margin: 0;
+    text-align: center;
+  }
+
+  .contents-wrapper {
+    margin-top: 10vw;
+    padding: 0;
+  }
+
+  .contract-table {
+    margin-top: 5vw;
+  }
+
+  .contract-table th,
+  .contract-table td {
+    border: 1px solid #dcdcdc;
+    display: table-cell;
+    font-size: 14px;
+    padding: 20px;
+  }
+
+  .contract-table th {
+    align-items: center;
+    width: 300px;
+  }
+
+  .contract-table td {
+    line-height: 26px;
+    width: 700px;
+  }
+}

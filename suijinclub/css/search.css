@@ -1,0 +1,21 @@
+/*
+/* search.css
+*/
+
+@charset "utf-8";
+
+/* ------------------------------------------------
+   search
+------------------------------------------------ */
+.contents .container .main .main-section .category-child-item {
+   display: none;
+}
+
+.contents .container .main .main-section .category-title h2 {
+   width: 40vw;
+   border-bottom: none;
+}
+
+.contents .container .main .main-section .category-title .list-head-sort {
+   width: 40vw;
+}

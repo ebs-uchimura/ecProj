@@ -1,0 +1,123 @@
+<!-- 配送方法 -->
+<div id="tokushowrapper">
+  <div id="delivery" class="notice-box">
+  <h2 class="section-title-h2">配送・送料について</h2>
+  <dl class="notice-list">
+    <{section name=num loop=$sk_delivery}>
+      <dt class="notice-list__name"><{$sk_delivery[num].name}></dt>
+      <dd class="notice-list__unit">
+        <{if $sk_delivery[num].img_url != "" }>
+          <img src="<{$sk_delivery[num].img_url}>" /><br />
+        <{/if}>
+        <{$sk_delivery[num].other}>
+      </dd>
+    <{/section}>
+  </dl>
+</div>
+<!-- // 配送方法 -->
+<!-- 支払い方法 -->
+<div id="payment" class="notice-box">
+  <h2 class="section-title-h2">支払い方法について</h2>
+  <dl class="notice-list">
+    <{section name=num loop=$sk_payment}>
+      <dt class="notice-list__name"><{$sk_payment[num].name}></dt>
+      <dd class="notice-list__unit">
+        <{if $sk_payment[num].img_url != "" }>
+          <img src="<{$sk_payment[num].img_url}>" /><br />
+        <{/if}>
+        <{if $sk_payment[num].card_img != "" }>
+          <{$sk_payment[num].card_img}><br />
+        <{/if}>
+        <{$sk_payment[num].other}>
+      </dd>
+    <{/section}>
+  </dl>
+</div>
+<!-- // 支払い方法 -->
+<!-- 返品について -->
+<div id="cancel" class="notice-box">
+  <h2 class="section-title-h2">返品について</h2>
+  <dl class="notice-list">
+    <{if $shop.return_limit != ""}>
+      <dt class="notice-list__name">返品期限</dt>
+      <dd class="notice-list__unit"><{$shop.return_limit}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.return_price != ""}>
+      <dt class="notice-list__name">返品送料</dt>
+      <dd class="notice-list__unit"><{$shop.return_price}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.bad_product != ""}>
+      <dt class="notice-list__name">不良品</dt>
+      <dd class="notice-list__unit"><{$shop.bad_product}>&nbsp;</dd>
+    <{/if}>
+  </dl>
+</div>
+<!-- //返品について -->
+<!-- 特定商法取引法に基づく表記 -->
+<div id="info" class="notice-box">
+  <h2 class="section-title-h2">特定商取引法に基づく表記</h2>
+  <dl class="notice-list">
+    <{if $shop.shop_name != ""}>
+      <dt class="notice-list__name">販売業者</dt>
+      <dd class="notice-list__unit"><{$shop.shop_name}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.manager_name != ""}>
+      <dt class="notice-list__name">運営統括責任者名</dt>
+      <dd class="notice-list__unit"><{$shop.manager_name}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.postal != ""}>
+      <dt class="notice-list__name">郵便番号</dt>
+      <dd class="notice-list__unit"><{$shop.postal}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.address != ""}>
+      <dt class="notice-list__name">住所</dt>
+      <dd class="notice-list__unit"><{$shop.address}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.price != ""}>
+      <dt class="notice-list__name">商品代金以外の料金の説明</dt>
+      <dd class="notice-list__unit"><{$shop.price}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.apply_limit != ""}>
+      <dt class="notice-list__name">申込有効期限</dt>
+      <dd class="notice-list__unit"><{$shop.apply_limit}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.sales_num != ""}>
+      <dt class="notice-list__name">販売数量</dt>
+      <dd class="notice-list__unit"><{$shop.sales_num}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.delivery_time != ""}>
+      <dt class="notice-list__name">引渡し時期</dt>
+      <dd class="notice-list__unit"><{$shop.delivery_time}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.payment_way != ""}>
+      <dt class="notice-list__name">お支払い方法</dt>
+      <dd class="notice-list__unit"><{$shop.payment_way}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.payment_limit != ""}>
+      <dt class="notice-list__name">お支払い期限</dt>
+      <dd class="notice-list__unit"><{$shop.payment_limit}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.license != ""}>
+      <dt class="notice-list__name">資格・免許</dt>
+      <dd class="notice-list__unit"><{$shop.license}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.service_name != ""}>
+      <dt class="notice-list__name">サービス名</dt>
+      <dd class="notice-list__unit"><{$shop.service_name}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.tel != ""}>
+      <dt class="notice-list__name">電話番号</dt>
+      <dd class="notice-list__unit"><{$shop.tel}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.email != ""}>
+      <dt class="notice-list__name">公開メールアドレス</dt>
+      <dd class="notice-list__unit"><{$shop.email}>&nbsp;</dd>
+    <{/if}>
+    <{if $shop.hp_address != ""}>
+      <dt class="notice-list__name">ホームページアドレス</dt>
+      <dd class="notice-list__unit"><{$shop.hp_address}>&nbsp;</dd>
+    <{/if}>
+  </dl>
+</div>
+</div>
+<!-- // 特定商法取引法に基づく表記 -->

@@ -1,0 +1,716 @@
+@charset "utf-8";
+
+/* -----------------------------------------------------------------
+   main
+----------------------------------------------------------------- */
+.br::before {
+  content: "\A";
+  white-space: pre;
+}
+
+.main-header-area {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-contents .main-catch {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.index-image {
+  margin-top: 20px;
+}
+
+.center-catch1 {
+  margin-top: 10px;
+  padding: 30px 0;
+  background-color: #c1342a;
+  text-align: center;
+  color: #ffffff;
+}
+
+.center-catch1 p {
+  margin: 0;
+  background-color: #c1342a;
+  letter-spacing: 0.12em;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+.center-catch1 span {
+  background-color: #c1342a;
+  font-size: 1rem;
+  font-weight: lighter;
+  color: #ffffff;
+}
+
+.center-catch2 {
+  height: 747px;
+  background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/02_background2.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.center-catch2 p.main-text1 {
+  padding: 30px 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #362c2d;
+}
+
+.center-catch2 .center-main-image {
+  width: 80%;
+  height: 800px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.center-main-image img {
+  border-top: 10px solid #6999b7;
+  border-right: 10px solid #93bcc9;
+  border-bottom: 10px solid #93bcc9;
+}
+
+.center-main-image .center-main-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.center-main-image .center-main-text p.main-text2 {
+  flex: 7;
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 15px;
+  font-size: 1.5rem;
+  border-left: 1px solid #c1342a;
+}
+
+.center-main-image .center-main-text p.main-text3 {
+  margin-bottom: 40px;
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  line-height: 1.7em;
+  color: #362c2d;
+}
+
+.center-main-image .center-main-text p.main-text4 {
+  margin-top: 80px;
+  display: block;
+  text-align: left;
+  color: #c1342a;
+}
+
+.center-main-image .center-main-text p.main-text4 span {
+  font-size: calc(var(--default-vw-value) * 0.032);
+  font-weight: 500;
+}
+
+.center-main-image .center-main-text .deview {
+  position: relative;
+  margin-top: -20px;
+  font-size: calc(var(--default-vw-value) * 0.048);
+  font-weight: 500;
+  color: #c1342a;
+}
+
+.center-main-image .center-main-text .deview::after {
+  position: absolute;
+  content: "";
+  top: 50px;
+  height: 1px;
+  width: calc(var(--default-vw-value) * 0.17);
+  background-color: #c1342a;
+  z-index: -1;
+}
+
+.center-catch3 {
+  position: relative;
+  height: 1770px;
+  text-align: center;
+  background-color: #f7f3e9;
+  background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/item_pake.png), url(https://gigaplus.makeshop.jp/kenkonomorij/tile_texture.png);
+  background-size: 90% auto, auto;
+  background-position: center 22%;
+  background-repeat: no-repeat, repeat;
+  z-index: 1;
+}
+
+.center-catch3>img {
+  width: 15%;
+  padding-top: 20px;
+}
+
+.center-catch3 h3 {
+  font-size: 2rem;
+  color: #362f2f;
+}
+
+.center-catch3 .subscript {
+  font-size: 1rem;
+  color: #ac483f;
+}
+
+.center-catch3 .text-area {
+  margin-top: 460px;
+}
+
+.center-catch3 .text-area h4 {
+  width: 65%;
+  margin: auto;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-left: 2px solid #c1342a;
+}
+
+.center-catch3 .text-area .first {
+  width: 770px;
+  height: 650px;
+  margin: 50px auto 10px auto;
+  font-size: 1.2rem;
+  line-height: 2;
+  text-align: left;
+  background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/supplement.png), url(https://gigaplus.makeshop.jp/kenkonomorij/item_pake_kurosumaru.png), url(https://gigaplus.makeshop.jp/kenkonomorij/katsuoichibannsenji.png);
+  background-size: 171px auto;
+  background-position: right top, 95% bottom, 5% bottom;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.center-catch3 .text-area .second {
+  width: 800px;
+  height: 300px;
+  margin: 0 auto 30px auto;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* category */
+.product-category {
+  height: calc(1000px + var(--default-vw-value) * 0.6);
+  margin-top: 40px;
+}
+
+.category-list1 {
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.category-list2 {
+  padding: 30px 150px;
+  display: flex;
+  justify-content: space-around;
+  background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/03_background.jpg);
+  background-color: #fef9ea;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.category-list3 {
+  padding: 30px 150px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #fef9ea;
+}
+
+.category-list4 {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  background-color: #fef9ea;
+}
+
+.category {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.category button {
+  margin: 20px auto;
+}
+
+.category img {
+  width: calc(var(--default-vw-value) * 0.28);
+}
+
+.item1 img {
+  box-shadow: 10px 10px #c9bc93;
+}
+
+.item2 img {
+  box-shadow: 10px 10px #e2c282;
+}
+
+.item3 img {
+  box-shadow: 10px 10px #c9ab93;
+}
+
+.item4 img {
+  box-shadow: 10px 10px #ba93c9;
+}
+
+.item5 img {
+  box-shadow: 10px 10px #9d93c9;
+}
+
+.item6 img {
+  box-shadow: 10px 10px #efe989;
+}
+
+.item7 img {
+  box-shadow: 10px 10px #93bcc9;
+}
+
+.category .category-name {
+  margin-top: 20px;
+  padding-left: 20px;
+  font-size: calc(var(--default-vw-value) * 0.017);
+  font-family: 'Noto Serif JP', serif;
+  text-align: left;
+  border-left: 1px solid #c1342a;
+}
+
+/* news */
+.news {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.news a {
+  color: #362c2d;
+}
+
+.news .news-head h2 {
+  font-size: 1.8rem;
+}
+
+.news button {
+  margin-top: 40px;
+}
+
+.news ul {
+  margin-top: 20px;
+}
+
+.news ul li {
+  width: 700px;
+  height: 45px;
+  margin: auto;
+  display: flex;
+  font-size: 0.8rem;
+  text-align: left;
+  border-top: 1px solid #c9bc93;
+}
+
+.news ul li.no-news {
+  margin: auto;
+  display: block;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 2.5rem;
+  border-top: 1px solid #c9bc93;
+}
+
+.news ul li a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.news ul li:last-child {
+  border-bottom: 1px solid #c9bc93;
+}
+
+.news ul li a span.date {
+  width: 100px;
+  margin-left: 30px;
+}
+
+.news ul li a span.content {
+  width: 450px;
+  margin-left: 30px;
+}
+
+.news ul li a span.arrow {
+  margin-left: 30px;
+}
+
+.news ul li a span.arrow {
+  margin-left: 30px;
+}
+
+
+/* -----------------------------------------------------------------
+   smartphone
+----------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+
+  /* general */
+  .headline {
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    text-align: center;
+  }
+
+  .main-header-area {
+    margin-top: 10vw;
+  }
+
+  .subscript {
+    font-size: 0.6rem;
+    text-align: center;
+    letter-spacing: 0.07em;
+    color: #c1342a;
+  }
+
+  /* catch */
+  .center-catch1 p {
+    font-size: 1.2rem;
+  }
+
+  .center-catch1 span {
+    font-size: 0.7rem;
+  }
+
+  .center-catch2 {
+    height: 130vw;
+    background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/02_background2.jpg);
+    background-position: top center;
+    background-size: auto 60vw;
+    background-repeat: no-repeat;
+  }
+
+  .center-catch2 p.main-text1 {
+    padding: 8vw 0;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #362c2d;
+  }
+
+  .center-catch2 .center-main-image {
+    width: 100vw;
+    height: 200vw;
+    margin: auto;
+    padding: 0 1vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .center-main-image img {
+    width: 60vw;
+    margin-left: 2vw;
+    border-top: 2.5vw solid #6999b7;
+    border-right: 2.5vw solid #93bcc9;
+    border-bottom: 2.5vw solid #93bcc9;
+  }
+
+  .center-main-image .center-main-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .center-main-image .center-main-text p.main-text2 {
+    flex: 7;
+    text-align: left;
+    margin-bottom: 2vw;
+    padding-left: 2vw;
+    font-size: 0.9rem;
+    border-left: 1px solid #c1342a;
+  }
+
+  .center-main-image .center-main-text p.main-text3 {
+    margin-bottom: 5vw;
+    padding-left: 2vw;
+    display: block;
+    text-align: left;
+    font-size: 0.65rem;
+    line-height: 1.7em;
+    color: #362c2d;
+  }
+
+  .center-main-image .center-main-text .show-detail {
+    width: 35vw;
+    height: 10vw;
+    border-radius: 10vw;
+    background: #fff;
+    border: 1px solid #362c2d;
+    font-size: 0.55rem;
+    font-weight: bold;
+  }
+
+  .center-main-image .center-main-text p.main-text4 {
+    margin-top: 5vw;
+    display: block;
+    text-align: left;
+    color: #c1342a;
+  }
+
+  .center-main-image .center-main-text p.main-text4 span {
+    margin-left: 2vw;
+    font-size: calc(var(--default-vw-value) * 0.042);
+    font-weight: 500;
+  }
+
+  .center-main-image .center-main-text .deview {
+    position: relative;
+    margin: 1vw 0 0 2vw;
+    font-size: calc(var(--default-vw-value) * 0.07);
+    font-weight: 500;
+    color: #c1342a;
+  }
+
+  .center-main-image .center-main-text .deview::after {
+    position: absolute;
+    content: "";
+    top: 6vw;
+    height: 1px;
+    width: calc(var(--default-vw-value) * 0.17);
+    background-color: #c1342a;
+    z-index: -1;
+  }
+
+  /* anniversary */
+  .center-catch3 {
+    position: relative;
+    height: initial;
+    text-align: center;
+    background-color: #f7f3e9;
+    background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/item_pake.png), url(https://gigaplus.makeshop.jp/kenkonomorij/tile_texture.png);
+    background-size: 100% auto, auto;
+    background-position: center 18%;
+    background-repeat: no-repeat, repeat;
+    z-index: 1;
+  }
+
+  .center-catch3>img {
+    width: 20%;
+    padding-top: 5vw;
+  }
+
+  .center-catch3 h3 {
+    width: 90%;
+    margin: auto;
+    font-size: 1.6rem;
+    color: #362f2f;
+  }
+
+  .center-catch3 .subscript {
+    font-size: 1rem;
+    color: #ac483f;
+  }
+
+  .center-catch3 .text-area {
+    width: 85vw;
+    margin: 55vw auto 0 auto;
+  }
+
+  .center-catch3 .text-area h4 {
+    width: 100%;
+    margin: auto;
+    padding-left: 1vw;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-left: 2px solid #c1342a;
+  }
+
+  .center-catch3 .text-area .first {
+    width: 100%;
+    height: initial;
+    margin: 5vw auto;
+    background: none;
+    line-height: 2.2;
+    font-size: 0.9rem;
+  }
+
+  .center-catch3 .text-area .first .br::before {
+    content: "";
+    white-space: nowrap;
+  }
+
+  .center-catch3 .text-area .second {
+    width: 100%;
+    height: 50vw;
+    margin-top: 0;
+    background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/item_pake_kurosumaru.png), url(https://gigaplus.makeshop.jp/kenkonomorij/katsuoichibannsenji.png);
+    background-size: 30% auto;
+    background-position: 5% 95%, 95% 95%;
+    background-repeat: no-repeat;
+    line-height: 2.2;
+    font-size: 1rem;
+  }
+
+  .center-catch3 .text-area .second .br::before {
+    content: "\A";
+    white-space: pre;
+  }
+
+  /* category */
+  .product-category {
+    height: 850vw;
+    margin-top: 10vw;
+  }
+
+  .cate-list {
+    padding: 1vw 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cate-list img {
+    margin: auto;
+  }
+
+  .category {
+    margin-top: 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .category .show-detail,
+  .cate-list .show-detail {
+    width: 65vw;
+    height: 10vw;
+    margin: 2vw auto;
+    border-radius: 10vw;
+    background: #fff;
+    border: 1px solid #362c2d;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .category .category-name {
+    margin: 3vw 0 0 10vw;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'Noto Serif JP', serif;
+    text-align: left;
+    border-left: 1px solid #c1342a;
+  }
+
+  .category img {
+    width: 80vw;
+  }
+
+  .category button {
+    font-size: 0.5rem;
+    margin: 2vw auto;
+  }
+
+  .item1 img {
+    box-shadow: 2vw 2vw #c9bc93;
+  }
+
+  .item2 img {
+    box-shadow: 2vw 2vw #e2c282;
+  }
+
+  .item3 img {
+    box-shadow: 2vw 2vw #c9ab93;
+  }
+
+  .item4 img {
+    box-shadow: 2vw 2vw #ba93c9;
+  }
+
+  .item5 img {
+    box-shadow: 2vw 2vw #9d93c9;
+  }
+
+  .item6 img {
+    box-shadow: 1vw 1vw #efe989;
+  }
+
+  .item7 img {
+    box-shadow: 1vw 1vw #93bcc9;
+  }
+
+  .category-list2 {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-image: url(https://gigaplus.makeshop.jp/kenkonomorij/03_background.jpg);
+    background-color: #fef9ea;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  .category-list3 {
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fef9ea;
+  }
+
+  .category-list4 {
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    background-color: #fef9ea;
+  }
+
+  /* news */
+  .news {
+    margin-top: 10vw;
+    text-align: center;
+  }
+
+  .news .news-head h2 {
+    font-size: 1.8rem;
+  }
+
+  .news ul {
+    margin-top: 5vw;
+  }
+
+  .news ul li {
+    width: 100vw;
+    margin: auto;
+    padding: 3vw 1vw;
+    display: flex;
+    font-size: 0.8rem;
+    text-align: left;
+    border-top: 1px solid #c9bc93;
+  }
+
+  .news ul li.no-news {
+    line-height: initial;
+  }
+
+  .news ul li:last-child {
+    border-bottom: 1px solid #c9bc93;
+  }
+
+  .news ul li a span.date {
+    margin-left: 5vw;
+  }
+
+  .news ul li a span.content {
+    width: 50vw;
+    margin-left: 5vw;
+  }
+
+  .news ul li a span.arrow {
+    margin-left: 2vw;
+  }
+
+  .news button.show-detail {
+    width: 80vw;
+  }
+}

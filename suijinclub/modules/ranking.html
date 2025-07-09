@@ -1,0 +1,34 @@
+<h2><span>■&nbsp;RANKING</span>&nbsp;<span>ランキング</span></h2>
+<ul class="item-list">
+<{section name=i loop=$ranking_item.list max=4}>
+    <li>
+        <div class="item-icon">
+        <{if $ranking_item.list[i].is_soldout}>
+            <p class="item-soldout">SOLD OUT</p>
+        <{elseif $ranking_item.list[i].is_sale}>
+            <p class="item-sale">SALE</p>
+        <{/if}>
+        </div>
+
+        <div class="item-list-image">
+        <a href="<{$ranking_item.list[i].url}>">
+            <img src="<{$ranking_item.list[i].image_S}>" alt="">
+            <div class="ranking-icon rank-<{$ranking_item.list[i].num}>">
+                <{$ranking_item.list[i].num}>
+            </div>
+        </a>
+        </div>
+        <{if $ranking_item.list[i].base_category.url}>
+            <p class="item-category"><a href="<{$ranking_item.list[i].base_category.url}>"><{$ranking_item.list[i].base_category.name}></a></p>
+        <{/if}>
+        <p class="item-name"><a href="<{$ranking_item.list[i].url}>"><{$ranking_item.list[i].name}></a></p>
+        <{if $ranking_item.list[i].is_sale}>
+            <p class="price original-price"><a href="<{$ranking_item.list[i].url}>">￥<{$ranking_item.list[i].original_price|number_format}><span>（税込）</span></a></p>
+            <p class="price item-sale-price"><a href="<{$ranking_item.list[i].url}>">￥<{$ranking_item.list[i].price|number_format}><span class="tax">（税込）</span>
+            <span class="sale-discount-rate">[<{$ranking_item.list[i].sale_rate}>%OFF</span>]</a></p>
+        <{else}>
+            <p class="price"><a href="<{$ranking_item.list[i].url}>">￥<{$ranking_item.list[i].price|number_format}><span>（税込）</span></a></p>
+        <{/if}>
+    </li>
+<{/section}>
+</ul>

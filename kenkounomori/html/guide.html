@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <{$page.title}>
+  </title>
+  <meta name="description" content="<{$page.description}>">
+  <link rel="canonical" href="<{$page.canonical_url}>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<{$page.title}>">
+  <meta property="og:description" content="<{$page.description}>">
+  <meta property="og:site_name" content="<{$shop.name}>">
+  <meta name="twitter:card" content="Summary with Large Image">
+  <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="<{$page.css}>">
+  <{$makeshop.head}>
+</head>
+
+<body>
+  <{$makeshop.body_top}>
+  <{$module.header}>
+  <div class="contents-wrapper">
+    <main>
+      <h1>ご利用案内</h1>
+      <table class="guide-table">
+        <tr>
+          <th id="method" class="pagelink">商品注文方法</th>
+          <td><{$guide.order}></td>
+        </tr>
+        <tr>
+          <th id="payment" class="pagelink">お支払いについて</th>
+          <td><{$guide.payment}></td>
+        </tr>
+        <tr>
+          <th id="fee" class="pagelink">配送について</th>
+          <td><{$guide.delivery}></td>
+        </tr>
+        <tr>
+          <th id="tax" class="pagelink">消費税について</th>
+          <td><{$guide.tax}></td>
+        </tr>
+        <tr>
+          <th>返品について</th>
+          <td><{$guide.return}></td>
+        </tr>
+      </table>
+    </main>
+  </div>
+  <{$module.footer}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="<{$page.javascript}>"></script>
+  <{$makeshop.body_bottom}>
+</body>
+</html>

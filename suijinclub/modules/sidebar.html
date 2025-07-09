@@ -1,0 +1,101 @@
+<aside class="side">
+    <div class="openbtn"><span></span><span></span><span></span></div>
+    <div class="g-nav">
+        <div class="g-nav-list">
+            <section class="sp-side-section">
+                <ul class="sp-gnav">
+                    <{if $member.is_logged_in}>
+                    <li class="account logout"><a href="<{$url.logout}>">ログアウト</a></li>
+                    <{else}>
+                    <li class="account membership"><a href="<{$url.member_entry}>">新規会員登録</a></li>
+                    <li class="account login"><a href="<{$url.login}>">ログイン</a></li>
+                    <{/if}>
+                </ul>
+            </section>
+            <section class="search">
+                <ul class="search-area">
+                    <li>
+                        <a href="<{$paid.entry_url}>"><img src="https://gigaplus.makeshop.jp/ebisudoec/paid_entory.png" alt="つけ払いお申し込みはこちら"></a>
+                    </li>
+                    <li>
+                        <label>SEARCH</label>
+                        <div class="searchbox-area">
+                            <input type="text" data-id="<{$search_form.keyword_id}>" value="<{$search.keyword}>" class="side-search-keyword search-keyword" placeholder="キーワードを入力">&ensp;
+                            <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </li>
+                    <li>
+                        <label>カテゴリー</label>
+                        <ul>
+                        <{section name=i loop=$category_menu.list}>
+                        <!-- VIPか業務会員 -->
+                        <{if ($member.group_id == 1 || $member.group_id == 2)}>
+                           <{if ($category_menu.list[i].code > 100 && $category_menu.list[i].code < 200)}>
+                              <li class="side-category-item">
+                                <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                              </li>
+                           <{/if}>
+                        <!-- ゲストか一般会員 -->
+                        <{else}>
+                           <{if ($category_menu.list[i].code < 100)}>
+                              <li class="side-category-item">
+                                <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                              </li>
+                            <{/if}>
+                        <{/if}>
+                        <{if ($category_menu.list[i].code > 200)}>
+                            <li class="side-category-item">
+                              <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                            </li>
+                        <{/if}>
+                        <{/section}>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="<{$search_form.search_url}>" class="search-btn search-url">検索する</a>
+            </section>
+            <section class="side-section">
+                <ul class="side-contact">
+                    <{if $shop.is_mail_magazine_enabled}>
+                    <li><a href="<{$url.mail_magazine}>"><img src="https://gigaplus.makeshop.jp/ebisudoec/l_mailBtn.png"></a></li>
+                    <li><a href="<{$url.company}>"><img src="https://gigaplus.makeshop.jp/ebisudoec/eb.png"></a></li>
+                    <{/if}>
+                </ul>
+            </section>
+            <section class="side-section calendar-wrap">
+                <label>カレンダー</label>
+                <div>
+                    <h3><{$calendar1.year}>年&nbsp;<{$calendar1.month}>月</h3>
+                    <{$calendar1.html}>
+                    <div>
+                        <span style="color:#222">■</span>TODAY
+                    </div>
+                    <{section name=i loop=$calendar1.date_list}>
+                        <div>
+                            <span style="color:<{$calendar1.date_list[i].color}>;">■</span><{$calendar1.date_list[i].description}>
+                        </div>
+                    <{/section}>
+                    <{section name=i loop=$calendar1.date_list}>
+                        <{section name=j loop=$calendar1.date_list[i].day_list}>
+                            <input type="hidden" class="day-list" data-month="1" data-day="<{$calendar1.date_list[i].day_list[j]}>" data-color="<{$calendar1.date_list[i].color}>">
+                        <{/section}>
+                    <{/section}>
+                </div>
+                <div>
+                    <h3><{$calendar2.year}>年&nbsp;<{$calendar2.month}>月</h3>
+                    <{$calendar2.html}>
+                    <{section name=i loop=$calendar2.date_list}>
+                        <div>
+                            <span style="color:<{$calendar2.date_list[i].color}>;">■</span><{$calendar2.date_list[i].description}>
+                        </div>
+                    <{/section}>
+                    <{section name=i loop=$calendar2.date_list}>
+                        <{section name=j loop=$calendar2.date_list[i].day_list}>
+                            <input type="hidden" class="day-list" data-month="2" data-day="<{$calendar2.date_list[i].day_list[j]}>" data-color="<{$calendar2.date_list[i].color}>">
+                        <{/section}>
+                    <{/section}>
+                </div>
+            </section>
+        </div>
+    </div>
+</aside>

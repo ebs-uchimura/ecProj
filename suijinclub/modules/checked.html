@@ -1,0 +1,30 @@
+<h2><span>■&nbsp;RECENT</span>&nbsp;<span>最近チェックしたアイテム</span></h2>
+<ul class="checked-item-list">
+<{section name=i loop=$recently_item.list max=4}>
+    <li>
+        <div class="item-icon">
+        <{if $recently_item.list[i].is_soldout}>
+            <p class="item-soldout">SOLD OUT</p>
+        <{elseif $recently_item.list[i].is_sale}>
+            <p class="item-sale">SALE</p>
+        <{/if}>
+        </div>
+
+        <div class="item-list-image">
+            <a href="<{$recently_item.list[i].url}>"><img src="<{$recently_item.list[i].image_S}>" alt=""></a>
+        </div>
+        <{if $recently_item.list[i].base_category.url}>
+            <p class="item-category"><a href="<{$recently_item.list[i].base_category.url}>"><{$recently_item.list[i].base_category.name}></a></p>
+        <{/if}>
+            <p class="item-name"><a href="<{$recently_item.list[i].url}>"><{$recently_item.list[i].name}></a></p>
+        <{if $recently_item.list[i].is_sale}>
+            <p class="price original-price"><a href="<{$recently_item.list[i].url}>">￥<{$recently_item.list[i].original_price|number_format}><span>（税込）</span></a></p>
+            <p class="price item-sale-price"><a href="<{$recently_item.list[i].url}>">￥<{$recently_item.list[i].price|number_format}><span class="tax">（税込）</span>
+            <span class="sale-discount-rate">[<{$recently_item.list[i].sale_rate}>%OFF</span>]</a></p>
+        <{else}>
+            <p class="price"><a href="<{$recently_item.list[i].url}>">￥<{$recently_item.list[i].price|number_format}><span>（税込）</span></a></p>
+        <{/if}>
+    </li>
+<{/section}>
+</ul>
+

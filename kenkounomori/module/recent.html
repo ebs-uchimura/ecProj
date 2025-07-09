@@ -1,0 +1,28 @@
+<{if $recently_item.has_item}>
+    <section class="other-item other-item-top">
+        <div class="other-item-inner">
+            <h2 class="other-item-title">閲覧商品</h2>
+            <ul class="other-item-list">
+            <{section name=i loop=$recently_item.list max=6}>
+                <li>
+                    <a href="<{$recently_item.list[i].url}>">
+                        <div class="other-item-img">
+                            <img src="<{$recently_item.list[i].image_L}>" alt="<{$recently_item.list[i].name}>">
+                        </div>
+                        <div class="other-item-info">
+                            <span class="other-item-name"><{$recently_item.list[i].name}></span>
+                            <{if $recently_item.list[i].is_sale}>
+                                <p class="original-price">￥<{$recently_item.list[i].original_price|number_format}><span>（税込）</span></p>
+                                <p class="item-sale-price contents-item-price other-item-price"><{$recently_item.list[i].price|number_format}><span class="tax">（税込）</span>
+                                <span class="sale-discount-rate">[<{$recently_item.list[i].sale_rate}>%OFF]</span></p>
+                            <{else}>
+                                <span class="contents-item-price other-item-price"><{$recently_item.list[i].price|number_format}>（税込）</span>
+                            <{/if}>
+                        </div>
+                    </a>
+                </li>
+            <{/section}>
+            </ul>
+        </div>
+    </section>
+<{/if}>

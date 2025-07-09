@@ -1,0 +1,26 @@
+<nav id="side-nav" class="side-nav">
+    <div class="side-nav-title">商品カテゴリー</div>
+    <ul class="side-nav-category">
+    <{section name=i loop=$category_menu.list}>
+        <li>
+            <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+            <{if $category_menu.list[i].child_category.has_item}>
+                <ul class="side-nav-sub-category">
+                <{section name=j loop=$category_menu.list[i].child_category.list}>
+                    <li>
+                        <a href="<{$category_menu.list[i].child_category.list[j].url}>"><{$category_menu.list[i].child_category.list[j].name}></a>
+                    </li>
+                <{/section}>
+                </ul>
+            <{/if}>
+        </li>
+    <{/section}>
+    <{if $bulk_menu.has_item}>
+        <{section name=i loop=$bulk_menu.list}>
+            <li>
+                <a href="<{$bulk_menu.list[i].url}>"><{$bulk_menu.list[i].name}></a>
+            </li>
+        <{/section}>
+    <{/if}>
+    </ul>
+</nav>

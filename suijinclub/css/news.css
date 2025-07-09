@@ -1,0 +1,138 @@
+/*
+/* news.css
+*/
+
+@charset "utf-8";
+
+/* -----------------------------------------------------------------
+   news
+----------------------------------------------------------------- */
+.contents .container .main .main-section .category-title h2 {
+  font-weight: bold;
+}
+
+.contents .container .main .main-section ul.news-list li.news-list-unit {
+  background-color: #fafafa;
+  margin: 15px 0;
+  padding: 20px 15px;
+}
+
+.contents .container .main .main-section ul.news-list li.news-list-unit .news-list-date {
+  margin-bottom: 8px;
+  font-size: 0.6rem;
+  color: #B5B5B5 !important;
+}
+
+.contents .container .main .main-section ul.news-list li.news-list-unit .news-list-detail {
+  font-size: 0.8rem;
+}
+
+.contents .container .main .main-section ul.news-list li.news-list-unit .news-list-title {
+  margin-bottom: 6px;
+}
+
+.contents .container .main .main-section ul.news-list li.news-list-unit .news-list-title a {
+  text-decoration: underline;
+}
+
+.contents .container .main .main-section ul.news-list li.news-list-unit .news-list-title a:hover {
+  text-decoration: none;
+}
+
+.contents .container .main .main-section .pager-wrap ul.pager {
+  justify-content: start;
+}
+
+.contents .container .main .main-section .pager-wrap ul.pager li .current{
+  font-size: 0.8rem;
+}
+
+.contents .container .main .main-section .pager-wrap p.total-count {
+  font-size: 0.8rem;
+}
+
+.contents .container .main .main-section .news-section .news-head {
+  margin: 0;
+}
+
+.contents .container .main .main-section .news-section .news-head .news-list-date {
+  font-size: 0.8rem;
+}
+
+.contents .container .main .main-section .news-section .news-head .news-title {
+  padding-bottom: 1em;
+  margin: 0 auto 1em;
+  border-bottom: solid 1px #222;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contents .container .main .main-section .news-section .news-content-wrap .news-detail-content {
+  font-size: 0.8rem;
+}
+
+.contents .container .main .main-section .news-section .news-pager {
+  margin-top: 30px;
+  font-size: 0.8rem;
+  text-decoration: underline;
+}
+
+.contents .container .main .main-section .news-section .news-pager li {
+  margin-top: 10px;
+}
+
+/* -----------------------------------------------------------------
+   responsive
+----------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .contents .container .main .main-section .pager-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* news */
+  .news-list li {
+    border-bottom: 1px solid #CBCBCB;
+    padding: 0;
+  }
+
+  .news-list li:first-child {
+    padding-top: 0;
+  }
+
+  .news-list dl dt {
+    margin-bottom: 8px;
+  }
+
+  .news-wrap dl dt a {
+    text-decoration: underline;
+  }
+
+  .news-wrap dl dt a:hover {
+    text-decoration: none;
+  }
+
+  .news-more a {
+    color: #B5B5B5 !important;
+    text-decoration: underline;
+  }
+
+  .news-more a:hover {
+    text-decoration: none;
+  }
+
+  .news-date {
+    color: #B5B5B5 !important;
+    min-width: 120px;
+  }
+
+  .news-content:after {
+    content: "…";
+  }
+
+  .news-more {
+    text-align: right;
+  }
+}

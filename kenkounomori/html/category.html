@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <{$page.title}>
+  </title>
+  <meta name="description" content="<{$page.description}>">
+  <link rel="canonical" href="<{$page.canonical_url}>">
+  <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<{$page.title}>">
+  <meta property="og:description" content="<{$page.description}>">
+  <meta property="og:site_name" content="<{$shop.name}>">
+  <meta name="twitter:card" content="Summary with Large Image">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/category.css">
+  <link rel="stylesheet" href="<{$page.css}>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <{$makeshop.head}>
+</head>
+<body>
+  <{$makeshop.body_top}>
+  <{$module.header}>
+  <main>
+    <nav class="breadcrumb pc-breadcrumb">
+      <ul class="breadcrumb-list">
+        <li><a href="<{$url.top}>"><{$shop.name}></a></li>
+        <{section name=i loop=$category.breadcrumb_list.list}>
+        <li><a href="<{$category.breadcrumb_list.list[i].url}>"><{$category.breadcrumb_list.list[i].name}></a></li>
+        <{/section}>
+      </ul>
+    </nav>
+    <section class="main-section">
+      <div class="category-contents">
+        <div class="category-header-area">
+          <div class="headline-area">
+            <hr>
+            <h1 class="headline">
+              商品一覧
+            </h1>
+          </div>
+          <div class="index-image">
+            <img src="https://gigaplus.makeshop.jp/kenkonomorij/mv_01__img-rasterrizu.jpg" alt="カテゴリメイン画像">
+          </div>
+        </div>
+        <div class="category-title">
+          <dl class="list-head-sort forpc">
+            <dt>並び替えor目的別キーワード：</dt>
+            <dd><a href="<{$category.sort_recommend_url}>">人気順</a></dd>
+            <dd><a href="<{$category.sort_low_price_url}>">価格の低い順</a></dd>
+            <dd><a href="<{$category.sort_high_price_url}>">価格の高い順</a></dd>
+            <dd><a href="<{$category.sort_new_url}>">登録の新しい順</a></dd>
+          </dl>
+          <select id="<{$category.code}>" class="forsp">
+            <option>並び替えor目的別キーワード：</option>
+            <option value="1"><a href="<{$category.sort_recommend_url}>">人気順</a></option>
+            <option value="2"><a href="<{$category.sort_low_price_url}>">価格の低い順</a></option>
+            <option value="3"><a href="<{$category.sort_high_price_url}>">価格の高い順</a></option>
+            <option value="4"><a href="<{$category.sort_new_url}>">登録の新しい順</a></option>
+          </select>
+        </div>
+        <{if $category.item.has_item}>
+        <ul class="item-list">
+        <{section name=i loop=$category.item.list}>
+          <li>
+            <div class="item-icon">
+            <{if $category.item.list[i].is_soldout}>
+              <p class="item-soldout">SOLD OUT</p>
+            <{elseif $category.item.list[i].is_sale}>
+              <p class="item-sale">SALE</p>
+            <{/if}>
+            </div>
+            <div class="item-list-image">
+              <a href="<{$category.item.list[i].url}>"><img src="<{$category.item.list[i].image_L}>" alt="カテゴリ画像"></a>
+            </div>
+            <p class="item-name"><a href="<{$category.item.list[i].url}>"><{$category.item.list[i].name}></a></p>
+            <{if $category.item.list[i].is_sale}>
+            <p class="price original-price">￥<{$category.item.list[i].original_price|number_format}><span>（税込）</span></p>
+            <p class="price item-sale-price">￥<{$category.item.list[i].price|number_format}><span class="tax">（税込）</span>
+            <span class="sale-discount-rate">[<{$category.item.list[i].sale_rate}>%OFF</span>]</p>
+            <{else}>
+            <p class="price">￥<{$category.item.list[i].price|number_format}><span>（税込）</span></p>
+            <{/if}>
+          </li>
+          <{/section}>
+        </ul>
+        <div class="pager-wrap">
+          <p class="total-count">（全<span><{$category.total_count}></span>件）<{$category.display_count}>件表示</p>
+          <{if $category.pager.has_item}>
+          <ul class="pager">
+            <{if !$category.pager.is_first_display}>
+            <li><a href="<{$category.pager.first_url}>"><span class="prev">一番前へ</span></a></li>
+            <{/if}>
+            <{section name=i loop=$category.pager.list}>
+            <{if $category.pager.list[i].is_current_page}>
+            <li><span class="current"><{$category.pager.list[i].number}></span></li>
+            <{else}>
+            <li><a href="<{$category.pager.list[i].url}>"><span><{$category.pager.list[i].number}></span></a></li>
+            <{/if}>
+            <{/section}>
+            <{if !$category.pager.is_last_display}>
+            <li><a href="<{$category.pager.last_url}>"><span class="next">最後へ</span></a></li>
+            <{/if}>
+          </ul>
+          <{/if}>
+        </div>
+        <{else}>
+        <p class="empty">このカテゴリーには商品がありません</p>
+        <{/if}>
+      </div>
+    </section>
+    <div class="gototop">
+      <button class="gototop-button"><i class="fa-solid fa-arrow-up-from-bracket fa-2x"></i></button>
+    </div>
+  </main>
+  <{$module.footer}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="<{$page.javascript}>"></script>
+  <{$makeshop.body_bottom}>
+</body>
+</html>

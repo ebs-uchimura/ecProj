@@ -1,0 +1,605 @@
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2R99TH"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <link rel="apple-touch-icon" href="https://img21.shop-pro.jp/PA01427/727/etc/ebisu.png?cmsp_timestamp=20190807162009">
+  
+  <script src="https://img.shop-pro.jp/tmpl_js/79/jquery.tile.js"></script>
+  <script src="https://img.shop-pro.jp/tmpl_js/79/smoothscroll.js"></script>
+  <script src="https://img.shop-pro.jp/tmpl_js/79/utility.index.js"></script>
+  
+  <div class="cart_in_modal__bg show_while_cart_in_connecting spinner" style="display: none;"></div>
+  <div id="wrapper">
+    <div id="header" class="header__section">
+      <div class="global-nav-sp-wrap hidden-desktop">
+        <div class="global-nav-sp">
+          <span class="global-nav-sp-btn"><i class="icon-lg-w icon-list"></i>メニュー</span>
+          <div class="global-nav-sp-list-wrap">
+            <ul class="global-nav-sp-list unstyled">
+              <li class="global-nav-sp-list__unit">
+                <a href="<{$home_url}>" class="global-nav-sp-list__txt">ホーム</a>
+              </li>
+              <li class="global-nav-sp-list__unit">
+                <{if $is_enable_async_cart_in_pc}>
+                  <form name="cart_view_with_async" method="POST" action="<{$view_cart_url}>">
+                    <{$view_cart_with_async_info}>
+                  </form>
+                  <a href="javascript:void(0)" class="global-nav-sp-list__txt cart_view_with_async">カートを見る</a>
+                <{else}>
+                  <a href="<{$view_cart_url}>" class="global-nav-sp-list__txt">カートを見る</a>
+                <{/if}>
+              </li>
+              <li class="global-nav-sp-list__unit">
+                <a href="<{$view_myaccount_url}>" class="global-nav-sp-list__txt">アカウント</a>
+              </li>
+              <{if $members_use_flg == true}>
+                <{if $members_login_flg == false}>
+                  <{if $members_register_flg == true}>
+                    <li class="global-nav-sp-list__unit">
+                      <a href="<{$members_regi_url}>" class="global-nav-sp-list__txt">会員登録</a>
+                    </li>
+                  <{/if}>
+                  <li class="global-nav-sp-list__unit">
+                    <a href="<{$members_login_url}>" class="global-nav-sp-list__txt">ログイン</a>
+                  </li>
+                <{else}>
+                  <li class="global-nav-sp-list__unit">
+                    <a href="<{$members_login_url}>" class="global-nav-sp-list__txt">ログアウト</a>
+                  </li>
+                <{/if}>
+              <{/if}>
+              <{if $mailmaga_url != ""}>
+                <li class="global-nav-sp-list__unit">
+                  <a href="<{$mailmaga_url}>" class="global-nav-sp-list__txt">メルマガ登録・解除</a>
+                </li>
+              <{/if}>
+              <{if $manager_url != ""}>
+                <li class="global-nav-sp-list__unit">
+                  <a href="<{$manager_url}>" class="global-nav-sp-list__txt">ブログ</a>
+                </li>
+              <{/if}>
+              <li class="global-nav-sp-list__unit">
+                              
+                <a href="<{$view_inq_url}>" class="global-nav-sp-list__txt">お問い合わせ</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="upbar-wrap">
+        <{if $logo_type=="image"}>
+            <h1 class="shopname__logo"><a href="<{$home_url}>"><{$logo}></a></h1>
+          <{else}>
+            <h1 class="shopname__lead"><a href="<{$home_url}>"><{$shop_name}></a></h1>
+          <{/if}>
+        
+        <div class="upbar container clearfix row">
+          <ul class="upbar-list col col-md-12">
+            <li class="upbar-list__unit">
+              <img src="https://img.shop-pro.jp/tmpl_img/79/icon_payment_bank.png" alt="銀行振込" />
+            </li>
+            <li class="upbar-list__unit">
+              <img src="https://img.shop-pro.jp/tmpl_img/79/icon_payment_cod.png" alt="代金引換" />
+            </li>
+            <li class="upbar-list__unit">
+              <img class="mini" src="https://img07.shop-pro.jp/PA01427/727/etc/logo_visa.png?cmsp_timestamp=20220517163131" alt="クレジット VISA" />
+            </li>
+            <li class="upbar-list__unit">
+              <img class="mini" src="https://img07.shop-pro.jp/PA01427/727/etc/logo_master.png?cmsp_timestamp=20220517163056" alt="クレジット MasterCard" />
+            </li>
+            <li class="upbar-list__unit">
+              <img class="mini" src="https://img07.shop-pro.jp/PA01427/727/etc/logo_jcb.png?cmsp_timestamp=20220517163047" alt="クレジット JCB" />
+            </li>
+            <li class="upbar-list__unit">
+              <img class="mini" src="https://img07.shop-pro.jp/PA01427/727/etc/logo_ae.png?cmsp_timestamp=20220517163109" alt="クレジット American Express" />
+            </li>
+            <li class="upbar-list__unit">
+              <img class="mini" src="https://img07.shop-pro.jp/PA01427/727/etc/logo_diners.png?cmsp_timestamp=20220517162920" alt="クレジット Diners" />
+            </li>
+            <li class="upbar-list__unit">
+              <img src="https://img21.shop-pro.jp/PA01427/727/etc/icon_payment_credit_anmazon.png?cmsp_timestamp=20190530122032" alt="Amazon Pay" />
+            </li>
+            <li class="upbar-list__unit">
+              <{rakuten_pay_banner type='logo3' size='small'}>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <img src="https://img07.shop-pro.jp/PA01427/727/etc_base64/dG9wXzAwMQ.png?cmsp_timestamp=20241107161816">
+      <div class="shopname-wrap">
+        <div class="shopname container">
+          
+          <div class="shopname__ad-wrap">
+            <div class="shopname__ad shopname__ad-deli">
+              <p><i class="icon-lg-w icon-box"></i>全国一律送料770円（税込）</p>
+            </div>
+            <div class="shopname__ad shopname__ad-tell">
+              <p><i class="icon-lg-w icon-phone"></i>電話注文：099-259-5511</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="global-nav-wrap visible-desktop">
+        <{assign var="gnav_col_class" value="col-lg-4"}>
+        <{if $members_use_flg == true}>
+          <{if $members_login_flg == false}>
+            <{if $members_register_flg == true}>
+              <{assign var="gnav_col_class" value="col-lg-2"}>
+            <{else}>
+              <{assign var="gnav_col_class" value="col-lg-3"}>
+            <{/if}>
+          <{else}>
+            <{assign var="gnav_col_class" value="col-lg-3"}>
+          <{/if}>
+        <{/if}>
+        <ul class="global-nav container row">
+          <li class="global-nav__unit col <{$gnav_col_class}>">
+            <a href="https://ebisudo.shop-pro.jp/" class="global-nav__txt">TOP</a>
+          </li>
+          <li class="global-nav__unit col <{$gnav_col_class}>">
+            <a href="<{$view_myaccount_url}>" class="global-nav__txt"><i class="icon-lg-w icon-user"></i>マイページ</a>
+          </li>
+          <{if $members_use_flg == true}>
+            <{if $members_login_flg == false}>
+              <{if $members_register_flg == true}>
+                <li class="global-nav__unit col <{$gnav_col_class}>">
+                  <a href="<{$members_regi_url}>" class="global-nav__txt"><i class="icon-lg-w icon-adduser"></i>会員登録</a>
+                </li>
+              <{/if}>
+              <li class="global-nav__unit col <{$gnav_col_class}>">
+                <a href="<{$members_login_url}>" class="global-nav__txt"><i class="icon-lg-w icon-login"></i>ログイン</a>
+              </li>
+            <{else}>
+              <li class="global-nav__unit col <{$gnav_col_class}>">
+                <a href="<{$members_login_url}>" class="global-nav__txt"><i class="icon-lg-w icon-logout"></i>ログアウト</a>
+              </li>
+            <{/if}>
+          <{/if}>
+          <li class="global-nav__unit col <{$gnav_col_class}>">
+            <a href="<{$view_inq_url}>" class="global-nav__txt"><i class="icon-lg-w icon-mail"></i>お問い合わせ</a>
+          </li>
+          <li class="global-nav__unit col <{$gnav_col_class}>">
+            <{if $is_enable_async_cart_in_pc}>
+              <form name="cart_view_with_async" method="POST" action="<{$view_cart_url}>">
+                <{$view_cart_with_async_info}>
+              </form>
+              <a href="javascript:void(0)" class="global-nav__txt cart_view_with_async">
+                <i class="icon-lg-w icon-cart"></i>カート(<span class="cart_count"><{$incart_total_count}></span>)
+              </a>
+            <{else}>
+              <a href="<{$view_cart_url}>" class="global-nav__txt">
+                <i class="icon-lg-w icon-cart"></i>カート(<{$incart_total_count}>)
+              </a>
+            <{/if}>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="downbar-wrap<{if $text_pr_01 == "" && $text_pr_02 == ""&& $text_pr_03 == ""}> visible-desktop<{/if}>">
+        <div class="downbar container clearfix">
+          <{if $text_pr_01 != "" || $text_pr_02 != "" || $text_pr_03 != ""}>
+            <ul class="downbar-ad inline">
+              <{if $text_pr_01 != ""}>
+                <li>
+                  <a href="https://www.amazon.co.jp/s?me=A1OPDEXW3YX6AF" target="_blank">
+                    <i class="icon-lg-b icon-chevron_right"></i><{$text_pr_01}>
+                  </a>
+                </li>
+              <{/if}>
+            </ul>
+          <{/if}>
+          <ul class="downbar-social inline visible-desktop">
+            <{if $manager_url != ""}>
+              <li>
+                <a href="<{$manager_url}>"></a>
+              </li>
+            <{/if}>
+            <{if $mailmaga_url != "https://secure.shop-pro.jp/?mode=myaccount_login"}>
+              <li>
+                <a href="<{$mailmaga_url}>">メルマガ登録・解除</a>
+              </li>
+            <{/if}>
+            <li>
+              <ul class="social__units">
+                <{if $twitter_url}>
+                  <li class="social__unit">
+                    <a href="<{$twitter_url}>" target="_blank"><i class="icon-lg-b icon-c_twitter"></i></a>
+                  </li>
+                <{/if}>
+                <{if $facebook_url}>
+                  <li class="social__unit">
+                    <a href="<{$facebook_url}>" target="_blank"><i class="icon-lg-b icon-c_facebook"></i></a>
+                  </li>
+                <{/if}>
+                <{if $instagram_url}>
+                  <li class="social__unit">
+                    <a href="<{$instagram_url}>" target="_blank"><i class="icon-lg-b icon-instagram"></i></a>
+                  </li>
+                <{/if}>
+                <{if $youtube_url}>
+                  <li class="social__unit">
+                    <a href="<{$youtube_url}>" target="_blank"><i class="icon-lg-b icon-youtube"></i></a>
+                  </li>
+                <{/if}>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="contents" class="contents__section container">
+      <{if $tpl_name == "top" && $free_space != ""}>
+        <{$free_space}>
+      <{/if}>
+      <div class="row">
+        <div class="main__section<{if $bnr_side_01 != "" || $bnr_side_02 != "" || $bnr_side_03 != "" || $bnr_side_04 != "" || $bnr_side_05 != ""}> main__section-banner-side<{/if}> col row">
+          <div class="primary__section col col-lg-9 col-md-12">
+            <{include file = $file_name}>
+          </div>
+          <div class="side-nav__section col col-lg-3 col-md-12">
+            <!-- カテゴリーリスト -->
+            <{section name=num loop=$category}>
+              <{if $smarty.section.num.first }>
+                <div class="side-nav-box">
+                  <h3 class="side-nav-heading">カテゴリー</h3>
+                  <ul class="side-nav-list side-nav-cate-list unstyled">
+                    <{foreach from=$category item=cate name=cate}>
+                      <li class="side-nav-list__unit side-nav-cate-list__unit">
+                        <a href="<{$cate.link_url}>" class="side-nav-list__link">
+                          <span class="side-nav-list__icon"></span>
+                          <span class="side-nav-list__name"><{$cate.name}></span>
+                        </a>
+                        <{foreach from=$subcategory[$cate.bid] item=scate name=scate}>
+                          <{if $smarty.foreach.scate.first}>
+                            <ul class="side-nav-list side-nav-scate-list unstyled">
+                              <li class="side-nav-list__unit">
+                                <a href="<{$cate.link_url}>" class="side-nav-list__link">
+                                  <span class="side-nav-list__name">全ての<{$cate.name}></span>
+                                </a>
+                              </li>
+                          <{/if}>
+                              <li class="side-nav-list__unit">
+                                <a href="<{$scate.link_url}>" class="side-nav-list__link">
+                                  <{$scate.name}>
+                                </a>
+                              </li>
+                          <{if $smarty.foreach.scate.last}>
+                            </ul>
+                          <{/if}>
+                        <{/foreach}>
+                    </li>
+                    <{/foreach}>
+                  </ul>
+                </div>
+              <{/if}>
+            <{/section}>
+            <!-- // カテゴリーリスト -->
+            <!-- グループリスト -->
+            <{section name=num loop=$group}>
+              <{if $smarty.section.num.first }>
+                <div class="side-nav-box">
+                  <h3 class="side-nav-heading">グループ</h3>
+                  <ul class="side-nav-list unstyled">
+              <{/if}>
+                    <li class="side-nav-list__unit">
+                      <a href="<{$group[num].link_url}>" class="side-nav-list__link">
+                        <{$group[num].name}>
+                      </a>
+                    </li>
+              <{if $smarty.section.num.last }>
+                  </ul>
+                </div>
+              <{/if}>
+            <{/section}>
+            <!-- //グループリスト -->
+            <{if $free_area_flg == true}>
+            <!-- フリーページ -->
+              <{section name=num loop=$freepage}>
+                <{if $smarty.section.num.first }>
+                  <div class="side-nav-box">
+                    <h3 class="side-nav-heading">コンテンツ</h3>
+                    <ul class="side-nav-list unstyled">
+                <{/if}>
+                      <li class="side-nav-list__unit">
+                        <a href="<{$freepage[num].link_url}>" class="side-nav-list__link">
+                          <{$freepage[num].page_title}>
+                        </a>
+                      </li>
+                <{if $smarty.section.num.last }>
+                    </ul>
+                  </div>
+                <{/if}>
+              <{/section}>
+            <!-- //フリーページ -->
+            <{/if}>
+            <{if $calendar != ""}>
+            <!-- 営業日カレンダー -->
+              <div class="side-nav-box">
+                <h3 class="side-nav-heading">営業日カレンダー</h3>
+                <div class="side_cal">
+                  <{$calendar}>
+                </div>
+                <{if $calendar_memo != ""}>
+                  <div class="side_cal_memo">
+                    <{$calendar_memo}>
+                  </div>
+                <{/if}>
+              </div>
+            <!-- //営業日カレンダー -->
+            <{/if}>
+            <{if $qrcode_url}>
+              <!-- モバイルショップ -->
+              <div class="side-nav-box visible-desktop">
+                <h3 class="side-nav-heading">モバイルショップ</h3>
+                <div class="side-nav-mobile">
+                  <img src="<{$qrcode_url}>" />
+                </div>
+              </div>
+              <!-- //モバイルショップ -->
+            <{/if}>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="scroll" class="scroll_section">
+      <div class="btn btn-scroll btn-home">
+        <a href="<{$home_url}>">
+          <i class="icon-lg-w icon-home"></i>
+          <span class="btn-scroll__txt">ホーム</span>
+        </a>
+      </div>
+      <{if $tpl_name == "product"}>
+        <div class="btn btn-scroll btn-cart">
+          <a href="#order">
+            <i class="icon-lg-w icon-cart"></i>
+            <span class="btn-scroll__txt">カート</span>
+          </a>
+        </div>
+      <{/if}>
+      <div class="btn btn-scroll btn-pagetop">
+        <a href="#header">
+          <i class="icon-lg-w icon-chevron_up"></i>
+          <span class="btn-scroll__txt">トップ</span>
+        </a>
+      </div>
+    </div>
+    <div id="footer" class="footer__section container">
+      <div class="history__section">
+        <h2 class="section-title-h2">最近チェックした商品</h2>
+        <{if $history_num != 0}>
+          <ul class="history-list product-list row">
+            <{section name=num loop=$history max=6}>
+              <{ if $history[num].name|replace:"【社販】":"" == $history[num].name }>
+              <li class="history-list__unit product-list__unit col col-lg-2 col-md-4 col-sm-6">
+                <a href="<{$history[num].link_url}>">
+                  <{if $history[num].img_url != ""}>
+                    <img src="<{$history[num].img_url}>" alt="<{$history[num].name}>" class="product-list__img" />
+                  <{else}>
+                    <img src="https://img.shop-pro.jp/tmpl_img/79/noimage.png" alt="<{$history[num].name}>" class="product-list__img" />
+                  <{/if}>
+                </a>
+                <a href="<{$history[num].link_url}>" class=" product-list__txt">
+                  <span class="product-list__name show">
+                    <{$history[num].name}>
+                  </span>
+                </a>
+                <p>
+                  <{if $history[num].soldout_flg == false}>
+                    <{if $members_login_flg && $history[num].discount_flg}>
+                      <span class="product-list__regular-price show">
+                        <{$history[num].regular_price}>
+                      </span>
+                      <span class="product-list__price product-list__discount show">
+                        <{$history[num].price}>
+                      </span>
+                      <span class="product-list__discount-rate show">
+                        <{$history[num].discount_rate}>OFF
+                      </span>
+                    <{else}>
+                      <span class="product-list__price show">
+                        <{$history[num].price}>
+                      </span>
+                    <{/if}>
+                  <{else}>
+                    <span class="product-list__soldout show">
+                      売り切れ
+                    </span>
+                  <{/if}>
+                </p>
+              </li>
+              <{/if}>
+            <{/section}>
+          </ul>
+        <{else}>
+          <p class="paragraph-item">最近チェックした商品はまだありません。</p>
+        <{/if}>
+      </div>
+      <div class="footer-pagetop hidden-desktop">
+        <a href="#header"><span class="footer-pagetop-icon icon-lg-w icon-chevron_up"></span></a>
+      </div>
+      <{if $shop.return_limit != "" || $shop.return_price != "" || $shop.bad_product != ""}>
+        <{assign var="footer_notice_return" value=true}>
+      <{else}>
+        <{assign var="footer_notice_return" value=false}>
+      <{/if}>
+      <{if $manager_name != "" && $manager_memo != "" || $shop.email != "" || $shop.tell != "" || $shop.shop_name != ""}>
+        <{assign var="footer_notice_inquiry" value=true}>
+      <{else}>
+        <{assign var="footer_notice_inquiry" value=false}>
+      <{/if}>
+      <{if $footer_notice_inquiry || $sk_delivery != ""}>
+        <{assign var="fnotice_col_class" value="col-lg-4"}>
+      <{/if}>
+      <{if $footer_notice_inquiry && $sk_delivery != ""}>
+        <{assign var="fnotice_col_class" value="col-lg-6"}>
+      <{/if}>
+      <{if $footer_notice_return || $footer_notice_inquiry || $sk_delivery != "" || $sk_payment != ""}>
+        <{if $sk_delivery != ""}>
+          <div class="notice0 col">
+            <h3 class="notice-heading">配送・送料について</h3>
+            <dl class="notice-list">
+              <{section name=num loop=$sk_delivery}>
+                <{if $sk_delivery[num].name != "拠点納品" }>
+                <{if $sk_delivery[num].name != "佐川急便（社販）" }>
+                <dt class="notice-list__name">
+                  <{$sk_delivery[num].name}>
+                </dt>
+                <dd class="notice-list__unit">
+                  <{if $sk_delivery[num].img_url != "" }>
+                    <img src="<{$sk_delivery[num].img_url}>" /><br />
+                  <{/if}>
+                  <{$sk_delivery[num].other}>
+                </dd>
+                <{/if}>
+                <{/if}>
+              <{/section}>
+            </dl>
+          <{/if}>
+          <{if $footer_notice_return}>
+            <div class="notice1 col">
+              <h3 class="notice-heading">返品について</h3>
+              <dl class="notice-list">
+                <{if $shop.return_limit != ""}>
+                  <dt class="notice-list__name">返品期限</dt>
+                  <dd class="notice-list__unit"><{$shop.return_limit}>&nbsp;</dd>
+                <{/if}>
+                <{if $shop.return_price != ""}>
+                  <dt class="notice-list__name">返品送料</dt>
+                  <dd class="notice-list__unit"><{$shop.return_price}>&nbsp;</dd>
+                <{/if}>
+                <{if $shop.bad_product != ""}>
+                  <dt class="notice-list__name">不良品</dt>
+                  <dd class="notice-list__unit"><{$shop.bad_product}>&nbsp;</dd>
+                <{/if}>
+              </dl>
+            </div>
+          <{/if}>
+          <{if $sk_payment != ""}>
+            <div class="notice2 col">
+              <h3 class="notice-heading">支払い方法について</h3>
+              <dl class="notice-list">
+                <{section name=num loop=$sk_payment}>
+                  <{if $sk_payment[num].name != "現金" }>
+                  <{if $sk_payment[num].name != "給与天引" }>
+                  <dt class="notice-list__name">
+                    <{$sk_payment[num].name}>
+                  </dt>
+                  <{/if}>
+                  <{/if}>
+                  <dd class="notice-list__unit">
+                    <{if $sk_payment[num].img_url != "" }>
+                      <img src="<{$sk_payment[num].img_url}>" /><br />
+                    <{/if}>
+                    <{if $sk_payment[num].card_img != "" }>
+                      <{$sk_payment[num].card_img}><br />
+                    <{/if}>
+                    <{$sk_payment[num].other}>&nbsp;
+                  </dd>
+                <{/section}>
+              </dl>
+            </div>
+          <{/if}>
+          <{if $footer_notice_inquiry}>
+            <div class="notice3 col">
+              <h3 class="notice-heading">お問い合わせ</h3>
+              <!--<img src="https://img21.shop-pro.jp/PA01427/727/etc/ebisu_01.png?cmsp_timestamp=20190504131555" alt="さつまゑびす堂全景">-->
+              <dl class="notice-list">
+                <{if $manager_name != "" && $manager_memo != ""}>
+                  <{if $manager_img != ""}>
+                    <dt class="notice-list__name"><img src="<{$manager_img}>" alt="<{$manager_name}>" /></dt>
+                  <{/if}>
+                  <dd class="notice-list__unit inquiry-list__name"><{$manager_name}></dd>
+                  <dd class="notice-list__unit"><{$manager_memo}></dd>
+                <{/if}>
+                <{if $shop.email != "" }>
+                  <dt class="notice-list__name">メールアドレス</dt>
+                  <dd class="notice-list__unit"><{$shop.email}>&nbsp;</dd>
+                <{/if}>
+                <{if $shop.tel != "" }>
+                  <dt class="notice-list__name">電話番号</dt>
+                  <dd class="notice-list__unit"><{$shop.tel}>&nbsp;</dd>
+                  <dd><small>※ 当店へのお問い合わせはメールにてお願い致します</small></dd>
+                  <dd><small>※ 営業などのお電話はお断りいたします</small></dd><br>
+                <{/if}>
+                <{if $shop.shop_name != "" }>
+                  <dt class="notice-list__name">販売業者</dt>
+                  <dd class="notice-list__unit"><{$shop.shop_name}>&nbsp;</dd>
+                <{/if}>
+              </dl>
+              <img width="326" src="https://www.ebisu-do.jp/suijinclub/banner/limitation_sp2.png">
+            </div>
+          <{/if}>
+        </div>
+          </div>
+          <div class="footer-notice-sp__section hidden-desktop">
+          <ul class="footer-notice-sp-list unstyled">
+            <{if $shop.shop_name != ""}>
+              <li class="footer-notice-sp-list__unit">
+                <a href="<{$sk_url}>#cancel" class="footer-notice-sp-list__txt show">
+                  <span class="list_link_name">返品について</span>
+                </a>
+              </li>
+            <{/if}>
+            <{if $sk_delivery != ""}>
+              <li class="footer-notice-sp-list__unit">
+                <a href="<{$sk_url}>" class="footer-notice-sp-list__txt show">
+                  <span class="list_link_name">配送・送料について</span>
+                </a>
+              </li>
+            <{/if}>
+            <{if $sk_payment != ""}>
+              <li class="footer-notice-sp-list__unit">
+                <a href="<{$sk_url}>#payment" class="footer-notice-sp-list__txt show">
+                  <span class="list_link_name">支払い方法について</span>
+                </a>
+              </li>
+            <{/if}>
+          </ul>
+          <{if $footer_notice_inquiry}>
+            <div class="footer-notice-sp-inquiry">
+              <dl class="footer-notice-sp-inquiry-list">
+                <{if $manager_name != "" && $manager_memo != ""}>
+                  <{if $manager_img != ""}>
+                    <dt class="footer-notice-sp-inquiry-list__name"><img src="<{$manager_img}>" alt="<{$manager_name}>" class="inquiry-sp-list__img" /></dt>
+                  <{/if}>
+                  <dd class="footer-notice-sp-inquiry-list__unit inquiry-sp-list__name"><{$manager_name}></dd>
+                  <dd class="footer-notice-sp-inquiry-list__unit"><{$manager_memo}></dd>
+                <{/if}>
+                <{if $shop.email != "" }>
+                  <dt class="footer-notice-sp-inquiry-list__name">メールアドレス</dt>
+                  <dd class="footer-notice-sp-inquiry-list__unit"><{$shop.email}>&nbsp;</dd>
+                <{/if}>
+                <{if $shop.tel != "" }>
+                  <dt class="footer-notice-sp-inquiry-list__name">電話番号</dt>
+                  <dd class="footer-notice-sp-inquiry-list__unit"><{$shop.tel}>&nbsp;</dd>
+                  <dd><small>※ 当店へのお問い合わせはメールにてお願い致します。</small></dd>
+                  <dd><small>※ 営業などのお電話はお断りいたします。</small></dd>
+                <{/if}>
+                <{if $shop.shop_name != "" }>
+                  <dt class="footer-notice-sp-inquiry-list__name">販売業者</dt>
+                  <dd class="footer-notice-sp-inquiry-list__unit"><{$shop.shop_name}>&nbsp;</dd>
+                <{/if}>
+              </dl>
+            </div>
+          <{/if}>
+        </div>
+      <{/if}>
+    </div>
+    <div class="footer-nav__section row">
+      <ul class="footer-nav-list col col-lg-12">
+        <li class="footer-nav-list__unit"><a href="<{$sk_url}>#payment" class="footer-nav-list__txt">支払い方法について</a>&nbsp;/</li>
+        <li class="footer-nav-list__unit"><a href="<{$sk_url}>" class="footer-nav-list__txt">配送・送料について</a>&nbsp;/</li>
+        <li class="footer-nav-list__unit"><a href="<{$sk_url}>#cancel" class="footer-nav-list__txt">返品について</a>&nbsp;/</li>
+        <li class="footer-nav-list__unit"><a href="<{$sk_url}>#info" class="footer-nav-list__txt">特定商取引法に基づく表記</a>&nbsp;/</li>
+        <li class="footer-nav-list__unit"><a href="<{$privacy_url}>" class="footer-nav-list__txt">プライバシーポリシー</a>&nbsp;/</li>
+        <{if $mailmaga_url != ""}><li class="footer-nav-list__unit"><a href="<{$mailmaga_url}>" class="footer-nav-list__txt">メルマガ登録・解除</a>&nbsp;/</li><{/if}>
+        <li class="footer-nav-list__unit"><a href="<{$rss_url}>" class="footer-nav-list__txt">RSS</a>・<a href="<{$atom_url}>" class="footer-nav-list__txt">ATOM</a></li>
+      </ul>
+    </div>
+    <address class="footer-copylight__section">
+      <a href="<{$home_url}>"><{$e_copyright}></a>
+    </address>
+  </div>
+  

@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+/* -----------------------------------------------------------------
+  privacy
+----------------------------------------------------------------- */
+.contents-wrapper {
+  padding: 40px 4%;
+}
+h1 {
+  margin-top: 40px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.privacy-policy {
+  margin: 30px 0;
+}
+.privacy-policy:last-child {
+  margin-bottom: 0;
+}
+.privacy-policy pre {
+  font-size: 13px;
+  line-height: 23px;
+  margin: 0;
+  white-space: pre-wrap;
+  width: 100%;
+}
+
+/* -----------------------------------------------------------------
+   smartphone
+----------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+  .contents-wrapper {
+    padding: 5vw 0 8vw 0;
+  }
+  main {
+    margin: 0 auto;
+    width: 90vw;
+  }
+  h1 {
+   	margin-top: 5vw;
+    font-size: 1rem;
+    margin-bottom: 5vw;
+    text-align: center;
+  }
+  .privacy-policy {
+    margin-top: 5vw;
+  }
+  .privacy-policy pre {
+    font-size: 0.8rem;
+    line-height: 26px;
+  }
+}

@@ -1,0 +1,29 @@
+<h2><span>■&nbsp;RECOMMEND</span>&nbsp;<span>おすすめ商品</span></h2>
+<ul class="item-list">
+<{section name=i loop=$recommend_item.list max=8}>
+    <li>
+        <div class="item-icon">
+        <{if $recommend_item.list[i].is_soldout}>
+            <p class="item-soldout">SOLD OUT</p>
+        <{elseif $recommend_item.list[i].is_sale}>
+            <p class="item-sale">SALE</p>
+        <{/if}>
+        </div>
+
+        <div class="item-list-image">
+            <a href="<{$recommend_item.list[i].url}>"><img src="<{$recommend_item.list[i].image_S}>" alt=""></a>
+        </div>
+        <{if $recommend_item.list[i].base_category.url}>
+            <p class="item-category"><a href="<{$recommend_item.list[i].base_category.url}>"><{$recommend_item.list[i].base_category.name}></a></p>
+        <{/if}>
+        <p class="item-name"><a href="<{$recommend_item.list[i].url}>"><{$recommend_item.list[i].name}></a></p>
+        <{if $recommend_item.list[i].is_sale}>
+            <p class="price original-price"><a href="<{$recommend_item.list[i].url}>">￥<{$recommend_item.list[i].original_price|number_format}><span>（税込）</span></a></p>
+            <p class="price item-sale-price"><a href="<{$recommend_item.list[i].url}>">￥<{$recommend_item.list[i].price|number_format}><span class="tax">（税込）</span>
+            <span class="sale-discount-rate">[<{$recommend_item.list[i].sale_rate}>%OFF</span>]</a></p>
+        <{else}>
+            <p class="price"><a href="<{$recommend_item.list[i].url}>">￥<{$recommend_item.list[i].price|number_format}><span>（税込）</span></a></p>
+        <{/if}>
+    </li>
+<{/section}>
+</ul>

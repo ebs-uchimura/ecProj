@@ -1,0 +1,10 @@
+.section-title {
+  background: #c73922; /*背景色*/
+  padding: 0.5em;/*文字周りの余白*/
+  color: white;/*文字を白に*/
+}
+
+.breadcrumb-list__section {
+  margin: 0px;
+  padding: 0px;
+}

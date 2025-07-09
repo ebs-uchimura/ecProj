@@ -1,0 +1,256 @@
+<script src="https://img.shop-pro.jp/tmpl_js/79/utility.product_list.js"></script>
+
+<!-- パンくずリスト -->
+<div class="breadcrumb-list__section">
+  <ul class="breadcrumb-list breadcrumb-list-plst">
+    <li class="breadcrumb-list__unit"><a href="<{$home_url}>">ホーム</a></li>
+    <{if $smarty.get.mode != "grp"}>
+      <{if $bid_name != ""}>
+        <li class="breadcrumb-list__unit">&gt;&nbsp;<a href="<{$bid_link}>"><{$bid_name}></a></li>
+      <{/if}>
+      <{if $sid_name != ""}>
+        <li class="breadcrumb-list__unit">&gt;&nbsp;<a href="<{$sid_link}>"><{$sid_name}></a></li>
+      <{/if}>
+    <{else}>
+      <{section name=num loop=$group_breadcrumb}>
+        <li class="breadcrumb-list__unit">&gt;&nbsp;<a href="<{$group_breadcrumb[num].link_url}>"><{$group_breadcrumb[num].name}></a></li>
+      <{/section}>
+    <{/if}>
+  </ul>
+</div>
+<!-- // パンくずリスト -->
+<!-- カテゴリー(大) フリースペース 1 -->
+<{if $category_desc_1}>
+  <div class="freespace__section"><{$category_desc_1}></div>
+<{/if}>
+<!-- // カテゴリー(大) フリースペース 1 -->
+<!-- カテゴリー(小) フリースペース 1 -->
+<{if $subcategory_desc_1}>
+  <div class="freespace__section"><{$subcategory_desc_1}></div>
+<{/if}>
+<!-- // カテゴリー(小) フリースペース 1 -->
+<!-- グループ フリースペース 1 -->
+<{if $group_desc_1}>
+  <div class="freespace__section"><{$group_desc_1}></div>
+<{/if}>
+<!-- // グループ フリースペース 1 -->
+<h2 class="section-title">
+  <{if $sid_name != ""}>
+    <{$sid_name}>
+  <{elseif $bid_name != ""}>
+    <{$bid_name}>
+  <{else}>
+    該当のカテゴリーがありません
+  <{/if}>
+</h2>
+<!-- 小カテゴリーリスト -->
+<{if $subcategory_num != 0}>
+  <ul class="subcategory-list row">
+    <{section name=num loop=$sub_category}>
+      <li class="subcategory-list__unit col col-lg-4 col-sm-6">
+        <a href="<{$sub_category[num].link_url}>">
+          <{if $sub_category[num].img_url != "" }>
+            <img src="<{$sub_category[num].img_url}>" class="show mar_auto mar_b_5" />
+          <{/if}>
+          <{$sub_category[num].name}>
+        </a>
+      </li>
+    <{/section}>
+  </ul>
+<{/if}>
+<!-- // 小カテゴリーリスト -->
+<!-- 小グループリスト -->
+<{if $subgroup_num != 0}>
+  <ul class="subcategory-list row">
+    <{section name=num loop=$sub_group}>
+      <li class="subcategory-list__unit col col-lg-4 col-sm-6">
+        <a href="<{$sub_group[num].link_url}>">
+          <{if $sub_group[num].img_url != "" }>
+            <img src="<{$sub_group[num].img_url}>" class="show mar_auto mar_b_5" />
+          <{/if}>
+          <{$sub_group[num].name}>
+        </a>
+      </li>
+    <{/section}>
+  </ul>
+<{/if}>
+<!-- // 小グループリスト -->
+<!--
+<{if $productlist_num != 0}>
+-->
+  <!-- ソート -->
+<!--
+  <div class="productlist-sort__section">
+    <div class="productlist-sort clearfix">
+      <ul class="productlist-sort-list inline">
+        <li class="productlist-sort-list__unit">
+          <{if $productlist_sort_now != ""}>
+            <a href="<{$productlist_sort_def}>">おすすめ順</a><{else}>おすすめ順
+          <{/if}>
+        </li>
+        <li class="productlist-sort-list__unit">
+          <{if $productlist_sort_now != "p"}>
+            <a href="<{$productlist_sort_price}>">価格順</a><{else}>価格順
+          <{/if}>
+        </li>
+        <li class="productlist-sort-list__unit">
+          <{if $productlist_sort_now != "n"}>
+            <a href="<{$productlist_sort_new}>">新着順</a><{else}>新着順
+          <{/if}>
+        </li>
+      </ul>
+      <p class="productlist-sort-totalnumber">全<span><{$productlist_num}></span>商品</p>
+    </div>
+  </div>
+  <!-- // ソート -->
+  <!-- ページャー -->
+<!--
+  <div class="pagenation-sp__section hidden-desktop">
+    <ul class="pagenation-sp-list unstyled">
+      <li class="pagenation-sp-list__unit">
+        <{if $productlist_prev_page == ""}>
+          <span class="btn btn-pn disabled">&lt; 前</span>
+        <{else}>
+          <a href="<{$productlist_prev_page}>" class="btn btn-pn">&lt; 前</a>
+        <{/if}>
+      </li>
+      <li class="pagenation-sp-list__unit">
+        <{if $productlist_next_page == ""}>
+          <span class="btn btn-pn disabled">次 &gt;</span>
+        <{else}>
+          <a href="<{$productlist_next_page}>" class="btn btn-pn">次 &gt;</a>
+        <{/if}>
+      </li>
+    </ul>
+    <div class="pagenation-sp-info">
+      全<span><{$productlist_num}></span>件&nbsp;<span><{$productlist_snum}></span>-<span><{$productlist_enum}></span>表示
+    </div>
+  </div>
+-->
+  <!-- // ページャー -->
+  <!-- 商品リスト -->
+  <div class="productlist__section">
+    <ul class="product-list unstyled row">
+      <{section name=num loop=$productlist}>
+        <li class="productlist-list__unit product-list__unit col col-lg-3 col-md-4 col-sm-6">
+          <a href="<{$productlist[num].link_url}>">
+            <{if $productlist[num].img_url != ""}>
+              <img src="<{$productlist[num].img_url}>" alt="<{$productlist[num].name}>" class="product-list__img" />
+            <{else}>
+              <img src="https://img.shop-pro.jp/tmpl_img/79/noimage.png" alt="<{$productlist[num].name}>" class="product-list__img" />
+            <{/if}>
+          </a>
+          <a href="<{$productlist[num].link_url}>" class="product-list__txt">
+            <span class="product-list__name show">
+              <{$productlist[num].name}>
+            </span>
+          </a>
+          <p>
+            <{if $productlist[num].soldout_flg == false}>
+              <{if $members_login_flg && $productlist[num].discount_flg}>
+                <span class="product-list__regular-price show">
+                  <{$productlist[num].regular_price}>
+                </span>
+                <span class="product-list__discount show">
+                  <{$productlist[num].price}>
+                </span>
+                <span class="product-list__discount-rate show">
+                  <{$productlist[num].discount_rate}>OFF
+                </span>
+              <{else}>
+                <span class="product-list__price show">
+                  <{$productlist[num].price}>
+                </span>
+              <{/if}>
+            <{else}>
+                <span class="product-list__soldout show">
+                  売り切れ
+                </span>
+            <{/if}>
+          </p>
+          <{if $productlist[num].s_expl != ""}>
+            <p class="product-list__expl">
+              <{$productlist[num].s_expl}>
+            </p>
+          <{/if}>
+        </li>
+      <{/section}>
+    </ul>
+  </div>
+  <!-- // 商品リスト -->
+  <!-- ページャー -->
+  <div class="pagenation__section visible-desktop">
+    <ul class="pagenation-list unstyled">
+      <li class="pagenation-list__unit">
+        <{if $productlist_prev_page != ""}>
+          <a href="<{$productlist_prev_page}>">&lt;</a>
+        <{else}>
+          <span>&lt;</span>
+        <{/if}>
+      </li>
+      <{section name=pager start=$productlist_first_page loop=$productlist_last_page+1}>
+        <li class="pagenation-list__unit">
+          <{if $smarty.section.pager.first && $smarty.section.pager.index > 1}>
+            <a href="<{$productlist_link_base}>">1</a><span style="border: none;">...</span>
+          <{/if}>
+          <{if $smarty.section.pager.index == $productlist_current_page}>
+            <span><{$smarty.section.pager.index}></span>
+          <{else}>
+            <a href="<{$productlist_link_base}>&page=<{$smarty.section.pager.index}>"><{$smarty.section.pager.index}></a>
+          <{/if}>
+          <{if $smarty.section.pager.last && $smarty.section.pager.index < $productlist_total_pages}>
+            <span style="border: none;">...</span><a href="<{$productlist_link_base}>&page=<{$productlist_total_pages}>"><{$productlist_total_pages}></a>
+          <{/if}>
+        </li>
+      <{/section}>
+      <li class="pagenation-list__unit">
+        <{if $productlist_next_page != ""}>
+          <a href="<{$productlist_next_page}>">&gt;</a>
+        <{else}>
+          <span>&gt;</span>
+        <{/if}>
+      </li>
+    </ul>
+  </div>
+  <div class="pagenation-sp__section hidden-desktop">
+    <div class="pagenation-sp-info">
+      全<span><{$productlist_num}></span>件&nbsp;<span><{$productlist_snum}></span>-<span><{$productlist_enum}></span>表示
+    </div>
+    <ul class="pagenation-sp-list unstyled">
+      <li class="pagenation-sp-list__unit">
+        <{if $productlist_prev_page == ""}>
+          <span class="btn btn-pn disabled">&lt; 前</span>
+        <{else}>
+          <a href="<{$productlist_prev_page}>" class="btn btn-pn">&lt; 前</a>
+        <{/if}>
+      </li>
+      <li class="pagenation-sp-list__unit">
+        <{if $productlist_next_page == ""}>
+          <span class="btn btn-pn disabled">次 &gt;</span>
+        <{else}>
+          <a href="<{$productlist_next_page}>" class="btn btn-pn">次 &gt;</a>
+        <{/if}>
+      </li>
+    </ul>
+  </div>
+  <!-- // ページャー -->
+<{else}>
+  <{if $subcategory_num == 0 && $subgroup_num == 0}>
+    <p class="paragraph-item">該当する商品がありません</p>
+  <{/if}>
+<{/if}>
+<!-- カテゴリー(大) フリースペース 2 -->
+<{if $category_desc_2}>
+  <div class="freespace__section"><{$category_desc_2}></div>
+<{/if}>
+<!-- // カテゴリー(大) フリースペース 2 -->
+<!-- カテゴリー(小) フリースペース 2 -->
+<{if $subcategory_desc_2}>
+  <div class="freespace__section"><{$subcategory_desc_2}></div>
+<{/if}>
+<!-- // カテゴリー(小) フリースペース 2 -->
+<!-- グループ フリースペース 2 -->
+<{if $group_desc_2}>
+  <div class="freespace__section"><{$group_desc_2}></div>
+<{/if}>
+<!-- // グループ フリースペース 2 -->

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <{$page.title}>
+  </title>
+  <meta name="description" content="<{$page.description}>">
+  <link rel="canonical" href="<{$page.canonical_url}>">
+  <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<{$page.title}>">
+  <meta property="og:description" content="<{$page.description}>">
+  <meta property="og:site_name" content="<{$shop.name}>">
+  <meta name="twitter:card" content="Summary with Large Image">
+  <{$makeshop.head}>
+    <link rel="stylesheet" href="<{$page.css}>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+  <{$makeshop.body_top}>
+  <{$module.header}>
+  <main>
+    <section class="main-contents">
+      <div class="main-header-area">
+        <h1 class="headline">
+          健康の森&thinsp;大人気商品
+        </h1>
+        <div class="subscript">HUGELY POPULAR ITEM</div>
+      </div>
+      <{if $shop.mainvisual}>
+      <div class="index-image">
+        <{$shop.mainvisual}>
+      </div>
+      <{ /if}>
+      <div class="center-catch3">
+        <img src="https://gigaplus.makeshop.jp/kenkonomorij/design_icon.png">
+        <h3>おかげさまでもうすぐ40年</h3>
+        <div class="subscript">40th Anniversary</div>
+        <div class="text-area Noto-Serif-JP">
+          <h4>鹿児島県鹿児島市で本社を構えて、<br>全国の皆様に愛されてまいりました。</h4>
+          <div class="first">
+            決して商売上手ではない私たちは、この40年変わらぬ想いを持ち、<span class="br">今日という日を迎えております。</span><span
+              class="br">その想い、それは、全国の皆様に知っていただきたかったのです。</span><span class="br">健康の喜びを。そして味わって貰いたかった。</span><span
+              class="br">健康の森の主力商品である福山町産の薩摩玄米黒酢。</span><span
+              class="br">薩摩玄米黒酢は、錦江湾の奥地、霧島市福山町で、200年の伝統に培われた昔ながらの瓶</span><span
+              class="br">壺仕込みで、時間をかけて丁寧に造られています。</span><span class="br">それから鹿児島県枕崎産の鰹を用いた鰹一番せんじ。</span><span
+              class="br">これは堅魚煎汁（かつおのいろり）として、弥生時代から私たちの祖先を</span><span class="br">支えてきた万民保健食品です。</span><span
+              class="br">そして今、私たちのお客様が抱えるお悩みの一つとして上がった入れ歯洗浄剤。</span><span
+              class="br">その業界で新しい風を起こしたく、商品開発しましたバブルアルデント。</span><span
+              class="br">この商品開発には、琵琶湖の石けん運動が起因しています。</span>
+          </div>
+          <div class="second">
+            私たちの変わらぬ想い。
+            <span class="br">これまでもこれからも。</span>
+            <span class="br">皆様に味わっていただきたい健康の喜びを。</span>
+            <span class="br">伝えてまいります。</span>
+          </div>
+        </div>
+      </div>
+      <div class="news">
+        <div class="news-head">
+          <h2>お知らせ</h2>
+          <div class="subscript">NEWS</div>
+        </div>
+        <section class="contents-section contents-section-news">
+          <{if $latest_news.has_item}>
+          <ul class="contents-news-list">
+            <{section name=i loop=$latest_news.list max=3}>
+            <li>
+              <a href="<{$latest_news.list[i].url}>">
+                <span class="date">
+                  <time
+                    datetime="<{$latest_news.list[i].date.year}>-<{$latest_news.list[i].date.month}>-<{$latest_news.list[i].date.day}>">
+                    <{$latest_news.list[i].date.year}>/<{$latest_news.list[i].date.month}>/
+                        <{$latest_news.list[i].date.day}>
+                  </time>
+                </span>
+                <span class="content">
+                  <{$latest_news.list[i].title}>
+                </span>
+                <span class="arrow">
+                  <a href="<{$latest_news.list[i].url}>"><i class="fa-solid fa-arrow-right"></i></a>
+                </span>
+              </a>
+            </li>
+            <{ /section}>
+          </ul>
+          <{else}>
+          <ul class="contents-news-list">
+            <li class="no-news">新着情報はありません</li>
+          </ul>
+          <{ /if}>
+        </section>
+        <button class="show-detail"
+          onclick="location.href='https://www.kenkonomori.jp/view/news/list'">一覧はこちらから</button>
+      </div>
+      <div id="introduction">
+        <section class="introduction">
+          <div class="introduction-head">
+            <h2>新商品紹介</h2>
+            <div class="subscript">NEW PRODUCTS</div>
+          </div>
+          <{if $new_item.has_item}>
+          <ul class="item-list">
+            <{section name=i loop=$new_item.list}>
+            <li class="intro1">
+              <div class="product">
+                <div class="product-image">
+                  <img src="<{$new_item.list[i].image_L}>" alt="<{$new_item.list[i].name}>">
+                </div>
+                <div class="product-detail">
+                  <div class="product-name"><{$new_item.list[i].name}></div>
+                  <div class="product-description"><{$new_item.list[i].description}></div>
+                  <div class="product-price"><{$new_item.list[i].price|number_format}>円（税込）</div>
+                  <div class="product-goto">
+                    <button class="show-detail"
+                      onclick="location.href='<{$new_item.list[i].url}>'">ご購入はこちらから&emsp;<i
+                        class="fa-solid fa-arrow-right"></i></button>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <{ /section}>
+          </ul>
+          <{ /if}>
+        </section>
+      </div>
+    </section>
+    <div class="gototop">
+      <button class="gototop-button"><i class="fa-solid fa-arrow-up-from-bracket fa-2x"></i></button>
+    </div>
+  </main>
+  <{$module.footer}>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="<{$page.javascript}>"></script>
+  <{$makeshop.body_bottom}>
+</body>
+</html>

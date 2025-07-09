@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <{$page.title}>
+  </title>
+  <meta name="description" content="<{$page.description}>">
+  <link rel="canonical" href="<{$page.canonical_url}>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<{$page.title}>">
+  <meta property="og:description" content="<{$page.description}>">
+  <meta property="og:site_name" content="<{$shop.name}>">
+  <meta name="twitter:card" content="Summary with Large Image">
+  <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="<{$page.css}>">
+  <{$makeshop.head}>
+</head>
+<body>
+  <{$makeshop.body_top}>
+  <{$module.header}>
+  <main>
+    <h1>私達の使命</h1>
+    <div class="mission">
+      <div class="text">
+        <p>弊社商品の主原料である「薩摩玄米黒酢」は、錦江湾の奥地、霧島市福山町で、２００年の伝統に培われた昔ながらの瓶壺仕込みで、時間をかけて丁寧に造られています。<br><br>
+  「薩摩玄米黒酢」には、人間の体内では合成されない９種類の必須アミノ酸を含む、約２０種類のアミノ酸が豊富に入っており、更に１０種類以上の有機酸や、体に免疫力をつけるのに役立つ成分なども含まれております。<br><br>
+  鹿児島のこんなに素晴らしい「薩摩玄米黒酢」を、もっと広く全国の皆さんにも知って頂き、健康の喜びを味わって貰いたいと願い、この会社を設立しました。<br><br>
+  「薩摩玄米黒酢」を飲みやすいカプセルに出来ないだろうかと考えた当時、お酢をカプセルに入れるのは技術的に大変難しく、本当に苦労しましたが、平成１０年４月、福山町産の「薩摩玄米黒酢」を初めてソフトカプセル化することに成功しました。<br><br>
+  さらに、弊社商品の「薩摩くろす丸」「くろす美人丸」「にんにく黒酢」「ブルーベリー黒酢プレミアム」共に「薩摩玄米黒酢」との相性の良い、非常に有効な成分を配合し、液体よりも遥かに飲み易い形で、鹿児島から全国の皆様にお届けすることが出来るようになりました。<br><br>
+  「健康力（免疫力や自然治癒力）」を、自然由来の「薩摩玄米黒酢」で高めるために、弊社商品を是非とも沢山の皆様にお摂りいただき、健康な毎日をお送り頂けるようお手伝いできればと、心より願っております。</p>
+      </div>
+      <{if $company.image_url}>
+      <div class="company-image">
+        <img src="<{$company.image_url}>" alt="会社イメージ">
+      </div>
+       <{/if}> 
+    </div>
+    <div class="company-text">
+      <{$company.content|nl2br}>
+    </div>
+  </main> 
+  <{$module.footer}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="<{$page.javascript}>"></script>
+  <{$makeshop.body_bottom}>
+</body>
+</html>

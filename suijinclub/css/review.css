@@ -1,0 +1,251 @@
+/*
+/* review.css
+*/
+
+@charset "utf-8";
+
+/* -----------------------------------------------------------------
+  review
+  ----------------------------------------------------------------- */
+/* general */
+p.empty {
+    font-size: 0.8rem;
+}
+
+a.btn-review-post {
+    width: 50%;
+    height: 55px;
+    margin-left: 20px;
+    background: #e31537 url(/view/images/template/10/icon-arrow-right-w.png) no-repeat right 15px center/6px 12px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+.reviewRateStar {
+    display: inline-block;
+    font-size: 0;
+    color: #FFA41C;
+}
+
+.reviewRateStar::before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f005";
+    font-weight: 900;
+}
+
+.starOff::before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f005";
+    font-weight: 400;
+}
+
+.starHalf::before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f5c0";
+}
+
+/* review */
+.contents .container .main .main-section .review-title {
+    margin-top: 24px;
+    margin-bottom: 48px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.contents .container .main .main-section .review-title em {
+    font-weight: bold;
+}
+
+.contents .container .main .main-section .review-item-wrap {
+    display: flex;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #f0f0f0;
+}
+
+.contents .container .main .main-section .review-item-wrap .review-item-image {
+    width: 100px;
+}
+
+.contents .container .main .main-section .review-item-wrap .review-item-image img {
+    max-width: 100%;
+}
+
+.contents .container .main .main-section .review-item-wrap .review-item-info {
+    flex: 1;
+    text-align: left;
+    margin-left: 16px;
+    font-size: 0.9rem;
+}
+
+.contents .container .main .main-section .review-item-wrap .review-item-info .total-review {
+    margin-top: 8px;
+}
+
+.contents .container .main .main-section .review-item-wrap .review-item-info .total-review .review-average,
+.contents .container .main .main-section .review-item-wrap .review-item-info .total-review .review-count {
+    display: inline-block;
+}
+
+.contents .container .main .main-section .review-item-wrap .review-item-info .total-review .review-average {
+    font-weight: bold;
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+.contents .container .main .main-section .review-item-btn {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.contents .container .main .main-section .list-head {
+    text-align: right;
+}
+
+.contents .container .main .main-section .list-head p.category-count {
+    font-size: 0.7rem;
+}
+
+.contents .container .main .main-section .all-review {
+    margin-bottom: 48px;
+}
+
+.contents .container .main .main-section .all-review .review-head-wrap {
+    width: 70%;
+    text-align: left;
+}
+
+.contents .container .main .main-section .all-review .review-list-content {
+    text-align: left;
+}
+
+.contents .container .main .main-section .all-review .review-name,
+.contents .container .main .main-section .all-review .review-list-score-wrap {
+    display: inline-block;
+}
+
+
+.contents .container .main .main-section .review-form-wrap {
+    width: 485px;
+    margin: 20px 0 0 0;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form dt {
+    width: 150px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form dd input {
+    border: 1px solid #707070;
+    width: 100%;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form:last-child {
+    margin-bottom: 60px;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form .review-form-content {
+    width: 100%;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form .review-form-content textarea {
+    width: 400px;
+    height: 200px
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form .review-form-content .reviewRate .reviewRateStar {
+    display: inline-block;
+    font-size: 0;
+    color: #FFA41C;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-form .review-form-content .reviewRate .reviewRateStar::before {
+    font-family: 'Font Awesome 5 Free';
+    content: "\f005";
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.contents .container .main .main-section .review-form-wrap .review-post .review-post-btn {
+    border: none !important;
+    background: #707070;
+    color: #fff;
+}
+
+.contents .container .main .main-section .review-list .review-list-unit .review-list-head .review-head-wrap .review-list-score-wrap .review-star {
+    margin-right: 6px;
+}
+
+.contents .container .main .main-section .review-list .review-list-unit .review-list-head .review-list-date {
+    color: #B5B5B5;
+    margin: 12px 0;
+}
+
+/* -----------------------------------------------------------------
+   responsive
+----------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+    .forpc {
+        display: none !important;
+    }
+
+    .contents .container .main .main-section .review-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .contents .container .main .main-section .review-title em {
+        font-size: 1.2rem;
+    }
+
+    .contents .container .main .main-section .review-form-wrap {
+        width: 90%;
+        margin: 1% auto;
+        display: block;
+    }
+
+    .contents .container .main .main-section .review-form-wrap .review-form {
+        display: block;
+    }
+
+    .contents .container .main .main-section .review-form-wrap .review-form dt {
+        width: 80%;
+        margin-bottom: 5px;
+    }
+
+    .contents .container .main .main-section .review-form-wrap .review-form .review-form-content {
+        width: 100%;
+    }
+
+    .contents .container .main .main-section .review-form-wrap .review-form .review-form-content textarea {
+        width: 100%;
+        height: 200px;
+    }
+
+    a.btn-review-post {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* -----------------------------------------------------------------
+   pc only
+----------------------------------------------------------------- */
+@media screen and (min-width: 769px) {
+    .forsp {
+        display: none !important;
+    }
+}

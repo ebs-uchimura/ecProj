@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <{$page.title}>
+  </title>
+  <meta name="description" content="<{$page.description}>">
+  <link rel="canonical" href="<{$page.canonical_url}>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<{$page.title}>">
+  <meta property="og:description" content="<{$page.description}>">
+  <meta property="og:site_name" content="<{$shop.name}>">
+  <meta name="twitter:card" content="Summary with Large Image">
+  <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="<{$page.css}>">
+  <{$makeshop.head}>
+</head>
+
+<body>
+  <{$makeshop.body_top}>
+  <{$module.header}>
+  <div class="cart-all-wrapper">
+    <main>
+      <div class="headline-area">
+        <hr>
+        <h1 class="headline">
+          ショッピングカート
+        </h1>
+      </div>
+      <section class="cart-wrapper">
+        <div class="cart-detail">
+          <{if $cart.has_item}>
+          <ul class="cart-detail-list">
+            <{section name=i loop=$cart.list}>
+            <li>
+              <div class="cart-detail-image">
+                <img src="<{$cart.list[i].image_L}>" alt="<{$cart.list[i].name}>">
+              </div>
+              <div class="cart-detail-info">
+                <div class="cart-detail-name">
+                  <a href="<{$cart.list[i].url}>"><{$cart.list[i].name}></a>
+                </div>
+                <div class="cart-detail-option">
+                  <div class="cart-detail-price"><{$cart.list[i].total_price|number_format}>円</div>
+                  <{if $cart.list[i].selected_option.has_item}>
+                  <div class="cart-list-option">
+                  <{section name=j loop=$cart.list[i].selected_option.list}>
+                    <p><{$cart.list[i].selected_option.list[j].title}>：<{$cart.list[i].selected_option.list[j].option_name}></p>
+                  <{/section}>
+                  </div>
+                  <{/if}>
+                  <{if $shop.is_point_enabled}>
+                  <p><{$cart.list[i].total_point|number_format}>ポイント獲得できます</p>
+                  <{/if}>
+                  <{if $cart.list[i].name_print.has_item}>
+                  <div class="cart-nameprint-area">
+                  <{section name=j loop=$cart.list[i].name_print.list}>
+                    <p class="name-print-title"><{$cart.list[i].name_print.list[j].title}><br>
+                      <span><{$cart.list[i].name_print.list[j].name|escape|nl2br}></span>
+                    </p>
+                  <{/section}>
+                  </div>
+                  <{/if}>
+                </div>
+              </div>
+              <div class="cart-detail-operate">
+                <div class="cart-detail-quantity">
+                  <input type="number" data-id="<{$cart.list[i].quantity_id}>"
+                  value="<{$cart.list[i].quantity}>" name="quantity" min="1" disabled>
+                  <div class="cart-detail-quantity-operate">
+                    <span class="cart-detail-quantity-up"></span>
+                    <span class="cart-detail-quantity-down"></span>
+                  </div>
+                  <a href="<{$cart.list[i].quantity_url}>"></a>
+                </div>
+                <div class="cart-detail-delete"><a href="<{$cart.list[i].remove_url}>">削除</a></div>
+              </div>
+            </li>
+            <{/section}>
+          </ul>
+          <div class="cart-total">
+            <div class="cart-total-price">
+              商品合計<span class="cart-total-price-value">: <{$cart.total_price|number_format}>円</span>
+            </div>
+            <{if $shop.is_point_enabled && $cart.total_point !==0}>
+            <div class="cart-total-point">
+              獲得ポイント
+              <span class="cart-total-point-value">
+                <{$cart.total_point|number_format}>pt
+              </span>
+            </div>
+            <{/if}>
+          </div>
+          <{else}>
+          <div class="cart-empty">ショッピングカートに商品はありません。</div>
+          <{/if}> 
+        </div> 
+        <div class="cart-nav">
+          <{if $cart.has_item}>
+          <nav class="cart-nav-next">
+            <div class="show-detail">
+              <a href="<{$cart.order_url}>">
+                <span>ご購入手続きへ&emsp;<i class="fa-solid fa-arrow-right"></i></span>
+              </a>
+            </div> 
+          </nav>
+          <{/if}>
+          <nav class="cart-nav-prev">
+            <button class="show-detail" onclick="location.href='<{$url.top}>'">お買い物を続ける&emsp;<i class="fa-solid fa-arrow-right"></i></button>
+          </nav>
+          <{if $cart.is_free_shipping_enabled}>
+          <div class="free-shipping-wrap">
+            <{if $cart.free_shipping_price==0}>
+            <p class="free-shipping-text">今回のお買い物は<span class="shipping-price">送料無料</span>となります</p>
+            <{else}>
+            <p class="free-shipping-text">
+              あと<span class="shipping-price">￥<{$cart.free_shipping_price|number_format}></span>で送料無料になります
+            </p>
+            <p class="free-shipping-text">
+              <span class="shipping-small-text"><{$cart.free_shipping_message}></span>
+            </p>
+            <{/if}>
+          </div>
+          <{/if}>
+        </div>
+      </section>
+      <{$module.recently_item}>
+      <{$module.recommend_item}>
+    </main>
+  </div>
+  <{$module.footer}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="<{$page.javascript}>"></script>
+  <{$makeshop.body_bottom}>
+</body>
+</html>

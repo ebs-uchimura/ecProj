@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><{$page.title}></title>
+<meta name="description" content="<{$page.description}>">
+<link rel="canonical" href="<{$page.canonical_url}>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<{$page.title}>">
+<meta property="og:description" content="<{$page.description}>">
+<meta property="og:site_name" content="<{$shop.name}>">
+<meta name="twitter:card" content="Summary with Large Image">
+<link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+<link href="<{$page.css}>" rel="stylesheet">
+<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<{$makeshop.head}>
+</head>
+<body>
+<{$makeshop.body_top}>
+    <{$module.header}>
+    <div class="contents">
+        <div class="container">
+            <{$module.side}>
+            <main class="main">
+                <section class="main-section">
+                    <div class="category-title forpc">
+                        <h2>■&nbsp;検索結果&nbsp;
+                        <span>
+                        <{if $search.keyword}>
+                            <{$search.keyword}>
+                        <{/if}>
+                        <{if $search.category.name}>
+                            <{$search.category.name}>
+                        <{/if}>
+                        <{if $search.price_low || $search.price_high}>
+                            <{if $search.price_low}><{$search.price_low}>円<{/if}>～<{if $search.price_high}><{$search.price_high}>円<{/if}>
+                        <{/if}>
+                        <{if $search.original_code}>
+                            <{$search.original_code}>
+                        <{/if}>
+                        </span>
+                        </h2>
+                        <dl class="list-head-sort">
+                            <dt>並び替え：</dt>
+                            <dd><a href="<{$search.sort_low_price_url}>">価格の低い順</a></dd>
+                            <dd><a href="<{$search.sort_high_price_url}>">価格の高い順</a></dd>
+                            <dd><a href="<{$search.sort_recommend_url}>">おすすめ順</a></dd>
+                            <dd><a href="<{$search.sort_new_url}>">新着順</a></dd>
+                        </dl>
+                    </div>
+                    <div class="category-title forsp">
+                        <h2>■&nbsp;検索結果&nbsp;<span>result</span></h2>
+                        <select id="list-head-sort" class="list-head-sort">
+                            <option value="">検索順：</option>
+                            <option value="<{$search.sort_low_price_url}>">価格の低い順</option>
+                            <option value="<{$search.sort_high_price_url}>">価格の高い順</option>
+                            <option value="<{$search.sort_recommend_url}>">おすすめ順</option>
+                            <option value="<{$search.sort_new_url}>">新着順</option>
+                        </select>
+                    </div>
+                    <{if $search.item.has_item}>
+                    <ul class="item-list">
+                    <{section name=i loop=$search.item.list}>
+                        <li>
+                            <div class="item-icon">
+                            <{if $search.item.list[i].is_soldout}>
+                                <p class="item-soldout">SOLD OUT</p>
+                            <{elseif $search.item.list[i].is_sale}>
+                                <p class="item-sale">SALE</p>
+                            <{/if}>
+                            </div>
+                            <div class="item-list-image">
+                                <a href="<{$search.item.list[i].url}>"><img src="<{$search.item.list[i].image_S}>" alt=""></a>
+                            </div>
+                            <{if $search.item.list[i].base_category.url}>
+                                <p class="item-category"><a href="<{$search.item.list[i].base_category.url}>"><{$search.item.list[i].base_category.name}></a></p>
+                            <{/if}>
+                            <p class="item-name"><a href="<{$search.item.list[i].url}>"><{$search.item.list[i].name}></a></p>
+                            <{if $search.item.list[i].is_sale}>
+                                <p class="price original-price">￥<{$search.item.list[i].original_price|number_format}><span>（税込）</span></p>
+                                <p class="price item-sale-price">￥<{$search.item.list[i].price|number_format}><span class="tax">（税込）</span>
+                                <span class="sale-discount-rate">[<{$search.item.list[i].sale_rate}>%OFF</span>]</p>
+                            <{else}>
+                                <p class="price">￥<{$search.item.list[i].price|number_format}><span>（税込）</span></p>
+                            <{/if}>
+                        </li>
+                    <{/section}>
+                    </ul>
+                    <div class="pager-wrap">
+                        <ul class="pager">
+                            <{if !$search.pager.is_first_display}>
+                                <li><a href="<{$search.pager.first_url}>"><span class="prev">一番前へ</span></a></li>
+                            <{/if}>
+                            <{section name=i loop=$search.pager.list}>
+                            <{if $search.pager.list[i].is_current_page}>
+                                <li><span class="current"><{$search.pager.list[i].number}></span></li>
+                            <{else}>
+                                <li><a href="<{$search.pager.list[i].url}>"><span><{$search.pager.list[i].number}></span></a></li>
+                            <{/if}>
+                            <{/section}>
+                            <{if !$search.pager.is_last_display}>
+                                <li><a href="<{$search.pager.last_url}>"><span class="next">最後へ</span></a></li>
+                            <{/if}>
+                        </ul>
+                        <{/if}>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    <{$module.footer}>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<script src="<{$page.javascript}>"></script>
+<{$makeshop.body_bottom}>
+</body>
+</html>

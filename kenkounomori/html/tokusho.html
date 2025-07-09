@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><{$page.title}></title>
+<meta name="description" content="<{$page.description}>">
+<link rel="canonical" href="<{$page.canonical_url}>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<{$page.title}>">
+<meta property="og:description" content="<{$page.description}>">
+<meta property="og:site_name" content="<{$shop.name}>">
+<meta name="twitter:card" content="Summary with Large Image">
+<link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+<link rel="stylesheet" href="<{$page.css}>">
+<{$makeshop.head}>
+</head>
+
+<body>
+<{$makeshop.body_top}>
+<{$module.header}>
+<div class="contents-wrapper">
+  <main>
+    <h1>特定商取引に関する法律に基づく表示</h1>
+    <table class="contract-table">
+      <tr>
+        <th>販売業者</th>
+        <td><{$contract.dealer}></td>
+      </tr>
+      <tr>
+        <th>運営統括責任者</th>
+        <td><{$contract.manager}></td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td><{$contract.address}></td>
+      </tr>
+      <tr>
+        <th>TEL</th>
+        <td><{$contract.tel}></td>
+      </tr>
+      <tr>
+        <th>公開メールアドレス</th>
+        <td><{$contract.mail}></td>
+      </tr>
+      <tr>
+        <th>商品代金以外の必要料金</th>
+        <td><{$contract.other_charge}></td>
+      </tr>
+      <tr>
+        <th>申し込み有効期限</th>
+        <td><{$contract.expire_app}></td>
+      </tr>
+      <tr>
+        <th>不良品</th>
+        <td><{$contract.defective}></td>
+      </tr>
+      <tr>
+        <th>販売数量</th>
+        <td><{$contract.amount}></td>
+      </tr>
+      <tr>
+        <th>引き渡し期間</th>
+        <td><{$contract.receive_date}></td>
+      </tr>
+      <tr>
+        <th>お支払い方法</th>
+        <td><{$contract.pay_method}></td>
+      </tr>
+      <tr>
+        <th>お支払い期限</th>
+        <td><{$contract.expire_pay}></td>
+      </tr>
+      <tr>
+        <th>返品期限</th>
+        <td><{$contract.expire_return}></td>
+      </tr>
+      <tr>
+        <th>返品送料</th>
+        <td><{$contract.return_charge}></td>
+      </tr>
+    </table>
+  </main>
+</div>
+<{$module.footer}>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="<{$page.javascript}>"></script>
+<{$makeshop.body_bottom}>
+</body>
+</html>

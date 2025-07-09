@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title><{$page.title}></title>
+<meta name="description" content="<{$page.description}>">
+<link rel="canonical" href="<{$page.canonical_url}>">
+<meta property="og:type" content="website">
+<meta property="og:title" content="<{$page.title}>">
+<meta property="og:description" content="<{$page.description}>">
+<meta property="og:site_name" content="<{$shop.name}>">
+<meta name="twitter:card" content="Summary with Large Image">
+<link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+<link href="<{$page.css}>" rel="stylesheet">
+<link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<{$makeshop.head}>
+</head>
+<body>
+<{$makeshop.body_top}>
+    <{$module.header}>
+    <div class="contents">
+        <section class="main-visual">
+            <{$shop.mainvisual}>
+        </section>
+        <{$module.banner}>
+        <div class="top-container container">
+            <{$module.side}>
+            <main class="main">
+                <{if $latest_news.has_item}>
+                <section class="main-section border">
+                    <h2><span>■&nbsp;INFORMATION</span>&nbsp;<span>お知らせ</span></h2>
+                    <ul class="news-list index-news-list">
+                        <{section name=i loop=$latest_news.list max=4}>
+                        <li>
+                            <div class="news-wrap">
+                                <p class="news-date"><{$latest_news.list[i].date.year}>/<{$latest_news.list[i].date.month}>/<{$latest_news.list[i].date.day}> <{$latest_news.list[i].date.hour}>:<{$latest_news.list[i].date.minute}></p>
+                                <dl>
+                                    <dt class="news-title"><a href="<{$latest_news.list[i].url}>"><{$latest_news.list[i].title}></a></dt>
+                                </dl>
+                            </div>
+                        </li>
+                        <{/section}>
+                    </ul>
+                    <p class="news-more"><a href="<{$url.news}>">お知らせ一覧へ</a></p>
+                </section>
+                <{/if}>
+                <section class="forsp category-section border">
+          <h2><span>■&nbsp;CATEGORY</span>&nbsp;<span>商品カテゴリ</span></h2>
+          <ul id="main-nav-category" class="main-nav-category">
+            <{section name=i loop=$category_menu.list}>
+              <{if ($member.group_id == 1 || $member.group_id == 2)}>
+                <{if ($category_menu.list[i].code > 100 && $category_menu.list[i].code < 200)}>
+                  <li class="main-category-item">
+                    <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                  </li>
+                <{/if}>
+              <{else}>
+                <{if ($category_menu.list[i].code < 100)}>
+                  <li class="main-category-item">
+                    <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                  </li>
+                <{/if}>
+              <{/if}>
+              <{if ($category_menu.list[i].code > 200)}>
+                <li class="main-category-item">
+                  <a href="<{$category_menu.list[i].url}>"><{$category_menu.list[i].name}></a>
+                </li>
+              <{/if}>
+            <{/section}>
+          </ul>
+        </section>
+                <section class="main-section border">
+                    <{$module.new}>
+                </section>
+                <section class="main-section border">
+                    <{$module.recommend}>
+                </section>
+                <section class="main-section border">
+                    <{$module.ranking}>
+                </section>
+                <section class="main-section border">
+                    <{$module.checked}>
+                </section>
+            </main>
+        </div>
+    </div>
+    <div class="mobilepaid forsp">
+        <ul>
+            <li>
+                <a href="<{$paid.entry_url}>"><img src="https://gigaplus.makeshop.jp/ebisudoec/paid_entory.png" alt="つけ払いお申し込みはこちら"></a>
+            </li>
+        </ul>
+    </div>
+    <{$module.footer}>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="<{$page.javascript}>"></script>
+    <{$makeshop.body_bottom}>
+</body>
+</html>

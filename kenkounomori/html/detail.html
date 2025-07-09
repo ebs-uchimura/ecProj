@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>
+    <{$page.title}>
+  </title>
+  <meta name="description" content="<{$page.description}>">
+  <link rel="canonical" href="<{$page.canonical_url}>">
+  <link rel="shortcut icon" type="image/ico" href="<{$shop.favicon_url}>">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<{$page.title}>">
+  <meta property="og:description" content="<{$page.description}>">
+  <meta property="og:site_name" content="<{$shop.name}>">
+  <meta property="og:image" content="<{$item.image_L}>">
+  <meta name="twitter:card" content="Summary with Large Image">
+  <{$makeshop.head}>
+  <link rel="stylesheet" href="<{$page.css}>">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" media="screen">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+
+<body>
+  <{$makeshop.body_top}>
+  <{$module.header}>
+  <main>
+    <nav class="breadcrumb pc-breadcrumb">
+      <{section name=i loop=$item.breadcrumb_list_group.list max=1}>
+      <ul class="breadcrumb-list">
+        <li><a href="<{$url.top}>"><{$shop.name}></a></li>
+        <{section name=j loop=$item.breadcrumb_list_group.list[i].list}>
+        <li><a href="<{$item.breadcrumb_list_group.list[i].list[j].url}>">
+            <{$item.breadcrumb_list_group.list[i].list[j].name}>
+          </a>
+        </li>
+        <{ /section}>
+        <li><a href="<{$item.url}>"><{$item.name}></a></li>
+      </ul>
+      <{ /section}>
+    </nav>
+    <section class="main-section">
+      <div class="item-wrap">
+        <div class="item-image">
+          <{if $item.multi_image.has_item}>
+          <img src="<{$item.image_L}>" alt="<{$item.name}>">
+          <ul class="item-image-list">
+            <{section name=i loop=$item.multi_image.list}>
+            <li class="item-image-unit">
+              <img src="<{$item.multi_image.list[i].image_L}>" alt="<{$item.name}>" class="item-thumbnail">
+            </li>
+            <{ /section}>
+          </ul>
+          <{else}>
+          <img src="<{$item.image_L}>" alt="<{$item.name}>">
+          <{ /if}>
+          <div class="item-subinfo">
+            <{if $item.review.is_enabled}>
+            <div class="item-review">
+              <hr>
+              <div class="review-header-area">
+                <div class="review-header">
+                  <h1 class="headline">レビュー</h1>
+                  <div class="subscript">REVIEWS</div>
+                </div>
+                <div class="review-button">
+                  <button class="show-detail"
+                    onclick="location.href='<{$item.review.post_url}>'">レビューを書く</button>
+                </div>
+              </div>
+              <{if $item.review.has_item}>
+              <div class="review-link">
+                <span><{$item.review.star_html}></span>
+                <span><{$item.review.total_count}>件のレビューより</span>
+              </div>
+              <div class="review-look">
+                <span>
+                  <a href="<{$item.review.list_url}>">レビューを見る&emsp;<i class="fa-solid fa-chevron-down fa-lg"></i></a>
+                </span>
+              </div>
+              <{else}>
+              <p class="review-empty">レビューはまだありません</p>
+              <{ /if}>
+            </div>
+            <{ /if}>
+            <hr>
+            <div class="item-despriction2">
+              <div class="despriction2-header">
+                <div class="despriction2-header-part">
+                  <h1 class="headline">商品詳細</h1>
+                  <div class="subscript">PRODUCT DETAILS</div>
+                </div>
+                <span class="close-button">閉じる　<i class="fa-solid fa-chevron-down fa-lg"></i></span>
+              </div>
+              <div class="sub-description">
+                <{$item.description2}>
+                  製造元：<{$item.manufacturer}>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item-info">
+          <div class="item-info-head">
+            <h1 class="item-name">
+              <{$item.name}>
+            </h1>
+            <div class="item-despriction">
+              <{$item.description}>
+            </div>
+          </div>
+          <div class="cartin-area">
+            <div class="general-buy">
+              <p>購入はこちら</p>
+              <div class="item-price-wrap">
+                <{if !$item.has_option}>
+                <{if $item.is_sale}>
+                <p class="before-price"><span>通常価格</span>
+                  <{$item.original_price|number_format}>&thinsp;円
+                </p>
+                <div class="sale-price">
+                  <span class="sale-discount item-sale-discount"><{$item.sale_rate}>%OFF</span>
+                  <p class="item-price"><{$item.price_html}>&thinsp;円</p>
+                  <span class="tax">(税込)</span>
+                </div>
+                <{else}>
+                <p class="item-price">
+                  <{$item.price_html}>&thinsp;円
+                </p>
+                <span class="tax">(税込)</span>
+                <{ /if}>
+                <{else}>
+                <{if $item.is_sale}>
+                <p class="before-price"><span>通常価格</span>
+                  <{$item.original_price|number_format}>&thinsp;円
+                </p>
+                <div class="sale-price">
+                  <span class="sale-discount item-sale-discount">
+                    <{$item.sale_rate}>%OFF
+                  </span>
+                  <p class="item-price">
+                    <{$item.price_html}>&thinsp;円
+                  </p>
+                  <span class="tax">(税込)</span>
+                </div>
+                <{section name=i loop=$item.option_sku.list}>
+                <{if !$item.option_sku.list[i].is_soldout}>
+                <{$item.option_sku.list[i].name1}>
+                <{$item.option_sku.list[i].price}>
+                <{ /if}>
+                <{ /section}>
+                <{else}>
+                <ul class="item-price">
+                  <{section name=i loop=$item.option_sku.list}>
+                  <li>
+                    <span class="pdname"><{$item.option_sku.list[i].name1}></span>
+                  </li>
+                  <li>
+                    <{$item.option_sku.list[i].price|number_format}>&thinsp;円
+                    <span class="tax">(税込)</span>
+                  </li>
+                <{ /section}>
+                </ul>
+                <{ /if}>
+                <{ /if}>
+                <!--<div class="item-point">ポイント:&thinsp;<{$item.point_html}>pt</div>-->
+                <div class="item-select">
+                  <div class="goods-quantity">
+                    <span class="goods-quantity-label">数量</span>
+                    <input id="goods-quantity-input" class="goods-quantity-input"
+                      type="number" name="quantity" data-id="<{$item.quantity_id}>"
+                      min="1" value="1" autocomplete="off">
+                    <div class="goods-quantity-operate">
+                      <span id="goods-quantity-up" class="goods-quantity-up"></span>
+                      <span id="goods-quantity-down" class="goods-quantity-down"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item-btn-wrap">
+                <{if $item.is_within_sell_period}>
+                <{if $item.has_option}>
+                <{if $item.is_restock_enabled}>
+                <a href="<{$item.restock_url}>" class="btn restock-btn item-btn outstock off">再入荷のお知らせを受け取る</a>
+                <{else}>
+                <div class="soldout item-btn outstock off">SOLD OUT</div>
+                <{ /if}>
+                <a href="<{$item.cart_entry_url}>" class="btn cart-btn item-btn instock off">カートに入れる</a>
+                <{else}>
+                <{if $item.is_soldout}>
+                <{if $item.is_restock_enabled}>
+                <a href="<{$item.restock_url}>" class="btn restock-btn item-btn outstock">再入荷のお知らせを受け取る</a>
+                <{else}>
+                <div class="soldout item-btn outstock">SOLD OUT</div>
+                <{ /if}>
+                <{else}>
+                <a href="<{$item.cart_entry_url}>" class="btn cart-btn item-btn instock">カートに入れる</a>
+                <{ /if}>
+                <{ /if}>
+                <{else}>
+                <div class="soldout item-btn">販売期間外の商品です</div>
+                <{ /if}>
+              </div>
+            </div>
+            <{if $item.has_option}>
+            <!--SKUごとの表示-->
+            <table class="sku">
+              <{section name=i loop=$item.option_sku.list}>
+              <tr>
+                <td class="sku-option-name">
+                <{if $item.option_sku.list[i.index_prev].name1 !=$item.option_sku.list[i.index].name1}>
+                  <{$item.option_sku.list[i].name1}>
+                <{ /if}>
+                </td>
+                <{if $item.option_sku.has_option2}>
+                <td class="sku-option-name"><{$item.option_sku.list[i].name2}></td>
+                <{ /if}>
+                <td class="sku-price-name">
+                  <div class="sku-price-wrap">
+                    <{if !$item.option_sku.list[i].is_soldout}>
+                    <{if $item.option_sku.list[i].is_stock_unlimited}>
+                    <p class="item-stock-sku">在庫あり</p>
+                    <{else}>
+                    <{if $item.option_sku.list[i].is_small_stock}>
+                    <p class="item-stock-sku">残りわずか<span class="item-stock-count">／あと
+                    <{$item.option_sku.list[i].stock_quantity}>個</span></p>
+                    <{else}>
+                    <p class="item-stock-sku">在庫あり<span class="item-stock-count">／あと
+                    <{$item.option_sku.list[i].stock_quantity}>個</span></p>
+                    <{ /if}>
+                    <{ /if}>
+                    <{ /if}>
+                  </div>
+                </td>
+                <td class="sku-cart-wrap">
+                  <{if $item.option_sku.list[i].is_soldout}>
+                  <{if $item.is_restock_enabled}>
+                  <div class="goods-cart-btn goods-cart-btn-sku<{if $member.is_logged_in}> logged-in<{/if}>">
+                    <a href="<{$item.option_sku.list[i].restock_url}>" class="goods-cart-btn-restock">再入荷のお知らせ</a>
+                  </div>
+                  <{else}>
+                  <div class="goods-cart-btn goods-cart-btn-sku<{if $member.is_logged_in}> logged-in<{/if}>">
+                    <span class="goods-cart-btn-nonactive">SOLD OUT</span>
+                  </div>
+                  <{ /if}>
+                  <{else}>
+                  <div class="goods-cart-btn goods-cart-btn-sku<{if $member.is_logged_in}> logged-in<{/if}>">
+                    <a href="<{$item.option_sku.list[i].cart_entry_url}>" class="btn cart-btn item-btn instock"
+                      data-button-id="cart-order">カートに入れる</a>
+                  </div>
+                  <{ /if}>
+                </td>
+              </tr>
+              <{ /section}>
+            </table>
+            <{ /if}>
+          </div>
+          <div class="item-btn-option-wrap">
+            <button class="show-detail" onclick="location.href='<{$url.favorite}>'">お気に入り一覧</button>
+            <button class="show-detail" onclick="location.href='<{$item.favorite_entry_url}>'">お気に入りに登録</button>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </section>
+    <section class="product-catch-area">
+      <div class="catch-header">
+        <h1 class="headline">健康の森&nbsp;快適生活サポート&nbsp;サプリ<br>
+          <{$item.base_category.name}>
+        </h1>
+      </div>
+      <img src="<{$item.image_L}>" alt="<{$item.name}>">
+      <div class="catch-main">
+        <{$item.description}>
+      </div>
+      <div class="cartin-area">
+        <div class="general-buy">
+          <p>購入はこちら</p>
+          <div class="item-price-wrap">
+            <{if $item.is_sale}>
+            <p class="before-price"><span>通常価格</span>
+              <{$item.original_price|number_format}>&thinsp;円
+            </p>
+            <div class="sale-price">
+              <span class="sale-discount item-sale-discount">
+                <{$item.sale_rate}>%OFF
+              </span>
+              <p class="item-price">
+                <{$item.price_html}>&thinsp;円
+              </p>
+              <span class="tax">(税込)</span>
+            </div>
+            <{else}>
+            <ul class="item-price">
+              <{if $item.option_sku.has_item}>
+              <{section name=i loop=$item.option_sku.list}>
+              <li>
+                <span class="pdname"><{$item.option_sku.list[i].name1}></span>
+              </li>
+              <li>
+                <{$item.option_sku.list[i].price|number_format}>&thinsp;円
+                <span class="tax">(税込)</span>
+              </li>
+               <{ /section}>
+              <{else}>
+              <li>
+                <span class="pdname"><{$item.name}></span>
+              </li>
+              <li>
+                <{$item.original_price|number_format}>&thinsp;円
+                <span class="tax">(税込)</span>
+              </li>
+              <{ /if}>
+            </ul>
+            <{ /if}>
+            <!--<div class="item-point">ポイント:&thinsp;<{$item.point_html}>pt</div>-->
+            <div class="item-select">
+              <div class="goods-quantity">
+                <span class="goods-quantity-label">数量</span>
+                <input id="goods-quantity-input" class="goods-quantity-input" type="number" name="quantity"
+                  data-id="<{$item.quantity_id}>" min="1" value="1" autocomplete="off">
+                <div class="goods-quantity-operate">
+                  <span id="goods-quantity-up" class="goods-quantity-up"></span>
+                  <span id="goods-quantity-down" class="goods-quantity-down"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item-btn-wrap">
+            <{if $item.is_within_sell_period}>
+            <{if $item.has_option}>
+            <{if $item.is_restock_enabled}>
+            <a href="<{$item.restock_url}>" class="btn restock-btn item-btn outstock off">再入荷のお知らせを受け取る</a>
+            <{else}>
+            <div class="soldout item-btn outstock off">SOLD OUT</div>
+            <{ /if}>
+            <a href="<{$item.cart_entry_url}>" class="btn cart-btn item-btn instock off">カートに入れる</a>
+            <{else}>
+            <{if $item.is_soldout}>
+            <{if $item.is_restock_enabled}>
+            <a href="<{$item.restock_url}>"
+              class="btn restock-btn item-btn outstock">再入荷のお知らせを受け取る</a>
+            <{else}>
+            <div class="soldout item-btn outstock">SOLD OUT</div>
+            <{ /if}>
+            <{else}>
+            <a href="<{$item.cart_entry_url}>"
+              class="btn cart-btn item-btn instock">カートに入れる</a>
+            <{ /if}>
+            <{ /if}>
+            <{else}>
+            <div class="soldout item-btn">販売期間外の商品です</div>
+            <{ /if}>
+          </div>
+        </div>
+        <{if $item.has_option}>
+        <!--SKUごとの表示-->
+        <table class="sku">
+          <{section name=i loop=$item.option_sku.list}>
+          <tr>
+            <td class="sku-option-name">
+              <{if $item.option_sku.list[i.index_prev].name1 !=$item.option_sku.list[i.index].name1}>
+              <{$item.option_sku.list[i].name1}>
+              <{ /if}>
+            </td>
+            <{if $item.option_sku.has_option2}>
+            <td class="sku-option-name">
+              <{$item.option_sku.list[i].name2}>
+            </td>
+            <{ /if}>
+            <td class="sku-price-name">
+              <div class="sku-price-wrap">
+                <{if !$item.option_sku.list[i].is_soldout}>
+                <{if $item.option_sku.list[i].is_stock_unlimited}>
+                <p class="item-stock-sku">在庫あり</p>
+                <{else}>
+                <{if $item.option_sku.list[i].is_small_stock}>
+                <p class="item-stock-sku">残りわずか<span class="item-stock-count">／あと
+                <{$item.option_sku.list[i].stock_quantity}>個</span></p>
+                <{else}>
+                <p class="item-stock-sku">在庫あり<span class="item-stock-count">／あと
+                <{$item.option_sku.list[i].stock_quantity}>個</span></p>
+                <{ /if}>
+                <{ /if}>
+                <{ /if}>
+              </div>
+            </td>
+            <td class="sku-cart-wrap">
+              <{if $item.option_sku.list[i].is_soldout}>
+              <{if $item.is_restock_enabled}>
+              <div class="goods-cart-btn goods-cart-btn-sku<{if $member.is_logged_in}> logged-in<{/if}>">
+                <a href="<{$item.option_sku.list[i].restock_url}>" class="goods-cart-btn-restock">再入荷のお知らせ</a>
+              </div>
+              <{else}>
+              <div class="goods-cart-btn goods-cart-btn-sku<{if $member.is_logged_in}> logged-in<{/if}>">
+                <span class="goods-cart-btn-nonactive">SOLD OUT</span>
+              </div>
+              <{ /if}>
+              <{else}>
+              <div class="goods-cart-btn goods-cart-btn-sku<{if $member.is_logged_in}> logged-in<{/if}>">
+                <a href="<{$item.option_sku.list[i].cart_entry_url}>"
+                  class="btn cart-btn item-btn instock" data-button-id="cart-order">カートに入れる</a>
+              </div>
+              <{ /if}>
+            </td>
+          </tr>
+          <{ /section}>
+        </table>
+        <{ /if}>
+      </div>
+    </section>
+    <{if $recently_item.has_item}>
+    <section class="recently-list-wrap">
+      <h1 class="headline recently-title">最近チェックしたアイテム</h1>
+      <div class="subscript">RECENTLY VIEWD PRODUCTS</div>
+      <ul class="product-list recently-list">
+        <{section name=i loop=$recently_item.list max=5}>
+        <li class="product-item recently-item <{if $recently_item.list[i].is_soldout}>outstock<{else}>instock<{/if}>">
+          <a href="<{$recently_item.list[i].url}>">
+            <figure class="product-item-image-wrap">
+              <img src="<{$recently_item.list[i].image_M}>" alt="<{$recently_item.list[i].name}>" class="product-item-image">
+              <{if $recently_item.list[i].is_soldout}><span class="status-soldout">Soldout</span>
+              <{ /if}>
+              <{if $recently_item.list[i].is_sale}>
+              <div class="badge badge-sale">
+                <span>SALE</span>
+              </div>
+              <{ /if}>
+            </figure>
+            <p class="product-item-name"><{$recently_item.list[i].name}></p>
+            <div class="product-item-price-wrap"><{if $recently_item.list[i].is_soldout}>
+              <del class="product-item-price<{if $recently_item.list[i].is_sale}> product-item-sale-price<{/if}>">￥
+              <{$recently_item.list[i].price|number_format}>
+              </del>
+              <{else}>
+              <span class="product-item-price<{if $recently_item.list[i].is_sale}> product-item-sale-price<{/if}>">￥
+              <{$recently_item.list[i].price|number_format}></span>
+              <{ /if}>
+              <{if $recently_item.list[i].is_sale}><span class="sale-discount product-item-sale-discount">
+              <{$recently_item.list[i].sale_rate}>%OFF
+              </span>
+              <{ /if}>
+              <{if $recently_item.list[i].is_soldout}><span class="product-item-soldout">SOLD OUT</span>
+              <{ /if}>
+            </div>
+          </a>
+        </li>
+        <{ /section}>
+      </ul>
+    </section>
+    <{ /if}>
+  </main>
+  <{$module.footer}>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="<{$page.javascript}>"></script>
+  <{$makeshop.body_bottom}>
+</body>
+
+</html>

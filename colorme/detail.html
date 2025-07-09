@@ -1,0 +1,541 @@
+<script src="https://img.shop-pro.jp/tmpl_js/79/jquery.lazyload.min.js"></script>
+<script src="https://img.shop-pro.jp/tmpl_js/79/utility.product.js"></script>
+<script>
+$(function () {
+    $('.product-init-num').change(function(){
+      var txt  = $(this).val();
+      var han = txt.replace(/[Ａ-Ｚａ-ｚ０-９]/g,function(s){return String.fromCharCode(s.charCodeAt(0)-0xFEE0)});
+      $(this).val(han);
+    });
+$('img.thumb').click(function(){
+      $(this).parent().siblings().removeClass('thumb-active');
+      var selectedSrc = $(this).attr('src');
+      $('img.mainImage').stop().fadeOut(200,
+        function(){
+          $('img.mainImage').attr('src', selectedSrc);
+          $('img.mainImage').fadeIn(200);
+        }
+      );
+    $(this).parent().addClass('thumb-active');
+	});
+});
+</script>
+
+<div id="product">
+  <!-- パンくずリスト -->
+  <div class="breadcrumb-list__section">
+    <ul class="breadcrumb-list breadcrumb-list-pdetail">
+      <li class="breadcrumb-list__unit"><a href="<{$home_url}>">ホーム</a></li>
+      <{if $bid_name != ""}>
+        <li class="breadcrumb-list__unit">&gt;&nbsp;<a href="<{$bid_link}>"><{$bid_name}></a></li>
+      <{/if}>
+      <{if $sid_name != ""}>
+        <li class="breadcrumb-list__unit">&gt;&nbsp;<a href="<{$sid_link}>"><{$sid_name}></a></li>
+      <{/if}>
+    </ul>
+    <{section name=cnt loop=$group_breadcrumb_list}>
+      <ul class="breadcrumb-list breadcrumb-list-pdetail">
+        <li class="breadcrumb-list__unit"><a href="<{$home_url}>">ホーム</a></li>
+        <{section name=num loop=$group_breadcrumb_list[cnt].group_breadcrumb}>
+          <li class="breadcrumb-list__unit">&gt;&nbsp;<a href="<{$group_breadcrumb_list[cnt].group_breadcrumb[num].link_url}>"><{$group_breadcrumb_list[cnt].group_breadcrumb[num].name}></a></li>
+        <{/section}>
+      </ul>
+    <{/section}>
+  </div>
+  <!-- //パンくずリスト -->
+<div class="product-image row">
+  <div class="product-image-main col col-sm-12 col-lg-8">
+		<{if $product.img_url != ""}>
+    <img src="<{$product.img_url}>" class="mainImage" />
+		<{else}>
+    <img src="https://img.shop-pro.jp/tmpl_img/69/prd_lst_noimage.png" class="mainImage" alt="<{$productlist[num].name}>" />
+     <{/if}>
+   </div>
+</div>
+<div class="product-image-thumb col col-sm-12 col-lg-4">
+  <ul class="row">
+    <li class="col col-sm－2 col-lg-6">
+      <{if $product.img_url != ""}>
+      <img src="<{$product.img_url}>" class="thumb" />
+      <{else}>
+      <img src="https://img.shop-pro.jp/tmpl_img/69/prd_lst_noimage.png" class="thumb" alt="<{$productlist[num].name}>" />
+      <{/if}>
+      </li>
+      <{section name=num loop=$otherimg}>
+      <{if $otherimg[num].url != ""}>
+      <li class="col col-sm－2 col-lg-6">
+      <img src="<{$otherimg[num].url}>" class="thumb" />
+      </li>
+      <{/if}>
+    <{/section}>
+  </ul>
+</div>
+		<form name="product_form" method="post" action="<{$cart_url}>">
+       
+  <{if $product.id != ""}>
+      <div class="product__section">
+        <!-- 商品説明文 -->
+        <div class="product-explain">
+          <{$product.explain}>
+        </div>
+        <!-- // 商品説明文 -->
+				
+	<!-- 商品画像 -->
+   <!-- <ul class="product-images-list unstyled">
+    <li class="product-images-list__unit">
+        <{if $product.img_url != ""}>
+    <img src="https://img.shop-pro.jp/tmpl_img/79/loader.gif" data-original="<{$product.img_url}>" class="product-images-list__img" alt="<{$product_name}>" />
+            <{else}>
+    <img src="https://img.shop-pro.jp/tmpl_img/79/noimage.png" />
+            <{/if}>
+    </li>
+          <{section name=num loop=$otherimg}>
+            <{if $otherimg[num].url != ""}>
+    <li class="product-images-list__unit">
+    <img src="https://img.shop-pro.jp/tmpl_img/79/loader.gif" data-original="<{$otherimg[num].url}>" class="product-images-list__img" alt="<{$product_name}>" />
+    </li>
+            <{/if}>
+          <{/section}>
+    </ul>
+-->
+
+<!-- // 商品画像 -->
+        <div class="product-info-box">
+          <!-- 商品名 -->
+          <h2 class="product-name"><{$product_name}></h2>
+          <!-- //商品名 -->
+          <!-- 型番 -->
+          <{if $product.model != ""}>
+            <p class="product-model"><{$product.model}></p>
+          <{/if}>
+          <!-- //型番 -->
+        </div>
+        <div class="product-info-box">
+          <!-- 価格・定価 -->
+          <p class="product-price">
+            <{if $sid_name != "社販サプリメント" && $sid_name != "社販芋焼酎" && $sid_name != "社販麦焼酎" && $sid_name != "社販ワイン" && $sid_name != "社販ウイスキー" && $sid_name != "社販日本酒" && $sid_name != "社販リキュール他" && $sid_name != "社販ゑびす堂マルシェ" && $sid_name != "社販オプション" && $sid_name != "社販ギフト商品" && $sid_name != "社販グッズ" && $sid_name != "佐藤ミナコ"}>
+              <{if $members_login_flg == true && $product.discount_flg == true}>
+                <span class="product-price-discount"><{$product.sales}></span>
+                <span class="product-price-discount-rate"><{$product.discount_rate}>OFF</span>
+                <span class="product-price-regular hidden-phone">←&nbsp;通常価格&nbsp;<{$product.regular_price}></span>
+                <span class="product-price-regular show visible-phone">↑&nbsp;通常価格&nbsp;<{$product.regular_price}></span>
+              <{else}>
+  						<span class="base-price">
+  							<{$product.sales}>
+  						</span>
+  						<{/if}>
+            <{else}>
+              <span class="base-price">
+              </span>
+              <{/if}>
+          </p>
+          <{if $product.price_disp}>
+            <!--<p class="product-price-establish">定価&nbsp;<{$product.price}></p>-->
+          <{/if}>
+          <!-- // 価格・定価 -->
+        </div>
+        <div class="product-info-box">
+          <!-- 在庫状況 -->
+          <{if $product.stock_disp}>
+            <p class="product-stock-str">在庫状況&nbsp;<{$product.stock_str}></p>
+          <{/if}>
+          <!-- // 在庫状況 -->
+        </div>
+        <div class="product-info-box">
+          <!-- 商品関連リンク -->
+          <ul class="product-related-list unstyled">
+            <li class="product-related-list__unit">
+              <a href="<{$prod_teach_url}>" class="product-related-list__txt">この商品を友達に教える</a>
+            </li>
+            <li class="product-related-list__unit">
+              <a href="<{$prod_inq_url}>" class="product-related-list__txt">この商品について問い合わせる</a>
+            </li>
+            <li class="product-related-list__unit">
+              <a href="<{$keep_shopping_url}>" class="product-related-list__txt">買い物を続ける</a>
+            </li>
+          </ul>
+          <!-- // 商品関連リンク -->
+        </div>
+        <div id="order" class="product-order-box-wrap">
+					<!--<{rakuten_pay_point_parts type='parts3'}>-->
+  					
+          <{if !$shop_stop_flg}>
+            <div class="product-order-box">
+							<!--<{if $opt_url != ""}>-->
+
+                <div class="product-option row">
+                  <{if $option_output_mode}>
+                    <div id="prd-opt-table" class="product-option-table">
+                      <{$option_table}>
+                    </div>
+                    <ul id="prd-opt-select" class="product-option-list unstyled row">
+                      <{section name=num loop=$option}>
+                        <li class="product-option-list__unit col col-lg-6 col-sm-12">
+                          <dl>
+                            <dt class="product-option-list__name">
+                              <{$option[num].name}>
+                            </dt>
+                            <dd class="product-option-list__detail">
+                              <select name="<{$option[num].select_name}>" class="product-option-list__select">
+                                <{html_options values=$option_value[num].id output=$option_value[num].name selected=$key}>
+                              </select>
+                            </dd>
+                          </dl>
+                        </li>
+                      <{/section}>
+                    </ul>
+                  <{else}>
+                    <ul class="product-option-list unstyled row">
+                      <{section name=num loop=$option}>
+                        <li class="product-option-list__unit col col-lg-6 col-sm-12">
+                          <dl>
+                            <dt class="product-option-list__name">
+                              <{$option[num].name}>
+                            </dt>
+                            <dd class="product-option-list__detail">
+                              <select name="<{$option[num].select_name}>" class="product-option-list__select">
+                                <{html_options values=$option_value[num].id output=$option_value[num].name selected=$key}>
+                              </select>
+                            </dd>
+                          </dl>
+                        </li>
+                      <{/section}>
+                    </ul>
+                  <{/if}>
+                </div>
+							<div id="data_test"></div><br>
+              <!-- // オプション情報 -->
+              <!--<{/if}>-->
+              <{if $product.product_text_titles}>
+              <!-- 名入れ設定 -->
+                <div class="text-titles row">
+                  <ul class="text-titles-list row">
+                    <{foreach from=$product.product_text_titles key=key item=val}>
+                      <li class="text-titles-list__unit col col-lg-12">
+                        <dl>
+                          <dt class="text-titles-list__name">
+                            <{$val|escape}>
+                          </dt>
+                          <dd class="text-titles-list__detail row">
+                            <input type="text" name="product_text[<{$key|escape}>]" value="" class="text-titles-list__detail-text col col-lg-12" />
+                          </dd>
+                        </dl>
+                      </li>
+                    <{/foreach}>
+                  </ul>
+                </div>
+              <!-- //名入れ設定 -->
+              <{/if}>
+              <!-- 購入フォーム -->
+                <div class="product-order row">
+                  <dl class="product-init-list col col-lg-4 col-sm-12">
+                    <{if $sid_name != "社販サプリメント" && $sid_name != "社販芋焼酎" && $sid_name != "社販麦焼酎" && $sid_name != "社販ワイン" && $sid_name != "社販ウイスキー" && $sid_name != "社販日本酒" && $sid_name != "社販リキュール他" && $sid_name != "社販ゑびす堂マルシェ" && $sid_name != "社販オプション" && $sid_name != "社販ギフト商品" && $sid_name != "社販グッズ"}>
+                    <dt class="product-init-list__name">
+                      購入数
+                    </dt>
+                    <dd class="product-init-list__detail">
+                    <{if $product.soldout_flg == 0 && !$product.login_sale_flg}>
+                      <input type="text" name="product_num" value="<{$product.init_num}>" class="product-init-list__detail-num" />
+                      <ul class="product-init-list__detail-updw unstyled">
+                        <li><a href="<{$num_up_url}>"><i class="icon-lg-b icon-triangle_up"></i></a></li>
+                        <li><a href="<{$num_dw_url}>"><i class="icon-lg-b icon-triangle_down"></i></a></li>
+                      </ul>
+                      <span class="product-init-list__detail-unit"><{$product.unit}></span>
+                    <{else}>
+                      <input type="text" name="product_num" value="<{$product.init_num}>" class="product-init-list__detail-num" disabled="disabled" />
+                    <{/if}>
+                    </dd>
+                     <{/if}>
+                  </dl>
+                  <ul class="product-order-btn-list row col col-lg-8 col-sm-12 unstyled">
+                    <{if $product.soldout_flg == 0 && !$product.login_sale_flg}>
+                      <{if $easy_order_flg}>
+                        <{assign var="product_order_btn_col" value=" col-lg-6 col-sm-12"}>
+                      <{else}>
+                        <{assign var="product_order_btn_col" value=" col-lg-12"}>
+                      <{/if}>
+                      <{if $is_enable_async_cart_in_pc}>
+											<{if $product.password_field != "" }>
+												商品を購入するためのパスワードを入力してください。<{$product.password_field}>
+											<{/if}><br><br>
+                        <{if $sid_name != "社販サプリメント" && $sid_name != "社販芋焼酎" && $sid_name != "社販麦焼酎" && $sid_name != "社販ワイン" && $sid_name != "社販ウイスキー" && $sid_name != "社販日本酒" && $sid_name != "社販リキュール他" && $sid_name != "社販ゑびす堂マルシェ" && $sid_name != "社販オプション" && $sid_name != "社販ギフト商品" && $sid_name != "社販グッズ"}>
+                        <li class="product-order-btn-list__unit col <{$product_order_btn_col}>">
+                          <button type="submit" class="btn--addcart btn btn-block cart_in_async">
+                            <i class="icon-lg-w icon-cart"></i>カートに入れる
+                          </button>
+                        </li>
+                        <{/if}>
+                      <{else}>
+											<{if $product.password_field != "" }>
+												商品を購入するためのパスワードを入力してください。<{$product.password_field}>
+											<{/if}><br><br>
+                        <{if $sid_name != "社販サプリメント" && $sid_name != "社販芋焼酎" && $sid_name != "社販麦焼酎" && $sid_name != "社販ワイン" && $sid_name != "社販ウイスキー" && $sid_name != "社販日本酒" && $sid_name != "社販リキュール他" && $sid_name != "社販ゑびす堂マルシェ" && $sid_name != "社販オプション" && $sid_name != "社販ギフト商品" && $sid_name != "社販グッズ"}>
+                        <li class="product-order-btn-list__unit col <{$product_order_btn_col}> disable_cartin">
+                          <button type="submit" class="btn--addcart btn btn-block">
+                            <i class="icon-lg-w icon-cart"></i>カートに入れる
+                          </button>
+                        </li>
+                        <{/if}>
+                      <{/if}>
+                      <{if $easy_order_flg}>
+                        <li class="product-order-btn-list__unit mar-sm-t10 col<{$product_order_btn_col}> disable_quick">
+                          <a href="<{$easy_order_url}>" class="btn--quick-order btn btn-block">
+                            <i class="icon-lg-w icon-cart"></i>クイック購入
+                          </a>
+                        </li>
+                      <{/if}>
+                    <{elseif $product.soldout_flg == 1}>
+                      <li class="product-order-btn-list__unit">
+                        <input class="btn--soldout btn btn-block" type="button" value="売り切れ" disabled="disabled" />
+                      </li>
+                    <{elseif $product.login_sale_flg}>
+                      <li class="product-order-btn-list__unit">
+                        <input class="btn--soldout btn btn-block" type="button" value="会員のみ購入できます" disabled="disabled" />
+                      </li>
+                    <{/if}>
+                    <li class="stock_error hide col col-lg-12"></li>
+                  </ul>
+                </div>
+			
+              <!-- // 購入フォーム -->
+            </div>
+          <{/if}>
+					
+        </div>
+				
+<!--
+        <{* クイックカートイン *}>
+        <div class="cart_in_modal cart_modal__close" style="display: none;">
+          <div class="cart_in_modal__outline not_bubbling">
+            <label class="cart_modal__close cart_in_modal__close-icon">
+            </label>
+            <p class="cart_in_modal__heading">
+              こちらの商品が<br class="sp-br">カートに入りました
+            </p>
+            <div class="cart_in_modal__detail">
+              <{if $product.img_url != ""}>
+              <div class="cart_in_modal__image-wrap">
+                <img src="<{$product.img_url}>" alt="<{$productlist[num].name}>" class="cart_in_modal__image" />
+              </div>
+              <{/if}>
+              <p class="cart_in_modal__name">
+                <{$product_name}>
+              </p>
+            </div>
+            <div class="cart_in_modal__button-wrap">
+              <button class="cart_view_with_async cart_in_modal__button cart_in_modal__button--solid">かごの中身を見る</button>
+              <p class="cart_modal__close cart_in_modal__text-link">ショッピングを続ける</p>
+            </div>
+          </div>
+        </div>
+        <div class="cart_in_error_modal cart_in_error__close" style="display: none;">
+          <div class="cart_in_modal__outline not_bubbling">
+            <label class="cart_in_error__close cart_in_modal__close-icon">
+            </label>
+            <p class="cart_in_error_message cart_in_error_modal__heading"></p>
+            <div class="cart_in_modal__button-wrap">
+              <button class="cart_in_error__close cart_in_modal__button cart_in_modal__button--solid">ショッピングを続ける</button>
+            </div>
+          </div>
+        </div>
+        <{* // クイックカートイン *}>
+-->
+        <div class="product-info-box">
+          <!--  オプション・返品・特商法 -->
+          <ul class="product-related-list unstyled">
+            <{if $opt_url != ""}>
+              <li class="product-related-list__unit">
+                <a href="<{$opt_url}>" class="product-related-list__txt">オプションの値段詳細</a>
+              </li>
+            <{/if}>
+            <li class="product-related-list__unit">
+              <a href="<{$sk_url}>#cancel" class="product-related-list__txt">返品について</a>
+            </li>
+            <li class="product-related-list__unit">
+              <a href="<{$sk_url}>#info" class="product-related-list__txt">特定商取引法に基づく表記</a>
+            </li>
+          </ul>
+          <!--  //オプション・返品・特商法 -->
+        </div>
+        <div class="product-info-box">
+          <!--  商品用ソーシャルボタン -->
+          <ul class="product-social-list unstyled">
+            <li class="product-social-list__unit visible-phone">
+              <{* line *}><{$line_button}>
+            </li>
+            <li class="product-social-list__unit">
+              <{* Facebook_like *}><{facebook_like layout="button_count" width=110 action="like"}>
+            </li>
+            <li class="product-social-list__unit">
+              <{* twitter *}><{twitter_tweet}>
+            </li>
+          </ul>
+          <!-- // 商品用ソーシャルボタン -->
+        </div>
+      </div>
+      <!-- レビュー -->
+      <{if $review_use_flg}>
+        <div class="product-review__section">
+          <h2 class="section-title-h2">商品レビュー</h2>
+          <ul class="product-related-list product-review-send-list unstyled">
+            <li class="product-related-list__unit product-review-send-list__unit">
+              <a href="<{$review_lst_url}>" class="product-related-list__txt">レビューを見る(<{$review_item_num}>件)</a>
+            </li>
+            <li class="product-related-list__unit product-review-send-list__unit">
+              <a href="<{$review_send_url}>" class="product-related-list__txt">レビューを投稿</a>
+            </li>
+          </ul>
+          <{ if $review_item_num != "" }>
+            <{section name=num loop=$reviewlist}>
+              <div class="product-review">
+                <div class="product-review-date">
+                  <div class="product-review-star">
+                    <img src="https://secure.shop-pro.jp/img/star_<{ $reviewlist[num].star|string_format:"%02d" }>.png" />
+                  </div>
+                  <ul class="product-review-poster-list unstyled">
+                    <{if $reviewlist[num].nickname != ""}>
+                      <li class="product-review-poster-list__unit">
+                        <{ $reviewlist[num].nickname }>
+                      </li>
+                    <{/if}>
+                    <{if $reviewlist[num].nendai != ""}>
+                      <li class="product-review-poster-list__unit">
+                        <{ $reviewlist[num].nendai }>
+                      </li>
+                    <{/if}>
+                    <{if $reviewlist[num].sex != ""}>
+                      <li class="product-review-poster-list__unit">
+                        <{ $reviewlist[num].sex }>
+                      </li>
+                    <{/if}>
+                    <{if $reviewlist[num].date != ""}>
+                      <li class="product-review-poster-list__unit">
+                        <{ $reviewlist[num].date }>
+                      </li>
+                    <{/if}>
+                  </ul>
+                </div>
+                <ul class="product-review-content-list unstyled clearfix">
+                  <{if $reviewlist[num].title != ""}>
+                    <li class="product-review-content-list__unit product-review-content-list__title">
+                      <{ $reviewlist[num].title }>
+                    </li>
+                  <{/if}>
+                  <{if $reviewlist[num].img_url != ""}>
+                    <li class="product-review-content-list__unit product-review-content-list__img">
+                      <img src="<{$reviewlist[num].img_url}>" width="100" />
+                    </li>
+                  <{/if}>
+                  <li class="product-review-content-list__unit product-review-content-list__comment">
+                    <{ $reviewlist[num].comment }>
+                  </li>
+                </ul>
+                <{if $reviewlist[num].res_comment != ""}>
+                  <ul class="product-review-res-list unstyled">
+                    <li class="product-review-res-list__unit product-review-res-list__title">
+                      ショップからのコメント
+                    </li>
+                    <li class="product-review-res-list__unit product-review-res-list__comment">
+                      <{ $reviewlist[num].res_comment }>（<{ $reviewlist[num].res_date }>）
+                    </li>
+                  </ul>
+                <{/if}>
+              </div>
+            <{/section}>
+          <{else}>
+            <div class="product-review">
+              <p>レビューはありません。</p>
+            </div>
+          <{/if}>
+        </div>
+      <{/if}>
+      <!-- // レビュー -->
+      <!-- 組合せ購入 -->
+      <{if $together_product_num != 0}>
+        <div class="product-together__section">
+          <h2 class="section-title-h2">一緒に購入されている商品</h2>
+          <ul class="product-list unstyled row">
+            <{section name=num loop=$together_product}>
+              <li class="together-list__unit product-list__unit col col-lg-3 col-md-4 col-sm-6">
+                <a href="<{$together_product[num].link_url}>">
+                  <{if $together_product[num].img_url != ""}>
+                    <img src="<{$together_product[num].img_url}>" alt="<{$together_product[num].name}>" class="product-list__img" />
+                  <{else}>
+                    <img src="https://img.shop-pro.jp/tmpl_img/79/noimage.png" alt="<{$together_product[num].name}>" class="product-list__img" />
+                  <{/if}>
+                </a>
+                <a href="<{$together_product[num].link_url}>" class="product-list__txt">
+                  <span class="product-list__name show">
+                    <{$together_product[num].name}>
+                  </span>
+                </a>
+                <p>
+                  <span class="product-list__price show">
+                    <{$together_product[num].sales}>
+                  </span>
+                </p>
+                <{if $$together_product[num].s_expl != ""}>
+                  <p class="product-list__expl">
+                    <{$together_product[num].s_expl}>
+                  </p>
+                <{/if}>
+              </li>
+            <{/section}>
+          </ul>
+        </div>
+      <{/if}>
+      <!-- // 組合せ購入 -->
+      <{$product.info}>
+    
+  <{else}>
+    <{if $product.hide_flg == true}>
+      <p class="paragraph-item">この商品を閲覧するにはログインが必要です。</p>
+    <{else}>
+      <p class="paragraph-item">現在、この商品は扱っておりません。</p>
+    <{/if}>
+  <{/if}>
+			</form>
+</div>
+
+<{* ↓↓ デバイスサイズ変更時にオプション選択フォームの表示切替に使用 ↓↓ *}>
+<{if $option_output_mode}>
+  <div class="hide">
+    <ul class="prd-opt-select product-option-list unstyled row">
+      <{section name=num loop=$option}>
+        <li class="product-option-list__unit col col-lg-6 col-sm-12">
+          <dl>
+            <dt class="product-option-list__name">
+              <{$option[num].name}>
+            </dt>
+            <dd class="product-option-list__detail">
+              <select name="<{$option[num].select_name}>" class="product-option-list__select">
+                <{html_options values=$option_value[num].id output=$option_value[num].name selected=$key}>
+              </select>
+            </dd>
+          </dl>
+        </li>
+      <{/section}>
+    </ul>
+    <div class="prd-opt-table product-option-table">
+      <{$option_table}>
+    </div>
+  </div>
+<{/if}>
+<script>
+var input_dom = document.querySelector('.text-titles-list__detail-text');
+var selected_dom = document.querySelector('.select_shop');
+var name_input = document.getElementById('name_input');
+	
+window.addEventListener('DOMContentLoaded', (event) => {
+	input_dom.value = selected_dom.value + ":" + name_input.value;
+});
+selected_dom.addEventListener('change', function(event) {
+	input_dom.value = selected_dom.value + ":" + name_input.value;
+});
+name_input.addEventListener('change', function(event) {
+	input_dom.value = selected_dom.value + ":" + name_input.value;
+});
+</script>
+<script type="text/javascript">
+ga('require', 'linker');
+ga('linker:autoLink', ['shop-pro.jp'], false, true);</script>

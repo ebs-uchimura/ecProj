@@ -1,0 +1,150 @@
+<!-- スライドショー -->
+
+
+<!-- //スライドショー -->
+<!-- お知らせ -->
+<{if $info != "" || $news != ""}>
+  <div class="info__section row">
+    <h2 class="section-title-h2">お知らせ</h2>
+    <div class="col col-lg-12">
+    <{if $news != ""}>
+      <ul class="info-list unstyled">
+        <{section name=num loop=$news}>
+          <li class="info-list__unit">
+            <span class="info-list__date"><{$news[num].date}></span>
+            <{if $news[num].link_url != ""}>
+              <a href="<{$news[num].link_url}>" class="info-list__txt"><{$news[num].message}></a>
+            <{else}>
+              <{$news[num].message}>
+            <{/if}>
+          </li>
+        <{/section}>
+      </ul>
+    <{/if}>
+    <{$info}>
+    </div>
+  </div>
+<{/if}>
+<!-- //お知らせ -->
+
+<!-- おすすめ商品 -->
+<{if $recommend_num != 0}>
+  <div class="recommend__section">
+    <h2 class="section-title-h2">おすすめ商品</h2>
+    <ul class="product-list unstyled row">
+      <{section name=num loop=$recommend}>
+        <li class="recommend-list__unit product-list__unit<{if $smarty.section.num.iteration > 6}> hidden-tablet hidden-phone<{/if}> col col-lg-3 col-md-4 col-sm-6">
+          <a href="<{$recommend[num].link_url}>">
+            <{if $recommend[num].img_url != ""}>
+              <img src="<{$recommend[num].img_url}>" alt="<{$recommend[num].name}>" class="product-list__img" />
+            <{else}>
+              <img src="https://img.shop-pro.jp/tmpl_img/79/noimage.png" alt="<{$recommend[num].name}>" class="product-list__img" />
+            <{/if}>
+          </a>
+          <a href="<{$recommend[num].link_url}>" class="product-list__txt">
+            <span class="product-list__name show">
+              <{$recommend[num].name}>
+            </span>
+          </a>
+          <p>
+            <{if $recommend[num].soldout_flg == false}>
+              <{if $members_login_flg && $recommend[num].discount_flg}>
+                <span class="product-list__regular-price show">
+                  <{$recommend[num].regular_price}>
+                </span>
+                <span class="product-list__discount show">
+                  <{$recommend[num].price}>
+                </span>
+                <span class="product-list__discount-rate show">
+                  <{$recommend[num].discount_rate}>OFF
+                </span>
+              <{else}>
+                <span class="product-list__price show">
+                  <{$recommend[num].price}>
+                </span>
+              <{/if}>
+            <{else}>
+                <span class="product-list__soldout show">
+                  売り切れ
+                </span>
+            <{/if}>
+          </p>
+          <{if $recommend[num].s_expl != ""}>
+            <p class="product-list__expl">
+              <{$recommend[num].s_expl}>
+            </p>
+          <{/if}>
+        </li>
+      <{/section}>
+    </ul>
+    <{if $recommend_num > 6}>
+      <div class="btn-more-wrap">
+        <div class="more-prd btn btn-block btn-more hidden-desktop">
+          <span>もっと見る</span>
+        </div>
+      </div>
+    <{/if}>
+  </div>
+<{/if}>
+<!-- //おすすめ商品 -->
+
+<!-- 売れ筋商品 -->
+<{if $seller_num != 0}>
+  <div class="seller__section">
+    <h2 class="section-title-h2">売れ筋ランキング</h2>
+    <ul class="product-list unstyled row">
+      <{section name=num loop=$seller}>
+        <li class="seller-list__unit product-list__unit<{if $smarty.section.num.iteration > 6}> hidden-tablet hidden-phone<{/if}> col col-lg-3 col-md-4 col-sm-6">
+          <a href="<{$seller[num].link_url}>">
+            <{if $seller[num].img_url != ""}>
+              <img src="<{$seller[num].img_url}>" alt="<{$seller[num].name}>" class="product-list__img" />
+            <{else}>
+              <img src="https://img.shop-pro.jp/tmpl_img/79/noimage.png" alt="<{$seller[num].name}>" class="product-list__img" />
+            <{/if}>
+          </a>
+          <a href="<{$seller[num].link_url}>" class="product-list__txt">
+            <span class="product-list__name show">
+              <{$seller[num].name}>
+            </span>
+          </a>
+          <p>
+            <{if $seller[num].soldout_flg == false}>
+              <{if $members_login_flg && $seller[num].discount_flg}>
+                <span class="product-list__regular-price show">
+                  <{$seller[num].regular_price}>
+                </span>
+                <span class="product-list__discount show">
+                  <{$seller[num].price}>
+                </span>
+                <span class="product-list__discount-rate show">
+                  <{$seller[num].discount_rate}>OFF
+                </span>
+              <{else}>
+                <span class="product-list__price show">
+                  <{$seller[num].price}>
+                </span>
+              <{/if}>
+            <{else}>
+                <span class="product-list__soldout show">
+                  売り切れ
+                </span>
+            <{/if}>
+          </p>
+          <{if $seller[num].s_expl != ""}>
+            <p class="product-list__expl">
+              <{$seller[num].s_expl}>
+            </p>
+          <{/if}>
+        </li>
+      <{/section}>
+    </ul>
+    <{if $seller_num > 6}>
+      <div class="btn-more-wrap">
+        <div class="more-prd btn btn-block btn-more hidden-desktop">
+          <span>もっと見る</span>
+        </div>
+      </div>
+    <{/if}>
+  </div>
+<{/if}>
+<!-- //売れ筋商品 -->

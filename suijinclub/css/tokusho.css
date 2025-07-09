@@ -1,0 +1,36 @@
+/*
+/* tokusho.css
+*/
+
+@charset "utf-8";
+
+/* ------------------------------------------------
+   tokusho
+------------------------------------------------ */
+.side {
+  display: none;
+}
+
+.contents .container .main .main-section .category-title h2.guide-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.contents .container .main .main-section dl.contract-section {
+  margin: 20px 0;
+}
+
+.contents .container .main .main-section dl.contract-section dt {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.contents .container .main .main-section dd {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .side {
+    display: none;
+  }
+}

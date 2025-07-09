@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+/* -----------------------------------------------------------------
+  review
+----------------------------------------------------------------- */
+/* breadcrumb */
+.breadcrumb {
+  margin: 50px 0 0 34px;
+  padding: 16px;
+  font-size: 0.7rem;
+  color: #362c2d;
+  text-align: left;
+}
+
+.breadcrumb li {
+  display: inline-block;
+}
+
+.breadcrumb a {
+  color: #362c2d
+}
+
+.breadcrumb a::after {
+  content: '\03e';
+  margin: 0 2px 0 6px;
+}
+
+.breadcrumb li:last-child a::after {
+  display: none;
+}
+
+/* general */
+main {
+  width: 996px;
+  margin: 0 auto;
+  display: flex;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.review-list-wrapper {
+  margin: 30px 0;
+}
+
+/* list area */
+ul.review-list {
+  width: 576px;
+  font-size: 0.9rem;
+}
+
+ul.review-list li {
+  margin: 20px 0;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+ul.review-list li p.review-dete {
+  font-size: 0.7rem;
+}
+
+ul.review-list li p.review-name {
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+ul.review-list li p.review-detail {
+  font-size: 0.6rem;
+}
+
+.review-item {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.review-item-image {
+  width: 420px;
+  height: 420px;
+  margin-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f2f2f2;
+}
+
+.review-item-image img {
+  width: 100%;
+}
+
+.review-item-info {
+  width: auto;
+}
+
+.review-item-link a {
+  color: #362c2d;
+}
+
+.review-item-name {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.review-item-score {
+  display: flex;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* review star */
+.reviewRate {
+  display: flex;
+  justify-content: center;
+}
+
+.reviewRateStar {
+  margin-right: 5px;
+  color: #fcc620;
+  font-size: 0;
+}
+
+.reviewRateStar:last-child {
+  margin-right: 0;
+}
+
+.reviewRateStar::before {
+  content: '\f005';
+  font-family: 'Font Awesome 5 Free';
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.starOff::before {
+  content: '\f005';
+  color: #c6c6c6;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 400;
+}
+
+.starHalf::before {
+  font-family: 'Font Awesome 5 Free';
+  content: '\f5c0';
+}
+
+.review-average {
+  color: #fcc620;
+  margin-left: 7px;
+}
+
+.review-count {
+  color: #333;
+  font-weight: 300;
+  margin-left: 4px;
+}
+
+.review-caution {
+  font-size: 12px;
+}
+
+.review-link {
+  width: 90%;
+  max-width: 315px;
+  margin: 0 auto;
+}
+
+.review-link a {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border: 1px solid #eaeaea;
+  border-radius: 3px;
+}
+
+.review-link-caution {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.review-pagination {
+  text-align: center;
+}
+
+/* -----------------------------------------------------------------
+  smartphone
+----------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+
+  /* general */
+  h1 {
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2vw;
+  }
+
+  main {
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+  }
+
+  /* others */
+  .breadcrumb {
+    margin: 0;
+  }
+
+  .review-list-wrapper {
+    margin: 0;
+    position: relative;
+  }
+
+  .review-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .review-item-image {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #f2f2f2;
+  }
+
+  .review-item-score {
+    font-size: 0.8rem;
+  }
+
+  .reviewRateStar {
+    margin-right: 0.5vw;
+  }
+
+  .review-average {
+    margin-left: 0.5vw;
+  }
+
+  .review-count {
+    margin-left: 0;
+  }
+
+  .review-item-info {
+    width: 100vw;
+    margin-top: 2vw;
+    text-align: center;
+  }
+
+  ul.review-list {
+    width: 90vw;
+    margin: auto;
+    font-size: 1rem;
+  }
+
+  ul.review-list li {
+    margin: 3vw 0;
+    padding: 2vw;
+    background-color: #fafafa;
+  }
+}

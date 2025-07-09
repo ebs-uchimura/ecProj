@@ -1,0 +1,98 @@
+<header class="header">
+  <ul class="head-btn">
+    <li class="shop-name-wrapper">
+      <h1 class="shop-name">
+        <a href="<{$url.top}>">
+          <{if $shop.logo_url}>
+            <img src="<{$shop.logo_url}>" alt="<{$shop.name}>" />
+          <{else}>
+            <{$shop.name}>
+          <{/if}> 
+        </a> 
+      </h1> 
+    </li> 
+    <{if $member.is_logged_in}>
+    <li class="no-nav-item">
+      <a href="<{$url.mypage}>" class="head-btn-icon">
+        <i class="fa-regular fa-circle-user"></i>
+        <span class="head_text">マイページ</span>
+      </a>
+    </li>
+    <li class="no-nav-item">
+      <a href="<{$url.logout}>" class="head-btn-icon">
+        <i class="fa-solid fa-share-from-square"></i>
+        <span class="head_text">ログアウト</span>
+      </a>
+    </li>
+    <{else}>
+    <li class="no-nav-item">
+      <a href="<{$url.member_entry}>" class="head-btn-icon">
+        <i class="fa-solid fa-user-plus"></i>
+        <span class="head_text">新規会員登録</span>
+      </a>
+    </li>
+    <li class="no-nav-item">
+      <a href="<{$url.login}>" class="head-btn-icon">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span class="head_text">ログイン</span>
+      </a>
+    </li>
+    <{/if}> 
+    <li class="no-nav-item">
+      <a href="<{$url.cart}>" class="head-btn-icon">
+       <i class="fa-solid fa-cart-shopping"></i>
+       <span class="head_text">カート</span>
+        <{if $cart.has_item}>
+        <span class="cart-badge"></span>
+        <{/if}> 
+      </a> 
+    </li> 
+    <li class="no-nav-item">
+      <div class="head-btn-dropdown">
+        <nav class="menu">
+          <ul>
+            <li class="homelink"><a href="https://www.kenkonomori.jp/">Home</a></li>
+            <li class="vinegarlink"><a href="https://www.kenkonomori.jp/view/item/000000000001">薩摩くろす丸</a></li>
+            <li class="bonitolink"><a href="https://www.kenkonomori.jp/view/item/000000000002">鰹一番せんじ</a></li>
+            <li class="garliclink"><a href="https://www.kenkonomori.jp/view/item/000000000006">にんにく黒酢</a></li>
+            <li class="blueberrylink"><a href="https://www.kenkonomori.jp/view/item/000000000004">ブルーベリー</a></li>
+            <li class="blueberryvinegarlink"><a href="https://www.kenkonomori.jp/view/item/000000000005">黒酢ブルーベリー</a></li>
+            <li class="rakurakulink"><a href="https://www.kenkonomori.jp/view/item/000000000003">楽らくウォーク♪</a></li>
+            <li class="bubblelink"><a href="https://www.kenkonomori.jp/view/item/000000000007">バブルアルデント</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger">
+          <div class="openbtn4"><span></span><span></span><span></span></div>
+        </button>
+      </div>
+    </li>
+  </ul>
+  <hr>
+  <ul class="head-sub-btn">
+    <li class="head-catch">3袋以上のご購入で送料無料！</li>
+    <li class="head-keyword-search">
+      <div class="action-search">
+        <input type="text" data-id="<{$search_form.keyword_id}>" value="<{$search.keyword}>" class="action-search-input search-keyword" placeholder="検索ワードを入れてください">
+        <a href="<{$search_form.search_url}>" class="action-search-button search-url"><i class="fa-solid fa-magnifying-glass fa-2x"></i></a>
+      </div>
+    </li>
+    <li class="head-contact">
+      <span><a href="https://www.kenkonomori.jp/html/email.html">ご注文/お問い合わせ</a></span>
+      <span><img src="https://gigaplus.makeshop.jp/kenkonomorij/01_dial.jpg" alt="ご注文/お問い合わせ"></span>
+    </li>
+    <li class="head-telephone">
+      <span><p>0120-550-373</p></span>
+      <span>(受付時間:平日9:00～18:00)</span>
+    </li>
+  </ul>
+  <nav class="nav">
+    <ul class="navigation-bar">
+      <!--<li class="navigation-item"><a href="https://www.kenkonomori.jp/"><span>初めての方へ</span></a></li>-->
+      <li class="navigation-item"><a href="https://www.kenkonomori.jp/view/category/all_items"><span>商品一覧</span></a></li>
+      <li class="navigation-item"><a href="https://www.kenkonomori.jp/view/item/000000000001"><span>薩摩くろす丸&nbsp;|&nbsp;元祖黒酢サプリ</span></a></li>
+      <li class="navigation-item"><a href="https://www.kenkonomori.jp/view/item/000000000007"><span>バブルアルデント</span></a></li>
+      <li class="navigation-item"><a href="https://www.kenkonomori.jp/view/guide"><span>ご利用ガイド</span></a></li>
+      <li class="navigation-item"><a href="https://www.kenkonomori.jp/html/email.html"><span>お問い合わせ</span></a></li>
+    </ul>
+  </nav>
+</header>

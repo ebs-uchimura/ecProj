@@ -1,0 +1,29 @@
+/*
+/* privacy.css
+*/
+
+@charset "utf-8";
+
+/* ------------------------------------------------
+   tokusho
+------------------------------------------------ */
+.side {
+  display: none;
+}
+
+.contents .container .main .contents-area .category-title h2.guide-title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.contents .container .main .contents-area .policy-box {
+  margin-top: 20px;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contents .container .main .contents-area .category-title h2.guide-title {
+    width: 100vw;
+    margin: 10px 0;
+  }
+}
