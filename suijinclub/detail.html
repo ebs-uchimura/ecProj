@@ -586,7 +586,7 @@
                         </ul>
                     </div>
                     </div>
-                    <{if !$item.is_option_sku && !$item.is_name_print}>
+                    <{if !$item.is_option_sku && !$item.is_name_print && !$item.is_soldout }>
                     <div id="goods-cart-btn-fix" class="goods-cart-btn-fix">
                         <div class="goods-cart-btn-fix-name"><{$item.name}></div>
                         <div class="goods-cart-btn-fix-price"><{$item.price_html}>円<span class="goods-price-text">（税込）</span></div>

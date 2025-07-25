@@ -11,3 +11,21 @@
    display: none;
 }
 
+/*breadcrumb_list*/
+.main-pankuzu-list li > span {
+  white-space: nowrap;
+}
+
+.main-pankuzu-list li > span a {
+  font-size: 0.8rem;
+}
+
+.main-pankuzu-list li > span::after {
+  content: ">";
+  vertical-align: middle;
+  margin: 0 2px;
+}
+
+.main-pankuzu-list li:last-child > span::after {
+  content: "";
+}

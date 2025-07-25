@@ -49,6 +49,10 @@
   width: 70%;
 }
 
+.goods-cart-btn .goods-cart-btn-nonactive {
+  background-color: #888;
+}
+
 .goods-cart-btn-active::before {
   width: 20px;
   height: 20px;
@@ -153,7 +157,7 @@
 .goods-wrapper .goods-main-wrapper {
   width: 860px;
   padding: 4%;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: none;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -522,7 +526,7 @@
 }
 
 .goods-cart-btn-wrapper .sku .sku-cart .sku-cart-wrap .goods-cart-btn-nonactive {
-  background-color: #e5e5e5;
+  background-color: #888;
 }
 
 .goods-cart-btn-wrapper .sku .sku-cart .sku-cart-wrap .goods-cart-btn-sku span,
@@ -622,6 +626,7 @@
 
 .goods-wrapper .goods-cart-btn-fix p {
   padding-top: 3px;
+  background-color: #fff;
   font-size: 0.8rem;
 }
 
@@ -1181,7 +1186,7 @@
   }
 
   .goods-cart-btn-wrapper .sku .sku-cart .sku-cart-wrap .goods-cart-btn-nonactive {
-    background-color: #e5e5e5;
+    background-color: #888;
   }
 
   .goods-cart-btn-wrapper .sku .sku-cart .sku-cart-wrap .goods-cart-btn-sku span,
@@ -1236,12 +1241,16 @@
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    color: #fff;
     font-weight: 600;
+  }
+
+  .goods-cart-btn  .goods-cart-btn-nonactive {
+    background-color: #888;
   }
 
   .goods-other .goods-sub-description {
     font-size: 0.8rem;
+    margin: 0 2vw;
   }
 
   .goods-other .goods-sub-description img {
@@ -1297,6 +1306,7 @@
 
   .goods-other-wrapper .goods-other-title {
     margin-bottom: 15px;
+    padding-left: 5px;
     font-size: 0.9rem;
     font-weight: 600;
     text-align: center;

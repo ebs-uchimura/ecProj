@@ -80,6 +80,7 @@ h1 {
 .contents-wrapper .cart-wrapper .cart-detail .cart-detail-list li .cart-detail-info .cart-detail-name {
   width: 60%;
   margin-bottom: 15px;
+  padding: 3px;
   font-size: 0.8rem;
   line-height: 15px;
   overflow: hidden;
@@ -303,7 +304,7 @@ h1 {
 
   .contents-wrapper {
     width: 100%;
-    margin: 0 auto;
+    margin: 10vw auto;
     padding: 0;
   }
 
