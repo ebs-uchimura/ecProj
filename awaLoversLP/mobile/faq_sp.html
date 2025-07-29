@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>泡ラヴァーズ</title>
+  <meta content="泡ラヴァーズはシャンパン・オリシャン・スパークリングをこよなく愛する飲食店様に向けたサービス提供および酒販サイトです。" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="オリシャン,シャンパン,酒">
+  <link rel="shortcut icon" href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/apple-touch-icon-120x120.png">
+  <link rel="icon" type="image/png"
+    href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&display=swap"
+    rel="stylesheet">
+  <style>
+    @charset "utf-8";
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+
+    /*
+* { outline: 2px solid red; }
+*/
+    /*------------------------------
+ ▼共通デザイン
+ -------------------------------*/
+    /* tag */
+    body {
+      width: 100vw;
+      margin: 0;
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 20%;
+      z-index: 1;
+    }
+
+    a {
+      color: #fff;
+    }
+
+    p {
+      margin: auto;
+      justify-content: space-around;
+      text-align: justify;
+      font-feature-settings: "palt";
+      line-height: 1.8em;
+      letter-spacing: 0.05em;
+    }
+
+    ul {
+      padding-inline-start: 0;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      list-style: none;
+    }
+
+    dt {
+      margin: 0;
+    }
+
+    dd {
+      margin: 0;
+    }
+
+    ol {
+      margin-block-start: 0;
+      margin-block-end: 0;
+      padding-inline-start: 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    input[type=radio] {
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* font */
+    .zen-maru-gothic-bold {
+      font-family: "Zen Maru Gothic", serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .fixed_btn {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      text-align: right;
+      display: flex;
+      z-index: 9999;
+    }
+
+    /* breadcrumb */
+    .breadcrumb-nav {
+      width: 100%;
+      height: 5vw;
+      font-size: 0.7rem;
+      line-height: 2em;
+      background-color: #000;
+    }
+
+    .breadcrumb-nav a {
+      color: #fff;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin-left: 5vw;
+    }
+
+    .breadcrumb li:not(:last-of-type)::after {
+      content: ">";
+      color: #fff;
+      margin: 0 .6em;
+    }
+
+    /*------------------------------
+ ▼ヘッダ部分
+ -------------------------------*/
+    /* content */
+    .whole-header {
+      padding: 0 2vw;
+      background-color: #000;
+      font-size: 0.7rem;
+      color: #fff;
+    }
+
+    .whole-header p {
+      text-align: center;
+      padding: 1vw;
+      font-size: 0.7rem;
+      color: #fff;
+    }
+
+    .content-wrapper {
+      max-width: 100vw;
+      margin: 0 auto;
+      background-color: #fff;
+    }
+
+    /* header */
+    header {
+      padding-top: 2vw;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/bg.jpg);
+    }
+
+    header .whole-header {
+      width: 100vw;
+    }
+
+    header .whole-header p {
+      text-align: center;
+      padding: 1vw;
+      font-size: 0.7rem;
+      color: #fff;
+    }
+
+    header .header-wrapper {
+      width: 100vw;
+      padding-bottom: 5vw;
+    }
+
+    header .header-wrapper .header-flex {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 2vw 0;
+    }
+
+    header .header-wrapper .header-flex div {
+      padding-right: 3.5vw;
+    }
+
+    header .header-wrapper .header-flex .header-logo {
+      margin-left: 2vw;
+    }
+
+    header .header-wrapper .header-flex .header-logo img {
+      width: 18vw;
+      margin-left: 1vw;
+    }
+
+    header .header-wrapper .header-flex .cart img {
+      width: 5vw;
+    }
+
+    header .header-wrapper .header-flex .login {
+      padding-bottom: 2vw;
+      margin-left: auto;
+    }
+
+    header .header-wrapper .header-flex .login p {
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    header .header-wrapper .header-flex .telephone p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding-bottom: 2vw;
+    }
+
+    header .header-wrapper .header-flex .information img {
+      width: 7vw;
+    }
+
+    header .header-main-image {
+      width: 95%;
+      margin: 0 auto;
+    }
+
+    /*------------------------------
+ ▼コンテンツ部分
+ -------------------------------*/
+    /* contents */
+    main {
+      width: 100vw;
+    }
+
+    main .whole-wrapper {
+      width: 100%;
+    }
+
+    /* mainarea */
+    main .whole-wrapper .mainarea .attention-area {
+      margin: 3vw auto;
+    }
+
+    main .whole-wrapper .mainarea .attention-area ul {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    main .whole-wrapper .mainarea .attention-area ul li {
+      margin-top: 2vw;
+    }
+
+    main .whole-wrapper .mainarea .attention-area {
+      width: 90%;
+      margin: 5vw auto;
+    }
+
+    main .whole-wrapper .mainarea .attention-area img {
+      width: 100%;
+    }
+
+    main .whole-wrapper .mainarea .attention-area .article-area {
+      width: 90%;
+      margin: auto;
+    }
+
+    main .whole-wrapper .mainarea .attention-area .faq-header {
+      padding: 1vw 0 2vw;
+      font-size: 1.4rem;
+      font-weight: 800;
+      text-align: center;
+      color: #000;
+    }
+
+    main .whole-wrapper .mainarea .attention-area .article-area ul li {
+      font-size: 0.9rem;
+      line-height: 1.8em;
+      margin: 5vw 0;
+      text-align: left;
+    }
+
+    main .whole-wrapper .mainarea .faq-area {
+      margin: 5vw 0;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-index-area {
+      position: relative;
+      margin: 20vw 2vw 15vw;
+      background-color: #eee;
+      font-size: 0.9rem;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-index-area img {
+      position: absolute;
+      width: 50vw;
+      top: -10vw;
+      left: calc(48vw / 2);
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-index-area .faq-index-article-area {
+      padding-top: 10vw;
+      text-align: center;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-index-area .faq-index-article-area ul {
+      padding: 5vw;
+      font-weight: 600;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-index-area .faq-index-article-area ul li {
+      margin: 3vw 0;
+      padding: 0 5vw;
+      text-align: left;
+      list-style: inside;
+      font-weight: 400;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-index-area .faq-index-article-area ul li a {
+      color: #001eff;
+      line-height: 1.8em;
+      text-decoration: underline;
+      text-underline-offset: 0.5em;
+      overflow-wrap: anywhere;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area {
+      width: 95%;
+      margin: 2vw auto 10vw;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div {
+      margin: 3vw 0 5vw;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl {
+      padding-top: 5vw;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl .purple {
+      font-size: 0.9rem;
+      padding-top: 3vw;
+      text-align: right;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl .purple a {
+      color: #b67dec;
+      text-decoration: underline;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl dt {
+      position: relative;
+      padding: 0 0 2vw 2vw;
+      font-size: 1.1rem;
+      font-family: "Noto Sans JP", sans-serif;
+      color: #ff992b;
+      font-weight: 600;
+      text-align: left;
+      line-height: 1em;
+      background-color: #fff0df;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl dt img {
+      position: absolute;
+      width: 40vw;
+      top: -7vw;
+      left: 0;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl dd {
+      position: relative;
+      padding: 5vw 2vw;
+      font-size: 1.1rem;
+      font-family: "Noto Sans JP", sans-serif;
+      font-weight: 400;
+      text-align: left;
+      line-height: 1.8rem;
+      background-color: #f4e8ff;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl dd .annotation {
+      font-size: 1rem;
+    }
+
+    main .whole-wrapper .mainarea .faq-area .faq-article-area div dl dd img {
+      position: absolute;
+      width: 40vw;
+      bottom: -4vw;
+      right: 0;
+    }
+
+    /* sidebar */
+    main .sidebar {
+      width: 100%;
+      color: #000;
+      background-color: #eee;
+      border: 1px solid #000;
+      border-radius: 0 30vw 0 0;
+    }
+
+    main .sidebar a {
+      color: #000;
+    }
+
+    main .sidebar .sideicon {
+      margin-top: 10vw;
+      text-align: center;
+    }
+
+    main .sidebar .sideicon>img {
+      width: 60%;
+      padding-right: 15%;
+    }
+
+    main .sidebar ul {
+      margin: 5vw 10vw;
+    }
+
+    main .sidebar ul li {
+      padding: 5vw 0;
+      text-align: left;
+      text-decoration: underline;
+      text-underline-offset: 0.6em;
+    }
+
+    main .sidebar ul li a {
+      font-size: 1.1rem;
+    }
+
+    main .sidebar ul li a img {
+      width: 100%;
+    }
+
+    /*------------------------------
+ ▼フッター
+ -------------------------------*/
+    footer {
+      margin-top: 5vw;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/bg.jpg);
+      background-repeat: repeat;
+      background-position: center;
+    }
+
+    footer .footer-headline {
+      display: flex;
+      position: relative;
+      width: 100%;
+      margin: auto;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/footer_comment_sp.png), url(https://gigaplus.makeshop.jp/ebisudoec/awalove/footer.jpg);
+      background-repeat: no-repeat;
+      background-position: center bottom, center top;
+      background-size: 90%, 100%;
+    }
+
+    footer .footer-headline .footer-headline-txt {
+      width: 100%;
+      height: 140vw;
+      margin-top: 110vw;
+      text-align: left;
+    }
+
+    footer .footer-headline .footer-headline-txt p {
+      padding: 4vw 10vw;
+      color: #FFF;
+      font-size: calc(3.85vw + 0.2rem);
+      font-weight: 500;
+    }
+
+    .fixed_btn {
+      text-align: right;
+      display: flex;
+      z-index: 9999;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="content-wrapper">
+    <div class="whole-header">
+      <p>泡ラヴァーズはシャンパン・オリシャン・スパークリングをこよなく愛する飲食店様に向けたサービス提供および酒販サイトです。</p>
+    </div>
+    <header>
+      <div class="header-wrapper">
+        <div class="header-flex">
+          <div class="header-icon header-logo">
+            <a href="/https://suijinclub.jp/sp/awalove">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/mainlogo.png" alt="awa lovers">
+            </a>
+          </div>
+          <div class="header-icon login">
+            <p class="zen-maru-gothic-bold">LOGIN</p>
+          </div>
+          <div class="header-icon cart">
+            <a href="#" target="_blank">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/cart.png" alt="cart">
+            </a>
+          </div>
+          <div class="header-icon telephone">
+            <p class="zen-maru-gothic-bold">0120-88-0606</p>
+          </div>
+          <div class="header-icon information">
+            <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/info.png" alt="information">
+          </div>
+        </div>
+        <div class="header-main-image">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_head_sp.png" alt="FAQ メイン画像">
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="whole-wrapper">
+        <div class="mainarea">
+          <nav class="breadcrumb-nav" aria-label="パンくず">
+            <ol class="breadcrumb">
+              <li><a href="/">TOP</a></li>
+              <li><a href="/awalovefaq_sp/">FAQ</a></li>
+            </ol>
+          </nav>
+          <div class="attention-area">
+            <div class="faq-header">FAQ</div>
+            <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_head01.png" alt="デザイン・注文に関する注意点">
+            <div class="article-area">
+              <ul>
+                <li>◆デザインの修正は2回までとさせていただきます。</li>
+                <li>◆テンプレートを使用せずに、完全オリジナルをご希望の場合は、別途デザイン料1万円(税込)頂戴いたします。プロのデザイナーにお任せください。</li>
+                <li>◆ラベル制作に必要な情報がそろい次第、ラベルデザインに入らせていただきます。ご注文順ではございませんのでご注意ください。</li>
+                <li>◆デザイン確定後、5営業日以内に発送いたします。必要な情報（店舗名、ご住所、お酒の種類等）が揃い次第制作に取り掛からせていただきます。土日祝は店休日となっておりますのでご了承ください。</li>
+              </ul>
+            </div>
+          </div>
+          <div class="faq-area">
+            <div id="faqidx" class="faq-index-area">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_icon.png" alt="FAQ">
+              <div class="faq-index-article-area">
+                <ul>
+                  目次
+                  <li><a href="#fq01">デザイン料はかかりますか？</a></li>
+                  <li><a href="#fq02">デザインは1本ずつ変更できますか？</a></li>
+                  <li><a href="#fq03">デザインの修正はできますか？</a></li>
+                  <li><a href="#fq04">何本から注文できますか？</a></li>
+                  <li><a href="#fq05">自作のデータでボトルを作成できますか？</a></li>
+                  <li><a href="#fq06">どのような画像を使用できますか？</a></li>
+                  <li><a href="#fq07">画像のトリミングはどのように行われますか？</a></li>
+                  <li><a href="#fq08">商品が届く前にラベルを確認できますか？</a></li>
+                  <li><a href="#fq09">写真がなくても作成できますか？</a></li>
+                  <li><a href="#fq10">使いたいお酒があるのですが、それを使用して作成してもらえますか？</a></li>
+                  <li><a href="#fq11">中身のない空瓶だけで作成してもらえますか？</a></li>
+                  <li><a href="#fq12">届いた商品に不備があった場合、どうすればよいですか？</a></li>
+                  <li><a href="#fq13">配送料はいくらですか？</a></li>
+                  <li><a href="#fq14">キャンセルは可能ですか？</a></li>
+                  <li><a href="#fq15">お届け日はいつになりますか？</a></li>
+                  <li><a href="#fq16">配達日や時間の指定はできますか？</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="faq-article-area">
+              <div id="fq01">
+                <dl>
+                  <dt class="question"><img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png"
+                      alt="question"><br>
+                    デザイン料はかかりますか？
+                  </dt>
+                  <dd class="answer">
+                    無料テンプレートからお選びいただいた場合は無料です。完全オリジナルをご希望の場合は、別途デザイン料1万円(税込)頂戴いたします。プロのデザイナーにお任せください。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq02">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question">
+                    <br>デザインは1本ずつ変更できますか？
+                  </dt>
+                  <dd class="answer">最小ロットの6本単位でラベルデザインを変更することが可能です。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq03">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    デザインの修正はできますか？
+                  </dt>
+                  <dd class="answer">デザインの修正は2回までとなります。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq04">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    何本から注文できますか？
+                  </dt>
+                  <dd class="answer">1ケース（6本）からご注文が可能です。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq05">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    自作のデータでボトルを作成できますか？
+                  </dt>
+                  <dd class="answer">
+                    サイト上で制作用テンプレートがダウンロードできます。制作用テンプレートでデータを作成し、お客様完全入稿での制作となります。<br><span
+                      class="annotation">※入稿されたデザインは仕上がりイメージでご確認いただけます。<br><br>※ラベルデータの内容によっては、「誓約書」に記載していただく場合もございますので、予めご了承ください。</span><br><img
+                      src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq06">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    どのような画像を使用できますか？
+                  </dt>
+                  <dd class="answer">
+                    著作権を侵害しない画像（例：ポケモンやディズニーのようなキャラクターやアイドルなどの芸能人はNG）であれば、基本的に加工可能です。ただし、画像のサイズが小さすぎたり、解像度が低い場合、仕上がりに影響が出る可能性があります。<br><br><span
+                      class="annotation">※ラベルデータの内容によっては、「誓約書」に記載していただく場合もございますので、予めご了承ください。</span><br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq07">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question">
+                    <br>画像のトリミングはどのように行われますか？
+                  </dt>
+                  <dd class="answer">頭のてっぺん（頭頂部）からお腹までがはっきり写っている画像をご提供ください。頭部や肩、首が切れている場合、仕上がりに影響が出ることがあります。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq08">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    商品が届く前にラベルを確認できますか？
+                  </dt>
+                  <dd class="answer">制作イメージ画像を商品発送前にLINEでお送りいたしますので、そちらでご確認いただけます。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq09">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    写真がなくても作成できますか？
+                  </dt>
+                  <dd class="answer">写真がなくても、店舗のロゴや「Happy Birthday!!」などの文字を使って、おしゃれなボトルをお作りできます。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq10">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    使いたいお酒があるのですが、それを使用して作成してもらえますか？
+                  </dt>
+                  <dd class="answer">
+                    申し訳ございませんが、当サービスは弊社取り扱い商品のみでのオリジナルシャンパン作成となります。今後、ラインナップの拡充を予定しておりますので、ぜひご期待ください。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq11">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    中身のない空瓶だけで作成してもらえますか？
+                  </dt>
+                  <dd class="answer">申し訳ございませんが、空瓶でのご提供は対応しておりません。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq12">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    届いた商品に不備があった場合、どうすればよいですか？
+                  </dt>
+                  <dd class="answer">
+                    大変申し訳ございません。お手数ですが、商品到着後3日以内にお問い合わせフォームよりご連絡ください。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq13">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    配送料はいくらですか？
+                  </dt>
+                  <dd class="answer">
+                    1回のご注文につき、全国一律770円(税込)を頂戴しております。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq14">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    キャンセルは可能ですか？
+                  </dt>
+                  <dd class="answer">
+                    お客様都合でのキャンセルはお受けしておりません。商品の品質に問題があった場合は、商品到着後3日以内にお問い合わせフォームよりご連絡ください。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq15">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    お届け日はいつになりますか？
+                  </dt>
+                  <dd class="answer">
+                    デザイン確定後、5営業日以内に発送いたします。必要な情報（店舗名、ご住所、お酒の種類等）が揃い次第制作に取り掛からせていただきます。土日祝は店休日となっておりますのでご了承ください。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+              <div id="fq16">
+                <dl>
+                  <dt class="question">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_question.png" alt="question"><br>
+                    配達日や時間の指定はできますか？
+                  </dt>
+                  <dd class="answer">
+                    可能です。ラベル確定後に日時を指定いただけます。ただし、配送業者によるお届けまでのリードタイムがございます。予めご了承ください。<br>
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/faq_answer.png" alt="answer">
+                  </dd>
+                  <div class="purple"><a href="#faqidx">目次に戻る▲</a></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sidebar">
+          <div class="sideicon">
+            <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/category.png" alt="Category">
+          </div>
+          <ul>
+            <li><a href="https://suijinclub.jp/sp/awalove">・TOP</li>
+            <li><a href="https://suijinclub.jp/sp/awalove/special">・オリジナルシャンパン特別会場はこちら</li>
+            <li><a href="https://suijinclub.jp/sp/awalove/library">・ラベルライブラリ</li>
+            <li><a href="https://suijinclub.jp/sp/awalove/faq">・デザイン・注文に関するFAQ</li>
+            <li><a href="https://ebisu-do.jp/company">・運営会社について</a></li>
+          </ul>
+          <!--<ul>
+            <li><a href=""><img src="img/poster_btn.png" alt="イベントポスター 承ります!!"></a></li>
+          </ul>-->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-headline">
+        <div class="footer-headline-txt">
+          <p>
+            泡ラヴァーズは、酒類通販20年の実績を活かし、国内最大級のオリシャンボトルのラインナップを目指しています。泡ラヴァーズクルーが厳選したボトルの数々からお選びください。
+            <br>
+            <br>
+            様々なシーンに合うよう、デザインは順次追加・
+            更新しております。
+            <br>
+            プロのデザイナーによるクオリティー保証。
+            <br>
+            オリシャンの味わいと格を一段あげるデザインを心がけております。
+          </p>
+        </div>
+        <div class="footer-headline-img">
+
+        </div>
+      </div>
+    </footer>
+    <div class="fixed_btn">
+      <a href="https://suijinclub.jp/sp/awalove/special">
+        <img class="fiximg forsp" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/footerbutton01.png"
+          alt="オリシャンアイテム一覧">
+      </a>
+      <a href="https://lin.ee/lOz5NxU">
+        <img class="fiximg forsp" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/footerbutton02.png"
+          alt="LINEで今すぐ注文">
+      </a>
+    </div>
+  </div>
+  <script>
+    $(function () {
+      $('a[href^="#"]').click(function () {
+        var speed = 500;
+        var href = $(this).attr("href");
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({ scrollTop: position }, speed, "swing");
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>

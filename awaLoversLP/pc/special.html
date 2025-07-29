@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>泡ラヴァーズ</title>
+  <meta content="泡ラヴァーズはシャンパン・オリシャン・スパークリングをこよなく愛する飲食店様に向けたサービス提供および酒販サイトです。" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="オリシャン,シャンパン,酒">
+  <link rel="shortcut icon" href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/apple-touch-icon-120x120.png">
+  <link rel="icon" type="image/png"
+    href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&display=swap"
+    rel="stylesheet">
+  <style>
+    @charset "utf-8";
+
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+
+    /*------------------------------
+ ▼共通デザイン
+ -------------------------------*/
+    /* tag */
+    body {
+      margin: 0;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/bg.jpg);
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 20%;
+    }
+
+    a {
+      color: #fff;
+    }
+
+    p {
+      margin: auto;
+      justify-content: space-around;
+      font-feature-settings: "palt";
+      line-height: 1.8em;
+      letter-spacing: 0.05em;
+    }
+
+    ul {
+      padding-inline-start: 0;
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    input[type=radio] {
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      padding: 0;
+      appearance: none;
+    }
+
+    /* font */
+    .zen-maru-gothic-bold {
+      font-family: "Zen Maru Gothic", serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* hide */
+    .display-none {
+      display: none;
+    }
+
+    /* color */
+    .red {
+      color: #d80909;
+      font-weight: bold;
+    }
+
+    .purple_bk {
+      background-color: #b67dec;
+    }
+
+    .skyblue_bk {
+      background-color: #9febf4;
+    }
+
+    .green_bk {
+      background-color: #bdf49f;
+    }
+
+    .orange_bk {
+      background-color: #edaf77;
+    }
+
+    .pink_bk {
+      background-color: #ffc1f7;
+    }
+
+    /* fontsize */
+    .small {
+      font-size: 0.8rem;
+    }
+
+    /* fix */
+    .fixed_btn {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      text-align: right;
+      z-index: 9999;
+    }
+
+    /* button */
+    .btn {
+      text-align: center;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 3em;
+    }
+
+    .btn-blue {
+      color: #fff;
+      background-color: #00589c;
+    }
+
+    .btn-purple {
+      color: #fff;
+      background-color: #ad2bb2;
+    }
+
+    .btn-orange {
+      color: #fff;
+      background-color: #eb6100;
+    }
+
+    /*------------------------------
+ ▼ヘッダ部分
+ -------------------------------*/
+    /* whole header */
+    .whole-header {
+      width: 100%;
+      background-color: #000;
+      padding: 5px 0;
+    }
+
+    .whole-header p {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+
+    /* content */
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    /* header */
+    header {
+      width: 1100px;
+      margin: auto;
+    }
+
+    header .header-wrapper .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    header .header-wrapper .header-flex div {
+      padding-right: 20px;
+    }
+
+    header .header-wrapper .header-flex .header-logo {
+      margin-left: 10px;
+    }
+
+    header .header-wrapper .header-flex .header-logo img {
+      width: 100px;
+      margin-left: 10px;
+    }
+
+    header .header-wrapper .header-flex .login {
+      margin-left: auto;
+      padding-top: 4px;
+    }
+
+    header .header-wrapper .header-flex .login p {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    header .header-wrapper .header-flex .cart {
+      padding-top: 5px;
+    }
+
+    header .header-wrapper .header-flex .telephone {
+      padding-top: 1px;
+    }
+
+    header .header-wrapper .header-flex .telephone p {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: inherit;
+    }
+
+    header .header-wrapper .header-flex .information img {
+      width: 38px;
+    }
+
+    header .header-catch {
+      margin-top: 30px;
+    }
+
+    header .header-catch .header-headline {
+      position: relative;
+      width: 800px;
+      height: 460px;
+      margin: auto;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/header_comment.png);
+      background-repeat: no-repeat;
+      background-position: top;
+      background-size: 100%;
+    }
+
+    header .header-catch .header-headline p {
+      position: absolute;
+      top: 125px;
+      left: 20px;
+      right: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    header .header-catch .header-image {
+      width: 1000px;
+      margin: auto;
+    }
+
+    header .header-catch .header-button-image {
+      width: 650px;
+      margin: auto;
+    }
+
+    /*------------------------------
+ ▼コンテンツ部分
+ -------------------------------*/
+    main {
+      margin-top: 70px;
+    }
+
+    /* movie */
+    main .movie-wrapper {
+      margin: 0 auto 20px auto;
+      width: 1200px;
+      position: relative;
+      border: none;
+      padding: 0;
+    }
+
+    main .movie-wrapper .bk-movie {
+      max-height: 800px;
+      width: 100%;
+    }
+
+    main .movie-wrapper .bk-movie video {
+      width: 100%;
+      height: auto;
+      margin: auto;
+      display: block;
+    }
+
+    main .movie-wrapper img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 300px;
+      margin: auto;
+      display: block;
+    }
+
+    /* entry */
+    main .entry-wrapper {
+      margin-top: 150px;
+    }
+
+    main .entry-wrapper .entry-image {
+      text-align: center;
+    }
+
+    main .entry-wrapper .entry-image img {
+      width: 950px;
+    }
+
+    main .entry-wrapper .entry-headline {
+      margin-top: 40px;
+    }
+
+    main .entry-wrapper .entry-headline p {
+      text-align: center;
+      font-size: 1.25rem;
+      line-height: 2.5em;
+      font-weight: 500;
+    }
+
+    /* appeal */
+    main .appeal-wrapper .appeal-headline {
+      position: relative;
+      width: 950px;
+      margin: 80px auto;
+      padding: 35px 10px 10px;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 2em;
+      background-color: #000;
+      border-radius: 20px;
+    }
+
+    main .appeal-wrapper .appeal-headline>img {
+      position: absolute;
+      width: 500px;
+      top: -37px;
+      left: 230px;
+    }
+
+    main .appeal-wrapper .appeal-headline ul li {
+      width: 95%;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 20px;
+    }
+
+    main .appeal-wrapper .appeal-headline ul li .appeal-div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    main .appeal-wrapper .appeal-headline ul li .appeal-div .appeal-img-div {
+      width: 30%;
+    }
+
+    main .appeal-wrapper .appeal-headline ul li .appeal-div .appeal-img-div img {
+      width: 200px;
+      padding-top: 10px;
+    }
+
+    main .appeal-wrapper .appeal-headline ul li .appeal-div .appeal-txt-div {
+      width: 70%;
+      padding-left: 5px;
+    }
+
+    main .appeal-wrapper .appeal-headline ul li .appeal-div .appeal-txt-div p {
+      font-size: 0.9rem;
+    }
+
+    main .appeal-wrapper .header-button-image {
+      width: 650px;
+      margin: auto;
+    }
+
+    /*------------------------------
+ ▼お客様の声部分
+ -------------------------------*/
+    /* wrapper */
+    main .voice-wrapper {
+      position: relative;
+      max-width: 1200px;
+      margin-top: 300px;
+    }
+
+    main .voice-wrapper .voice-image {
+      position: absolute;
+      top: -250px;
+      left: 300px;
+    }
+
+    main .voice-bk-wrapper {
+      max-width: 1200px;
+      padding-top: 100px;
+      background-color: #ffcd46;
+    }
+
+    main .voice-headline {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* icon */
+    main .voice-wrapper .voice-image {
+      width: 600px;
+      margin: 50px auto;
+    }
+
+    main .voice-wrapper ul li .voice-div .voice-img {
+      margin: 30px 0;
+    }
+
+    main .voice-wrapper ul li .voice-div .voice-img img {
+      width: 200px;
+      margin: 10px auto;
+    }
+
+    main .voice-wrapper ul li .voice-div {
+      display: flex;
+    }
+
+    /* bubble */
+    main .voice-wrapper ul li .voice-div .voice-txt {
+      position: relative;
+      width: 700px;
+      height: 140px;
+      background: #FFFFFF;
+      padding: 20px;
+      text-align: left;
+      border: 1px solid #F1C142;
+      color: #333333;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border-radius: 41px;
+      -webkit-border-radius: 41px;
+      -moz-border-radius: 41px;
+    }
+
+    main .voice-wrapper ul li .voice-div.left .voice-txt {
+      margin-left: 30px;
+    }
+
+    main .voice-wrapper ul li .voice-div.right .voice-txt {
+      margin-right: 30px;
+    }
+
+    main .voice-wrapper ul li .voice-div .voice-txt p {
+      margin: 0 30px;
+    }
+
+    main .voice-wrapper ul li .voice-div .voice-txt:after,
+    main .voice-wrapper ul li .voice-div .voice-txt:before {
+      border: solid transparent;
+      content: '';
+      height: 0;
+      width: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+    }
+
+    main .voice-wrapper ul li .voice-div .voice-txt:after {
+      border-color: rgba(255, 255, 255, 0);
+      border-top-width: 10px;
+      border-bottom-width: 10px;
+      border-left-width: 30px;
+      border-right-width: 30px;
+      margin-top: -10px;
+    }
+
+    main .voice-wrapper ul li .voice-div .voice-txt:before {
+      border-color: rgba(241, 193, 66, 0);
+      border-top-width: 11px;
+      border-bottom-width: 11px;
+      border-left-width: 33px;
+      border-right-width: 33px;
+      margin-top: -11px;
+    }
+
+    main .voice-wrapper ul li .voice-div.right .voice-txt:after,
+    main .voice-wrapper ul li .voice-div.right .voice-txt:before {
+      left: 100%;
+    }
+
+    main .voice-wrapper ul li .voice-div.right .voice-txt:after {
+      border-left-color: #FFFFFF;
+    }
+
+    main .voice-wrapper ul li .voice-div.right .voice-txt:before {
+      margin-left: 1px;
+      border-left-color: #F1C142;
+    }
+
+    main .voice-wrapper ul li .voice-div.left .voice-txt:after,
+    main .voice-wrapper ul li .voice-div.left .voice-txt:before {
+      right: 100%;
+    }
+
+    main .voice-wrapper ul li .voice-div.left .voice-txt:after {
+      border-right-color: #FFFFFF;
+    }
+
+    main .voice-wrapper ul li .voice-div.left .voice-txt:before {
+      margin-right: 1px;
+      border-right-color: #F1C142;
+    }
+
+    main .voice-wrapper ul li .voice-div .voice-txt .review {
+      position: absolute;
+      top: 80%;
+      left: 72%;
+      color: #ffd35e;
+    }
+
+    /* lineup button */
+    main .product-button-image {
+      width: 650px;
+      margin: 50px auto;
+    }
+
+    /*------------------------------
+ ▼商品一覧
+ -------------------------------*/
+    /* product wrapper */
+    main .product-wrapper {
+      width: 1200px;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/lineuphead.png);
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 110%;
+    }
+
+    main .product-wrapper .product-row-wrapper {
+      position: relative;
+      width: 1000px;
+      padding-top: 500px;
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+      justify-content: space-around;
+    }
+
+    /* product header */
+    main .product-wrapper .product-row-wrapper .product-row-head {
+      width: 1000px;
+      margin: 20px 0 0;
+      padding: 10px 13px;
+      background-color: #fff;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child {
+      display: flex;
+      flex-wrap: wrap;
+      margin: auto;
+      justify-content: space-between;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-img {
+      position: relative;
+      width: 50%;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-img img {
+      width: 400px;
+      position: absolute;
+      top: 0;
+      left: 45px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-img img.icon {
+      Top: 10px;
+      left: 60px;
+      width: 155px;
+      z-index: 100;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail {
+      width: 50%;
+      text-align: center;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail img {
+      width: 90%;
+      margin: 20px 0;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-title {
+      color: #000;
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin: auto;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-spec {
+      width: 70%;
+      margin: 10px auto;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-spec .spec-flex {
+      display: flex;
+      justify-content: space-between;
+      color: grey;
+      font-size: 0.7rem;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-price {
+      color: #00589c;
+      font-size: 1.3rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-price .piece {
+      width: 60px;
+      height: 30px;
+      text-align: center;
+      background-color: #00589c;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 2.5em;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-price .price {
+      width: 60px;
+      font-size: 2rem;
+      padding-right: 20px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-price .small {
+      width: 60px;
+      padding-top: 10px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-price .btn {
+      position: relative;
+      width: 220px;
+      height: 35px;
+      margin: 20px 0;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-price .btn a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-setprice {
+      color: #ad2bb2;
+      font-size: 1rem;
+      font-weight: 800;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-setprice div {
+      margin-left: 20px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-setprice .piece {
+      width: 60px;
+      text-align: center;
+      background-color: #ad2bb2;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 2.5em;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-setprice .price {
+      width: 60px;
+      font-size: 2rem;
+      line-height: 1em;
+      padding-right: 20px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-setprice .small {
+      width: 60px;
+      padding: 0;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-setprice .btn {
+      position: relative;
+      width: 180px;
+      height: 35px;
+      margin-top: 5px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-setprice .btn button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child .product-row-head-child-detail ul li.list-annotation {
+      font-size: 0.7rem;
+      text-align: left;
+      color: #ad2bb2;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child-explanation {
+      margin: 20px 0 15px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child-explanation p {
+      font-size: 0.9rem;
+      padding: 0 20px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child-explanation .detail {
+      width: 250px;
+      height: 35px;
+      margin: 15px auto;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child-explanation .list-buttons div {
+      position: relative;
+      width: 300px;
+      height: 35px;
+      margin: 20px auto;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-head .product-row-head-child-explanation .list-buttons button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+    }
+
+    /* product main */
+    main .product-wrapper .product-row-wrapper .product-row-child {
+      width: 300px;
+      margin: 20px 0;
+      padding: 10px 13px;
+      background-color: #fff;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-image {
+      height: 300px;
+      position: relative;
+      color: #000;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-image img {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-image .icon {
+      width: 115px;
+      z-index: 100;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-title {
+      height: 50px;
+      color: #000;
+      font-size: 1.2rem;
+      font-weight: 800;
+      padding: 10px 10px 0 10px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-price {
+      color: #00589c;
+      padding: 5px 25px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-price .piece {
+      width: 60px;
+      height: 30px;
+      text-align: center;
+      background-color: #00589c;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      margin-right: 50px;
+      font-weight: 500;
+      line-height: 2.5em;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-setprice {
+      color: #ad2bb2;
+      padding: 5px 25px 0;
+      font-size: 1.6rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-setprice .piece {
+      width: 60px;
+      margin-right: 30px;
+      text-align: center;
+      background-color: #ad2bb2;
+      color: #fff;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      line-height: 2.5em;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-annotation {
+      padding-left: 20px;
+      font-size: 0.7rem;
+      color: #ad2bb2;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-text {
+      height: 220px;
+      margin: 30px 0 20px;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-text p {
+      color: #000;
+      font-size: 0.9rem;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-buttons div {
+      position: relative;
+      width: 300px;
+      height: 35px;
+      margin: 20px 0;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-buttons button {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: #fff;
+    }
+
+    main .product-wrapper .product-row-wrapper .product-row-child ul li.list-spec {
+      margin-top: 20px;
+      color: grey;
+      font-size: 0.8rem;
+    }
+
+    /*------------------------------
+ ▼ナビゲーション
+ -------------------------------*/
+    .bottomnav {
+      background: #fff;
+      font-size: 15px;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 140px;
+      width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .bottomnav a {
+      width: 16.2%;
+      width: calc(100% / 5 - 1px);
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      color: #000;
+      background: #c3c3c3;
+      text-decoration: none;
+      letter-spacing: .1em;
+    }
+
+    .bottomnav .logo {
+      color: #fff;
+      background: #000;
+    }
+
+    .bottomnav .logo img {
+      width: 100%;
+      max-width: 70px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /*------------------------------
+ ▼フッター
+ -------------------------------*/
+    footer {
+      margin-top: 50px;
+    }
+
+    footer .footer-headline {
+      display: flex;
+      position: relative;
+      width: 1200px;
+      height: 620px;
+      margin-left: 100px;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/footer_comment.png), url(https://gigaplus.makeshop.jp/ebisudoec/awalove/footer.jpg);
+      background-repeat: no-repeat;
+      background-position: left top, 480px top;
+      background-size: 50%;
+    }
+
+    footer .footer-headline .footer-headline-txt {
+      width: 500px;
+      text-align: left;
+      margin-left: 40px;
+    }
+
+    footer .footer-headline .footer-headline-txt p {
+      color: #FFF;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 130px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('Android') > 0) {
+      location.href = 'https://suijinclub.jp/sp/awalove/special';
+    }
+  </script>
+  <script>
+    $(function () {
+      $(".product-row-head-child-img .pbbottle, .list-image .pbbottle").hover(
+        function () {
+          $(this).css('opacity', 0);
+        },
+        function () {
+          $(this).css('opacity', 1);
+        }
+      );
+    });
+  </script>
+</head>
+
+<body>
+  <div class="whole-header">
+    <p>泡ラヴァーズはシャンパン・オリシャン・スパークリングをこよなく愛する飲食店様に向けたサービス提供および酒販サイトです。</p>
+  </div>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-wrapper">
+        <div class="header-flex">
+          <div class="header-icon header-logo">
+            <a href="https://suijinclub.jp/awalove">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/mainlogo.png" alt="awa lovers">
+            </a>
+          </div>
+          <div class="header-icon login">
+            <p class="zen-maru-gothic-bold">LOGIN</p>
+          </div>
+          <div class="header-icon card">
+            <a href="#" target="_blank">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/cart.png" alt="cart">
+            </a>
+          </div>
+          <div class="header-icon telephone">
+            <p class="zen-maru-gothic-bold">0120-88-0606</p>
+          </div>
+          <div class="header-icon information">
+            <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/info.png" alt="information">
+          </div>
+        </div>
+        <div class="header-catch">
+          <div class="header-image">
+            <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/main01.png" alt="誕生日を祝いたい、乾杯したい、めでたい">
+          </div>
+          <div class="header-headline">
+            <p>
+              そんなお祝いのシーンをもっともっともっと盛り上げたい！
+              <br>
+              したい！してあげたい！が溢れる。そんな世の中がやっぱり楽しいですよね？
+              <br>
+              泡ラヴァーズでは、日本の、いや世界のめでたいシーンをもっともっとめでたく！もっともっと祝える！
+              <br>
+              そしてもっともっと賑やかに。そんなことを考えてみます！
+            </p>
+          </div>
+          <div class="header-button-image">
+            <a href="#product">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/lineup2024.png" alt="2024オリシャンラインナップ">
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div id="movie" class="movie-wrapper">
+        <div class="bk-movie">
+          <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe
+              src="https://player.vimeo.com/video/1028733507?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&background=1"
+              frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+              style="position:absolute;top:0;left:0;width:100%;height:100%;" title="awalovers"></iframe>
+          </div>
+        </div>
+        <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/mainlogo_movie.png">
+      </div>
+      <div id="entry" class="entry-wrapper">
+        <div class="entry-image">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/catch01.png" alt="ハレの日はオリシャン">
+        </div>
+        <div class="entry-headline">
+          <p>
+            オリジナルシャンパンの魅力を紐解きますと、
+            <br>
+            一言で言い表せないほど多岐にわたります。
+            <br>
+            ここでは、その魅力を<span class="purple_bk">３つの視点</span>からご紹介します。
+          </p>
+        </div>
+      </div>
+      <div id="appeal" class="appeal-wrapper">
+        <div id="appeal1" class="appeal-headline">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/head01.png" alt="唯一無二の存在感">
+          <ul>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content01-01.png" alt="自分だけの物語">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    オリジナルシャンパンは、自分だけの物語を刻み込むことができます。ラベルのデザイン、ブレンドの組み合わせ、誕生の背景など、全てがあなただけのオリジナル。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content01-02.png" alt="特別感">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    大量生産品とは異なり、限られた本数で作られるオリジナルシャンパンは、特別な日のための贈り物や、自分へのご褒美に最適です。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content01-03.png" alt="希少価値">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    オリジナルシャンパンは、その希少性から、将来的な価値の上昇が期待できます。
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div id="appeal2" class="appeal-headline">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/head02.png" alt="自由な表現">
+          <ul>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content02-01.png" alt="個性的な味わいの追求">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    伝統を守りつつ、独自のブレンドや熟成方法を取り入れることで、あなただけの個性的な味わいを追求できます。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content02-02.png" alt="デザインの自由度">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    ラベルのデザインからボトルの形まで、あなたのアイデアを自由に表現できます。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content02-03.png" alt="コレクション">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    ワインセラーに眠らせることで、コレクションとしても楽しむことができます。
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div id="appeal3" class="appeal-headline">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/head03.png" alt="特別なシーンを彩る">
+          <ul>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content03-01.png" alt="バースデーイベント">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    せっかくだから華やかなイベントに！お客様の印象にも残る宴をご提供します。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content03-02.png" alt="ウェディング">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    結婚式の引き出物や、パーティーの乾杯酒として、オリジナルシャンパンは忘れられない思い出を創出します。
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="appeal-div">
+                <div class="appeal-img-div">
+                  <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/content03-03.png" alt="記念日">
+                </div>
+                <div class="appeal-txt-div">
+                  <p>
+                    誕生日のプレゼントや、記念日の贈り物として、オリジナルシャンパンは二人の絆を深めます。
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="header-button-image">
+          <a href="#product">
+            <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/lineup2024.png" alt="2024オリシャンラインナップ">
+          </a>
+        </div>
+      </div>
+      <div id="voice" class="voice-wrapper">
+        <div class="voice-image">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/voice.png" alt="選ばれています！お客様の声">
+        </div>
+        <div class="voice-bk-wrapper">
+          <div id="voice" class="voice-headline">
+            <ul>
+              <li>
+                <div class="voice-div left">
+                  <div class="voice-img">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/voice01.png" alt="お客様の声1">
+                  </div>
+                  <div class="voice-txt">
+                    <p>
+                      誕生日イベントで利用しました。
+                      <br>
+                      お客様にも喜んでいただき、楽しいイベントできました！
+                      <br>
+                      <span class="skyblue_bk">オリシャンいいですね。</span>
+                    </p>
+                    <div class="review">
+                      <p>★★★★★</p>
+                    </div>
+                  </div>
+              </li>
+              <li>
+                <div class="voice-div right">
+                  <div class="voice-txt">
+                    <p>
+                      私なりのイベントにしたいなと思って、
+                      <span class="purple_bk">差をつけるならオリシャンかな</span>
+                      と思いまして。頼んでみました。
+                      <br>
+                      オリグラとのセットで、グラスキープでお客様がご来店した後も使ってもらっています。ありがたいです。
+                    </p>
+                    <div class="review">
+                      <p>★★★★★</p>
+                    </div>
+                  </div>
+                  <div class="voice-img">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/voice02.png" alt="お客様の声2">
+                  </div>
+              </li>
+              <li>
+                <div class="voice-div left">
+                  <div class="voice-img">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/voice03.png" alt="お客様の声3">
+                  </div>
+                  <div class="voice-txt">
+                    <p>
+                      オリシャンってオリジナルのシャンパンっていう割にあんまり差がつかないんで。どうしたものか？悩みました。ですが、
+                      <span class="green_bk">ここに頼んで大正解！</span>
+                    </p>
+                    <div class="review">
+                      <p>★★★★★</p>
+                    </div>
+                  </div>
+              </li>
+              <li>
+                <div class="voice-div right">
+                  <div class="voice-txt">
+                    <p>
+                      オリシャン喜んでもらえました。
+                      <span class="orange_bk">大満足です！</span>
+                    </p>
+                    <div class="review">
+                      <p>★★★★★</p>
+                    </div>
+                  </div>
+                  <div class="voice-img">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/voice04.png" alt="お客様の声4">
+                  </div>
+              </li>
+              <li>
+                <div class="voice-div left">
+                  <div class="voice-img">
+                    <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/voice05.png" alt="お客様の声5">
+                  </div>
+                  <div class="voice-txt">
+                    <p>
+                      コロナも明けて、派手にいきたいなと思って出会ったこのサイト。
+                      <span class="pink_bk">私の希望を全部叶えてくれました！</span>
+                    </p>
+                    <div class="review">
+                      <p>★★★★★</p>
+                    </div>
+                  </div>
+              </li>
+            </ul>
+            <div class="header-image">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/voicefooter.png" alt="お客様の声、ドンドン集まっております！">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-button-image">
+        <a href="#product">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/lineup2024.png" alt="2024オリシャンラインナップ">
+        </a>
+      </div>
+
+      <div id="product" class="product-wrapper">
+        <div class="product-row-wrapper">
+          <div class="product-row-head">
+            <div class="product-row-head-child">
+              <div class="product-row-head-child-img">
+                <a href="https://suijinclub.jp/view/item/000000000473">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/soleil_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/soleil.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/soleil_pb.jpg">
+                </a>
+              </div>
+              <div class="product-row-head-child-detail">
+                <img class="banner" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/pdbanner.png">
+                <ul class="product-flex">
+                  <li class="list-title">ソレイユ ヴァン・ムスー・ブリュット</li>
+                  <li class="list-spec">
+                    <ul class="spec-flex">
+                      <li>内容量…750ml</li>
+                      <li>アルコール度数…10.5%</li>
+                      <li>生産国…フランス</li>
+                    </ul>
+                  </li>
+                  <li class="list-setprice">
+                    <div class="piece">6本以上</div>
+                    <div class="price">3,500</div>
+                    <div class="small">円(税込)</div>
+                    <div class="btn btn-purple">
+                      <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                        <input type="hidden" name="brand_info" value="1,000000000473,1,N,1">
+                        <button>6本以上ご注文はこちら</button>
+                      </form>
+                    </div>
+                  </li>
+                  <li class="list-annotation">
+                    <div class="annotation">※1本あたりの金額</div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="product-row-head-child-explanation">
+              <img class="banner" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/selected.png">
+              <p>
+                オリシャンとして累計出荷本数10万本突破の大人気スパークリングワイン！
+                <br>
+                安くてマズいスパークリングワインをお店のオリシャンとして出すのはやめませんか？味も品格も本格なフランス産スパークリングワインが小ロットでオリシャンにできます。泡ラヴァーズイチ押しのコスパ最強のオリシャンがここに。
+              </p>
+              <div class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000473" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000369">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/veuve_yellow_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/veuve_yellow.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/veuve_yellow_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ヴーヴ・クリコ イエローラベル</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">12,300</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000369,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  良質＆お手頃な王道シャンパン、ヴーヴクリコ。実は女性が作り上げたシャンパンなんです。繊細な味わいときめ細かな泡は飲んだ人を虜にします。「ドンペリは高すぎる！」「モエシャンは飲み飽きた」というお客様にもピッタリなシャンパンなんです。
+                  そんなヴーヴクリコの中でも王道はイエローラベル。迷ったらまずはこれ。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000369" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…12.0%</li>
+                  <li>生産国…フランス/シャンパーニュ</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000370">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/veuve_white_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/veuve_white.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/veuve_white_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ヴーヴ・クリコ ホワイトラベル</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">12,850</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000370,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  女性が作り上げたシャンパン。繊細な味わいときめ細かな泡は飲んだ人を虜にします。「ドンペリは高すぎる！」「モエシャンは飲み飽きた」というお客様にもピッタリなシャンパンなんです。そんなヴーヴクリコの中でも珍しい甘口のシャンパンがホワイトラベル。女性や普段飲みなれない方にもおススメしやすい一品です。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000370" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…12.0%</li>
+                  <li>生産国…フランス/シャンパーニュ</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000371">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/veuve_rose_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/veuve_rose.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/veuve_rose_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ヴーヴ・クリコ ローズラベル</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">13,400</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000371,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  繊細な味わいときめ細かな泡は飲んだ人を虜にします。「ドンペリは高すぎる！」「モエシャンは飲み飽きた」というお客様にもピッタリなシャンパンなんです。
+                  <br>
+                  ローズラベルは発売当初から高い女性人気を誇るかわいらしいピンクのラベルのボトルです。ロゼは赤、白ワインのちょうどいいとこどりで、一度飲んだらハマっちゃいます。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000371" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…12.5%</li>
+                  <li>生産国…フランス</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000372">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/moe_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/moe.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/moe_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">モエシャンドン ブリュットアンペリアル</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">11,300</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000372,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  夜のお店では超定番のシャンパン、「モエシャンドン」。その名前の響きから「モエ」や「モエシャン」の愛称で親しまれており、夜に欠かせないシャンパンとなっています。
+                  <br>
+                  その中でもモエ・シャンドンの白のアンぺリアルは定番中の定番のシャンパン。必ずどのお店にも置いているのではないでしょうか？
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000372" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…12.0%</li>
+                  <li>生産国…フランス/シャンパーニュ</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000373">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/moe_rose_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/moe_rose.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/moe_rose_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">モエシャンドン ロゼ</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">12,850</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000373,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  夜のお店では超定番のシャンパン、「モエシャンドン」。その名前の響きから「モエ」や「モエシャン」の愛称で親しまれており、夜に欠かせないシャンパンとなっています。
+                  <br>
+                  モエシャンドン ロゼは、野イチゴのような香りとフルーティーな味わいが特徴なシャンパン。ロゼを置くことで普段とは違う特別感を演出できるマストバイアイテム。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000373" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…12.0%</li>
+                  <li>生産国…フランス/シャンパーニュ</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000374">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/moe_nector_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/moe_nector.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/moe_nector_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">モエシャンドン ネクターアンペリアル</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">12,850</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000374,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  夜のお店では超定番のシャンパン、「モエシャンドン」。その名前の響きから「モエ」や「モエシャン」の愛称で親しまれており、夜に欠かせないシャンパンとなっています。
+                  <br>
+                  通称、「モエネク」と呼ばれる少し珍しいモエのシリーズ。フレッシュさとトロピカルな味わいが複雑に混じり合った特別なオリシャンに仕上がっています。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000374" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…12.0%</li>
+                  <li>生産国…フランス/シャンパーニュ</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!--
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000375">
+                  <img class="icon" src="img/don_peri_icon.png">
+                  <img class="bottle" src="img/bottle/donperi.jpg">
+                  <img class="pbbottle" src="img/bottle/donperi_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ドン・ペリニヨン750</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">39,800</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000375,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  圧倒的知名度のシャンパン、ドン・ペリニヨン。もちろん日本だけでなく、世界中で愛されるドンペリニヨンは原料のブドウへのこだわりや、長期熟成を必要とする製法により、価格以上の味わいの評価がされるシャンパンの王様です。
+                  <br>
+                  記念日にはこのボトルでオリシャンにすることを推奨します。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-orange"><a href="" class="">商品を詳しくみる</a></div>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…12.5%</li>
+                  <li>生産国…フランス/シャンパーニュ</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        -->
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000376">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/listel_apple_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_greenapple.jpg">
+                  <img class="pbbottle"
+                    src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_greenapple_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ペティアン・ド・リステル 青りんご</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">3,500</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000376,1,N,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  フルーツのような甘さと低アルコールで誰もが楽しめて、ガンガン飲めるお酒。
+                  <br>
+                  キャバクラ、ホストクラブ、ガールズバーには必須アイテムで、お客様だけでなく、キャストの方にも大人気のシリーズ。
+                  <br>
+                  青りんごの酸味が特徴の、リステルを代表するフレーバー。後味のさっぱり感が人気。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000376" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…3.5%</li>
+                  <li>生産国…フランス</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000377">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/listel_peach_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_peach.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_peach_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ペティアン・ド・リステル ピーチ</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">3,500</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000377,1,N,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  フルーツのような甘さと低アルコールで誰もが楽しめて、ガンガン飲めるお酒。
+                  <br>
+                  キャバクラ、ホストクラブ、ガールズバーには必須アイテムで、お客様だけでなく、キャストの方にも大人気のシリーズ。
+                  <br>
+                  リステルのフレーバーの中では特に甘みが強いのが特徴。まるで桃のジュースのようにさらっと楽しめます。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000377" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…3.5%</li>
+                  <li>生産国…フランス</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000378">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/listel_grape_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_grape.jpg">
+                  <img class="pbbottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_grape_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ペティアン・ド・リステル グレープ</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">3,500</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000378,1,N,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  フルーツのような甘さと低アルコールで誰もが楽しめて、ガンガン飲めるお酒。
+                  キャバクラ、ホストクラブ、ガールズバーには必須アイテムで、お客様だけでなく、キャストの方にも大人気のシリーズ。
+                  <br>
+                  リステルのシリーズでは王道の人気のフレーバー。甘すぎず、芳醇なぶどうの香りをしっかり味わえます。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000378" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…2.5%</li>
+                  <li>生産国…フランス</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="product-row-child">
+            <ul class="product-flex">
+              <li class="list-image">
+                <a href="https://suijinclub.jp/view/item/000000000513">
+                  <img class="icon" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/listel_raspberry_icon.png">
+                  <img class="bottle" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_framboise.jpg">
+                  <img class="pbbottle"
+                    src="https://gigaplus.makeshop.jp/ebisudoec/awalove/bottle/listel_framboise_pb.jpg">
+                </a>
+              </li>
+              <li class="list-title">ペティアン・ド・リステル フランボワーズ</li>
+              <li class="list-setprice">
+                <div class="piece">6本以上</div>
+                <div class="price">3,500</div>
+                <div class="small">円(税込)</div>
+              </li>
+              <li class="list-annotation">
+                <div class="annotation">※1本あたりの金額</div>
+              </li>
+              <li class="list-buttons">
+                <div class="btn btn-purple">
+                  <form action="https://suijinclub.jp/api/basket/add.html" method="post">
+                    <input type="hidden" name="brand_info" value="1,000000000513,1,N,1">
+                    <button>6本以上ご注文はこちら</button>
+                  </form>
+                </div>
+              </li>
+              <li class="list-text">
+                <p>
+                  フルーツのような甘さと低アルコールで誰もが楽しめて、ガンガン飲めるお酒。
+                  キャバクラ、ホストクラブ、ガールズバーには必須アイテムで、お客様だけでなく、キャストの方にも大人気のシリーズ。
+                  <br>
+                  甘みと酸味のバランスが絶妙で飲みやすいのが特徴。フランボワーズ＝きいちごの香りがさやわかです。
+                </p>
+              </li>
+              <li class="list-buttons">
+                <a href="https://suijinclub.jp/view/item/000000000513" class="">
+                  <div class="btn btn-orange">
+                    商品を詳しくみる
+                  </div>
+                </a>
+              </li>
+              <li class="list-spec">
+                <ul class="spec-flex">
+                  <li>内容量…750ml</li>
+                  <li>アルコール度数…3.5%</li>
+                  <li>生産国…フランス</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <nav class="bottomnav">
+      <a href="https://suijinclub.jp/awalove">TOP</a>
+      <a href="https://suijinclub.jp/awalove/special" class="logo">オリシャン特別会場</a>
+      <a href="https://suijinclub.jp/awalove/faq">FAQ</a>
+      <a href="https://suijinclub.jp/awalove/library">ラベルライブラリ</a>
+      <a href="http://ebisu-do.jp/company">運営会社について</a>
+    </nav>
+    <footer>
+      <div class="footer-headline">
+        <div class="footer-headline-txt">
+          <p>
+            泡ラヴァーズは、酒類通販20年の実績を活かし、国内最大級のオリシャンボトルのラインナップを目指しています。泡ラヴァーズクルーが厳選したボトルの数々からお選びください。
+            <br>
+            <br>
+            様々なシーンに合うよう、デザインは順次追加・
+            更新しております。
+            <br>
+            プロのデザイナーによるクオリティー保証。
+            <br>
+            オリシャンの味わいと格を一段あげるデザインを心がけております。
+          </p>
+        </div>
+        <div class="footer-headline-img">
+        </div>
+      </div>
+    </footer>
+    <div class="fixed_btn">
+      <a href="#product">
+        <img class="fiximg forsp" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/footerbutton01.png"
+          alt="オリシャンアイテム一覧">
+      </a>
+      <a href="https://lin.ee/lOz5NxU">
+        <img class="fiximg forsp" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/footerbutton02.png"
+          alt="LINEで今すぐ注文">
+      </a>
+    </div>
+  </div>
+  <script>
+    $(function () {
+      $('a[href^="#"]').click(function () {
+        var speed = 500;
+        var href = $(this).attr("href");
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({ scrollTop: position }, speed, "swing");
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>

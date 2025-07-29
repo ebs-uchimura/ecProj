@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>泡ラヴァーズ</title>
+  <meta content="泡ラヴァーズはシャンパン・オリシャン・スパークリングをこよなく愛する飲食店様に向けたサービス提供および酒販サイトです。" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="オリシャン,シャンパン,酒">
+  <link rel="shortcut icon" href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/apple-touch-icon-120x120.png">
+  <link rel="icon" type="image/png"
+    href="https://gigaplus.makeshop.jp/ebisudoec/awalove/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP&display=swap"
+    rel="stylesheet">
+  <style>
+    @charset "utf-8";
+
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700;900&display=swap');
+
+    /*------------------------------
+ ▼共通デザイン
+ -------------------------------*/
+    /* tag */
+    body {
+      margin: 0;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/bg.jpg);
+      background-repeat: repeat;
+      background-position: center;
+      background-size: 20%;
+    }
+
+    a {
+      color: #000;
+    }
+
+    p {
+      margin: auto;
+      justify-content: space-around;
+      text-align: justify;
+      font-feature-settings: "palt";
+      line-height: 1.8em;
+      letter-spacing: 0.05em;
+    }
+
+    ul {
+      padding-inline-start: 0;
+      list-style: none;
+    }
+
+    dt {
+      margin: 0;
+    }
+
+    dd {
+      margin: 0;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    input[type=radio] {
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .cool {
+      background-color: #afdeff;
+    }
+
+    .city {
+      background-color: #c9a2ff;
+    }
+
+    .cute {
+      background-color: #ffd4e4;
+    }
+
+    .birthday {
+      background-color: #ffb7b2;
+    }
+
+    .halloween {
+      background-color: #ffba88;
+    }
+
+    .luxury {
+      background-color: #abaed2;
+    }
+
+    .pop {
+      background-color: #ffec95;
+    }
+
+    /* fix */
+    .fixed_btn {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      text-align: right;
+      z-index: 99999;
+    }
+
+    /* hide */
+    .display-none {
+      display: none;
+    }
+
+    /* font */
+    .zen-maru-gothic-bold {
+      font-family: "Zen Maru Gothic", serif;
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* breadcrumb */
+    .breadcrumb-nav {
+      width: 100%;
+      background-color: #000;
+    }
+
+    /* breadcrumb */
+    .breadcrumb-nav a {
+      color: #fff;
+    }
+
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      margin: 0;
+      padding: 4px;
+    }
+
+    .breadcrumb li:first-child {
+      padding-left: 50px;
+    }
+
+    .breadcrumb li:not(:last-of-type)::after {
+      content: ">";
+      color: #fff;
+      margin: 0 .6em;
+    }
+
+    /*------------------------------
+ ▼ヘッダ部分
+ -------------------------------*/
+    /* whole header */
+    .whole-header {
+      width: 100%;
+      background-color: #000;
+      padding: 5px 0;
+    }
+
+    .whole-header p {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #fff;
+    }
+
+    /* content */
+    .content-wrapper {
+      max-width: 1200px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    /* header */
+    header {
+      width: 1100px;
+      margin: auto;
+    }
+
+    header .header-wrapper .header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+
+    header .header-wrapper .header-flex div {
+      padding-right: 20px;
+    }
+
+    header .header-wrapper .header-flex .header-logo {
+      margin-left: 10px;
+    }
+
+    header .header-wrapper .header-flex .header-logo img {
+      width: 100px;
+      margin-left: 10px;
+    }
+
+    header .header-wrapper .header-flex .login {
+      margin-left: auto;
+      padding-top: 4px;
+    }
+
+    header .header-wrapper .header-flex .login p {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    header .header-wrapper .header-flex .cart {
+      padding-top: 5px;
+    }
+
+    header .header-wrapper .header-flex .telephone {
+      padding-top: 1px;
+    }
+
+    header .header-wrapper .header-flex .telephone p {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: inherit;
+    }
+
+    header .header-wrapper .header-flex .information img {
+      width: 38px;
+    }
+
+    header .header-main-image {
+      width: 100%;
+    }
+
+    /*------------------------------
+ ▼コンテンツ部分
+ -------------------------------*/
+    /* contents */
+    main {
+      margin-top: 40px;
+    }
+
+    main .whole-wrapper {
+      width: 100%;
+    }
+
+    /* mainarea */
+    main .whole-wrapper .mainarea {
+      margin-top: 30px;
+      background-color: #fff;
+    }
+
+    main .whole-wrapper .mainarea .library-area {
+      position: relative;
+      height: 370px;
+      margin-top: 30px;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-header {
+      padding: 5px 0 15px;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #000;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-header-img {
+      position: relative;
+      z-index: 9999;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-header-img>img {
+      position: relative;
+      width: 728px;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-article-wrapper {
+      position: absolute;
+      top: 130px;
+      left: 8.3%;
+      width: 83.4%;
+      margin: 0 auto;
+      padding: 50px 0 25px;
+      background-color: #eee;
+      z-index: 1;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-article-wrapper .library-article-area .library-header {
+      padding: 5px 0 15px;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #000;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-article-wrapper .library-article-area .library-article-header {
+      padding: 5px 0 15px;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #000;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-article-wrapper .library-article-area .library-article-container {
+      place-content: center;
+      display: grid;
+      grid-template-columns: 210px 210px 210px;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-article-wrapper .library-article-area .library-article-container div {
+      height: 40px;
+      text-align: left;
+    }
+
+    main .whole-wrapper .mainarea .library-area .library-article-wrapper .library-article-area .library-article-container div a {
+      font-size: 0.9rem;
+      color: #001eff;
+      text-decoration: underline;
+    }
+
+    main .whole-wrapper .mainarea .label-area {
+      place-content: center;
+      display: grid;
+      grid-template-columns: 250px 250px 250px 250px;
+      padding-bottom: 80px;
+    }
+
+    main .whole-wrapper .mainarea .label-area div {
+      padding: 10px 5px 5px;
+    }
+
+    /*------------------------------
+ ▼ナビゲーション
+ -------------------------------*/
+    .bottomnav {
+      background: #fff;
+      font-size: 15px;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 140px;
+      width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    .bottomnav a {
+      width: 16.2%;
+      width: calc(100% / 5 - 1px);
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+      color: #000;
+      background: #c3c3c3;
+      text-decoration: none;
+      letter-spacing: .1em;
+    }
+
+    .bottomnav .logo {
+      color: #fff;
+      background: #000;
+    }
+
+    .bottomnav .logo img {
+      width: 100%;
+      max-width: 70px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    /*------------------------------
+ ▼フッター
+ -------------------------------*/
+    footer {
+      margin-top: 50px;
+    }
+
+    footer .footer-headline {
+      display: flex;
+      position: relative;
+      width: 1200px;
+      height: 620px;
+      margin-left: 100px;
+      background-image: url(https://gigaplus.makeshop.jp/ebisudoec/awalove/footer_comment.png), url(https://gigaplus.makeshop.jp/ebisudoec/awalove/footer.jpg);
+      background-repeat: no-repeat;
+      background-position: left top, 480px top;
+      background-size: 50%;
+    }
+
+    footer .footer-headline .footer-headline-txt {
+      width: 500px;
+      text-align: left;
+      margin-left: 40px;
+    }
+
+    footer .footer-headline .footer-headline-txt p {
+      color: #FFF;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-top: 130px;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+    if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf('iPad') == -1) || navigator.userAgent.indexOf('Android') > 0) {
+      location.href = 'https://suijinclub.jp/sp/awalove/library';
+    }
+  </script>
+</head>
+
+<body>
+  <div class="whole-header">
+    <p>泡ラヴァーズはシャンパン・オリシャン・スパークリングをこよなく愛する飲食店様に向けたサービス提供および酒販サイトです。</p>
+  </div>
+  <div class="content-wrapper">
+    <header>
+      <div class="header-wrapper">
+        <div class="header-flex">
+          <div class="header-icon header-logo">
+            <a href="https://suijinclub.jp/awalove">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/mainlogo.png" alt="awa lovers">
+            </a>
+          </div>
+          <div class="header-icon login">
+            <p class="zen-maru-gothic-bold">LOGIN</p>
+          </div>
+          <div class="header-icon cart">
+            <a href="#" target="_blank">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/cart.png" alt="cart">
+            </a>
+          </div>
+          <div class="header-icon telephone">
+            <p class="zen-maru-gothic-bold">0120-88-0606</p>
+          </div>
+          <div class="header-icon information">
+            <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/info.png" alt="information">
+          </div>
+        </div>
+        <div class="header-main-image">
+          <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/library_top.jpg" alt="LIBRARY メイン画像">
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="whole-wrapper">
+        <div class="mainarea">
+          <nav class="breadcrumb-nav" aria-label="パンくず">
+            <ol class="breadcrumb">
+              <li><a href="https://suijinclub.jp/awalove">TOP</a></li>
+              <li><a href="https://suijinclub.jp/awalove/library">ラベルライブラリ</a></li>
+            </ol>
+          </nav>
+          <div class="library-area">
+            <div class="library-header">ラベルライブラリ</div>
+            <div class="library-header-img">
+              <img src="https://gigaplus.makeshop.jp/ebisudoec/awalove/library_icon.png" alt="Labe Library">
+            </div>
+            <div class="library-article-wrapper">
+              <div class="library-article-area">
+                <div class="library-article-header">ラベルライブラリ目次</div>
+                <div class="library-article-container">
+                  <div class="library-article-item"><a href="#luxury">・LUXURY(ラグジュアリー)</a></div>
+                  <div class="library-article-item"><a href="#pop">・POP(ポップ)</a></div>
+                  <div class="library-article-item"><a href="#cool">・COOL(クール)</a></div>
+                  <div class="library-article-item"><a href="#birthday">・BIRTHDAY(誕生日)</a></div>
+                  <div class="library-article-item"><a href="#city">・CITY(シティ)</a></div>
+                  <div class="library-article-item"><a href="#halloween">・HALLOWEEN(ハロウィーン)</a></div>
+                  <div class="library-article-item"><a href="#cute">・CUTE(キュート)</a></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="label-area">
+            <div id="luxury" class="label-article-item luxury"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/luxury.png"></a></div>
+            <div class="label-article-item luxury"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/LU-001.jpg"></a></div>
+            <div class="label-article-item luxury"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/LU-002.jpg"></a></div>
+            <div class="label-article-item luxury"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/LU-003.jpg"></a></div>
+            <div class="label-article-item luxury"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/LU-004.jpg"></a></div>
+            <div class="label-article-item luxury"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/LU-005.jpg"></a></div>
+            <div id="pop" class="label-article-item pop"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/pop.png"></a></div>
+            <div class="label-article-item pop"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/PO-001.jpg"></a></div>
+            <div class="label-article-item pop"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/PO-002.jpg"></a></div>
+            <div class="label-article-item pop"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/PO-003.jpg"></a></div>
+            <div class="label-article-item pop"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/PO-004.jpg"></a></div>
+            <div class="label-article-item pop"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/PO-005.jpg"></a></div>
+            <div class="label-article-item pop"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/PO-006.jpg"></a></div>
+            <div id="cool" class="label-article-item cool"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/cool.png"></a></div>
+            <div class="label-article-item cool"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CO-001.jpg"></a></div>
+            <div class="label-article-item cool"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CO-002.jpg"></a></div>
+            <div class="label-article-item cool"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CO-003.jpg"></a></div>
+            <div class="label-article-item cool"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CO-004.jpg"></a></div>
+            <div class="label-article-item cool"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CO-005.jpg"></a></div>
+            <div id="city" class="label-article-item city"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/city.png"></a></div>
+            <div class="label-article-item city"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CP-001.jpg"></a></div>
+            <div class="label-article-item city"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CP-002.jpg"></a></div>
+            <div class="label-article-item city"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CP-003.jpg"></a></div>
+            <div class="label-article-item city"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CP-004.jpg"></a></div>
+            <div class="label-article-item city"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CP-005.jpg"></a></div>
+            <div id="cute" class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/cute.png"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-001.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-002.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-003.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-004.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-005.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-006.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-007.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-008.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-009.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-010.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-011.jpg"></a></div>
+            <div class="label-article-item cute"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/CT-012.jpg"></a></div>
+            <div id="birthday" class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/birthday.png"></a>
+            </div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-001.jpg"></a></div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-002.jpg"></a></div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-003.jpg"></a></div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-004.jpg"></a></div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-005.jpg"></a></div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-006.jpg"></a></div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-007.jpg"></a></div>
+            <div class="label-article-item birthday"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HB-008.jpg"></a></div>
+            <div id="halloween" class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/halloween.png"></a>
+            </div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-001.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-002.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-003.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-004.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-005.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-006.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-007.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-008.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-009.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-010.jpg"></a></div>
+            <div class="label-article-item halloween"><a href=""><img
+                  src="https://gigaplus.makeshop.jp/ebisudoec/awalove/label/HW-011.jpg"></a></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <nav class="bottomnav">
+      <a href="https://suijinclub.jp/awalove">TOP</a>
+      <a href="https://suijinclub.jp/awalove/special">オリシャン特別会場</a>
+      <a href="https://suijinclub.jp/awalove/faq">FAQ</a>
+      <a href="https://suijinclub.jp/awalove/library" class="logo">ラベルライブラリ</a>
+      <a href="http://ebisu-do.jp/company">運営会社について</a>
+    </nav>
+    <footer>
+      <div class="footer-headline">
+        <div class="footer-headline-txt">
+          <p>
+            泡ラヴァーズは、酒類通販20年の実績を活かし、国内最大級のオリシャンボトルのラインナップを目指しています。泡ラヴァーズクルーが厳選したボトルの数々からお選びください。
+            <br>
+            <br>
+            様々なシーンに合うよう、デザインは順次追加・
+            更新しております。
+            <br>
+            プロのデザイナーによるクオリティー保証。
+            <br>
+            オリシャンの味わいと格を一段あげるデザインを心がけております。
+          </p>
+        </div>
+        <div class="footer-headline-img">
+        </div>
+      </div>
+    </footer>
+    <div class="fixed_btn">
+      <a href="https://suijinclub.jp/awalove/special">
+        <img class="fiximg" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/footerbutton01.png" alt="オリシャンアイテム一覧">
+      </a>
+      <a href="https://lin.ee/lOz5NxU">
+        <img class="fiximg" src="https://gigaplus.makeshop.jp/ebisudoec/awalove/footerbutton02.png" alt="LINEで今すぐ注文">
+      </a>
+    </div>
+  </div>
+  <script>
+    $(function () {
+      $('a[href^="#"]').click(function () {
+        var speed = 500;
+        var href = $(this).attr("href");
+        var target = $(href == "#" || href == "" ? 'html' : href);
+        var position = target.offset().top;
+        $("html, body").animate({ scrollTop: position }, speed, "swing");
+        return false;
+      });
+    });
+  </script>
+</body>
+
+</html>
